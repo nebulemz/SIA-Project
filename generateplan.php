@@ -1,41 +1,10 @@
-<!DOCTYPE html> 
-<html>
 <?php
 session_start();
 include('config/config.php');
 include('config/checklogin.php');
 
-check_login();
-if (isset($_POST['make'])) {
-  //Prevent Posting Blank Values
-  if (empty($_POST["order_qty"])) {
-    $err = "Blank Values Not Accepted";
-  } else {
-
-    $order_qty = $_POST['order_qty'];
-   
-
-    //Insert Captured information to a database table
-    $postQuery = "INSERT INTO orders (order_qty) VALUES(?)";
-    $postStmt = $mysqli->prepare($postQuery);
-    //bind paramaters
-    $rc = $postStmt->bind_param('s', $order_qty);
-    $postStmt->execute();
-
-    //Object Product Quantity minus Product Count 
-    
-
-    //declare a varible which will be passed to alert function
-    if ($postStmt) {
-      $success = "Order Submitted" && header("refresh:1; url=orders.php");
-    } else {
-      $err = "Please Try Again Or Try Later";
-    }
-  }
-}
 require_once('partials/_head.php');
 ?>
-
 
 <body>
   <!-- Sidenav -->
@@ -56,89 +25,44 @@ require_once('partials/_head.php');
         </div>
       </div>
     </div>
-
     <!-- Page content -->
-    <div class="container-fluid mt--8">
+     <div class="container-fluid mt--8">
       <!-- Table -->
       <div class="row">
         <div class="col">
           <div class="card shadow">
-          image.png<div class="card-header border-6">
-              Select On Any Product To Make An Order
+            <div class="card-header border-0 text-center">
+              <h3>SELECT INPUT FIELD</h3>
             </div>
-                <div class="col-md-12">
-                <input type="text" class="form-control" id="live_search_order" autocomplete="off" 
-                placeholder="Search">
+            <div class="card-body">
+          
+                <div class="form-row">
+                  <div class="col-md-6 text-center">
+                    <input type ="button" onclick="location='generateplantestt.php'" value="Area" class="btn btn-success"></a>
+                  </div> 
+                <hr> 
+                  <div class="col-md-6 text-center">
+                    <input type ="button" onclick="location='generateplantest.php'" value="Length & Width" class="btn btn-success">
+                  </div>
                 </div>
-              </div>
+                
+                <hr>
+                </div>
+              </form>
             </div>
           </div>
+        </div>
       </div>
+      <!-- Footer -->
+      <?php
+      require_once('partials/_footer.php');
+      ?>
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <?php
+  require_once('partials/_scripts.php');
+  ?>
 </body>
 
-<div id="searchresultorder"></div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script type="text/javascript">    
-    $(document).ready(function(){
-        $("#live_search_order").keyup(function(){
-            var input = $(this).val();
-            //alert(input);
-            
-            if(input !=""){
-                $.ajax({
-                    url:"show_cart.php",
-                    method:"POST",
-                    data:{input:input},
-                    
-                    success:function(data){
-                        $("#searchresultorder").html(data).show();
-                        $("#searchresultorder").css("display","block");
-                    }
-                });
-            }else{
-                $("#searchresultorder").css("display","block").show();
-                }
-        });
-    });
-
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script type="text/javascript">
-	
-	$(document).ready(function(){
-      
-    show_cart();
-
-	function show_cart(){
-		$.ajax({
-           method: "POST",
-           url:"show_cart.php",
-           success:function(data){
-             $(".show_cart").html(data);
-           }
-		});	
-	}
-
-          $(document).on("click",".add",function(){
-         var id = $(this).attr("id");
-         var name = $("#name"+id+"").val();
-         var prod_price = $("#price"+id+"").val();
-         var quantity = $("#quantity"+id+"").val();
-
-         $.ajax({
-            method:"POST",
-            url: "add_to_cart.php",
-            data:{id:id,name:name,price:price,quantity:quantity},
-            success:function(data){
-            	alert("You added a new item");
-            }
-         });
-    });
-	
-	});
-</script>
-
-
-</body>
-</html> 
+</html>

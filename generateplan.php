@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('config/config.php');
-include('config/checklogin.php');
+
 
 require_once('partials/_head.php');
 ?>

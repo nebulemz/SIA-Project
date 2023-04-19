@@ -1,9 +1,7 @@
 <?php
 session_start();
 include('config/config.php');
-include('config/checklogin.php');
 
-check_login();
 //Add Staff
 if (isset($_POST['addStaff'])) {
   //Prevent Posting Blank Values
@@ -57,15 +55,15 @@ require_once('partials/_head.php');
       <div class="row">
         <div class="col">
           <div class="card shadow">
-            <div class="card-header border-0">
-              <h3>Please Select and Fill the Field</h3>
+            <div class="card-header border-0">3
+              <h3>Assuming the room is Empty </h3>
             </div>
             <div class="card-body">
               <form method="POST">
                 <div class="form-row">
-                  <div class="col-md-12">
-                    <label>Area</label>
-                    <input type="text" name="staff_number" class="form-control" value="">
+                  <div class="col-md-6">
+                    <label>Area in square meter</label>
+                    <input type="text" name="staff_number" class="form-control" placeholer="Input a number">
                   </div>
                   
                 </div>

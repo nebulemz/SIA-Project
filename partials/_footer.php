@@ -10,7 +10,7 @@
       <div class="col-xl-6">
         <ul class="nav nav-footer justify-content-center justify-content-xl-end">
           <li class="nav-item">
-            <a href="" class="nav-link" target="_blank">Bosun Hardware</a>
+            <a href="" class="nav-link" target="_blank">NETWORK LAYOUT ASSESSMENT</a>
           </li>
         </ul>
       </div>

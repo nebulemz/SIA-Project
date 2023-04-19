@@ -70,8 +70,28 @@ require_once('partials/_head.php');
                     <input type="text" name="staff_name" class="form-control" placeholder="Input a number">
                   </div>
                 </div>
-                
                 <hr>
+                <div class="form-row">
+                <div class="col-md-6">
+                    <label>For which Institution? </label>
+                    <select name="net_layout_institution" class="form-control">
+                  
+                    <option>-- Please Select Institution -- </option>"Please Select Institution">
+                    <option>School</option> 
+                    <option>Institution</option> 
+                  </select>
+                  </div>
+                
+                  <div class="col-md-6">
+                    <label>Ergonomically Designed? </label>
+                    <select name="net_layout_institution" class="form-control">
+                  
+                    <option>-- Yes or No-- </option>
+                    <option>Yes</option> 
+                    <option>No</option> 
+                  </select>
+                  </div>
+                </div><hr>
                 <div class="form-row text-center">
                   <div class="col-md-12">
                     <input type="submit" name="addStaff" value="Generate" class="btn btn-success" value="">

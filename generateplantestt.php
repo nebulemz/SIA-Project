@@ -3,25 +3,23 @@ session_start();
 include('config/config.php');
 
 //Add Staff
-if (isset($_POST['addStaff'])) {
+if (isset($_POST['addArea'])) {
   //Prevent Posting Blank Values
-  if (empty($_POST["staff_number"]) || empty($_POST["staff_name"]) || empty($_POST['staff_user_name']) || empty($_POST['staff_password'])) {
+  if (empty($_POST["net_layout_area"])|| empty($_POST["net_institution"]) || empty($_POST['net_ergo'])) {
     $err = "Blank Values Not Accepted";
   } else {
-    $staff_number = $_POST['staff_number'];
-    $staff_name = $_POST['staff_name'];
-    $staff_user_name = $_POST['staff_user_name'];
-    $staff_password =$_POST['staff_password'];
+    $net_layout_area = $_POST['net_layout_area'];
+    $net_instituion = $_POST['net_institution'];
+    $net_ergo = $_POST['net_ergo'];
 
     //Insert Captured information to a database table
-    $postQuery = "INSERT INTO staff (staff_number, staff_name, staff_user_name, staff_password) VALUES(?,?,?,?)";
-    $postStmt = $mysqli->prepare($postQuery);
-    //bind paramaters
-    $rc = $postStmt->bind_param('ssss', $staff_number, $staff_name, $staff_user_name, $staff_password);
-    $postStmt->execute();
+    $ret = "SELECT * FROM netlayout";
+    $stmt = $mysqli->prepare($ret);
+    $stmt->execute();
+    $res = $stmt->get_result();
     //declare a varible which will be passed to alert function
-    if ($postStmt) {
-      $success = "Staff Added" && header("refresh:1; url=hrm.php");
+    if ($res) {
+      $success = "Generating Layout" && header("refresh:1; url=resultdata.php");
     } else {
       $err = "Please Try Again Or Try Later";
     }
@@ -55,23 +53,41 @@ require_once('partials/_head.php');
       <div class="row">
         <div class="col">
           <div class="card shadow">
-            <div class="card-header border-0">3
+            <div class="card-header border-0">
               <h3>Assuming the room is Empty </h3>
             </div>
             <div class="card-body">
               <form method="POST">
+              <form action = "resultdata.php">
                 <div class="form-row">
                   <div class="col-md-6">
-                    <label>Area in square meter</label>
-                    <input type="text" name="staff_number" class="form-control" placeholer="Input a number">
+                    <label>Area in square meter</label> 
+                    <input type="text" name="net_layout_area" class="form-control" placeholer="Input a number">
                   </div>
-                  
+                  <div class="col-md-6">
+                    <label>For which Institution? </label>
+                    <select name="net_institution" class="form-control">
+                    <option>-- Please Select Institution -- </option>"Please Select Institution">
+                    <option>School</option> 
+                    <option>Institution</option> 
+                  </select>
+                  </div>
                 </div>
-                
                 <hr>
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <label>Ergonomically Designed? </label>
+                    <select name="net_ergo" class="form-control">
+                  
+                    <option>-- Yes or No-- </option>
+                    <option>Yes</option> 
+                    <option>No</option> 
+                  </select>
+                  </div>
+                </div><hr>
                 <div class="form-row text-center">
                   <div class="col-md-12">
-                    <input type="submit" name="addStaff" value="Generate" class="btn btn-success" value="">
+                    <input type="submit" name="addArea" value="Generate" class="btn btn-success">
                   </div>
                 </div>
               </form>

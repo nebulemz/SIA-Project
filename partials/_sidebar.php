@@ -1,13 +1,4 @@
-<?php
-$admin_id = $_SESSION['admin_id'];
-//$login_id = $_SESSION['login_id'];
-$ret = "SELECT * FROM  admin  WHERE admin_id = '$admin_id'";
-$stmt = $mysqli->prepare($ret);
-$stmt->execute();
-$res = $stmt->get_result();
-while ($admin = $res->fetch_object()) {
 
-?>
 <style>
 :root {
   /* ===== Colors ===== */
@@ -419,14 +410,6 @@ body.dark .home .text {
           </li>
           </li>
 
-          <li class="">
-            <a href="logout.php">
-              <i class='bx bx-log-out icon'></i>
-              <span class="text nav-text">Logout</span>
-            </a>
-          </li>
-      </div>
-
     </div>
 </div>
   </nav>
@@ -455,4 +438,4 @@ body.dark .home .text {
 
 </body>
 
-<?php } ?>
+<?php  ?>

@@ -1,25 +1,33 @@
+<!DOCTYPE html> 
+<html>
 <?php
 session_start();
 include('config/config.php');
+include('config/checklogin.php');
 
-//Add Staff
-if (isset($_POST['addArea'])) {
+check_login();
+if (isset($_POST['make'])) {
   //Prevent Posting Blank Values
-  if (empty($_POST["net_layout_area"])|| empty($_POST["net_institution"]) || empty($_POST['net_ergo'])) {
+  if (empty($_POST["order_qty"])) {
     $err = "Blank Values Not Accepted";
   } else {
-    $net_layout_area = $_POST['net_layout_area'];
-    $net_instituion = $_POST['net_institution'];
-    $net_ergo = $_POST['net_ergo'];
+
+    $order_qty = $_POST['order_qty'];
+   
 
     //Insert Captured information to a database table
-    $ret = "SELECT * FROM netlayout";
-    $stmt = $mysqli->prepare($ret);
-    $stmt->execute();
-    $res = $stmt->get_result();
+    $postQuery = "INSERT INTO orders (order_qty) VALUES(?)";
+    $postStmt = $mysqli->prepare($postQuery);
+    //bind paramaters
+    $rc = $postStmt->bind_param('s', $order_qty);
+    $postStmt->execute();
+
+    //Object Product Quantity minus Product Count 
+    
+
     //declare a varible which will be passed to alert function
-    if ($res) {
-      $success = "Generating Layout" && header("refresh:1; url=resultdata.php");
+    if ($postStmt) {
+      $success = "Order Submitted" && header("refresh:1; url=orders.php");
     } else {
       $err = "Please Try Again Or Try Later";
     }
@@ -27,6 +35,7 @@ if (isset($_POST['addArea'])) {
 }
 require_once('partials/_head.php');
 ?>
+
 
 <body>
   <!-- Sidenav -->
@@ -47,64 +56,53 @@ require_once('partials/_head.php');
         </div>
       </div>
     </div>
+
     <!-- Page content -->
-     <div class="container-fluid mt--8">
+    <div class="container-fluid mt--8">
       <!-- Table -->
       <div class="row">
         <div class="col">
           <div class="card shadow">
-            <div class="card-header border-0">
-              <h3>Assuming the room is Empty </h3>
+            <div class="card-header border-6">
+              Assuming the room is Empty
             </div>
-            <div class="card-body">
-              <form method="POST">
-              <form action = "resultdata.php">
-                <div class="form-row">
-                  <div class="col-md-6">
-                    <label>Area in square meter</label> 
-                    <input type="text" name="net_layout_area" class="form-control" placeholer="Input a number">
-                  </div>
-                  <div class="col-md-6">
-                    <label>For which Institution? </label>
-                    <select name="net_institution" class="form-control">
-                    <option>-- Please Select Institution -- </option>"Please Select Institution">
-                    <option>School</option> 
-                    <option>Institution</option> 
-                  </select>
-                  </div>
+                <div class="col-md-12">
+                <input type="text" class="form-control" id="live_search_order" autocomplete="off" 
+                placeholder="Search">
                 </div>
-                <hr>
-                <div class="form-row">
-                  <div class="col-md-6">
-                    <label>Ergonomically Designed? </label>
-                    <select name="net_ergo" class="form-control">
-                  
-                    <option>-- Yes or No-- </option>
-                    <option>Yes</option> 
-                    <option>No</option> 
-                  </select>
-                  </div>
-                </div><hr>
-                <div class="form-row text-center">
-                  <div class="col-md-12">
-                    <input type="submit" name="addArea" value="Generate" class="btn btn-success">
-                  </div>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
-        </div>
       </div>
-      <!-- Footer -->
-      <?php
-      require_once('partials/_footer.php');
-      ?>
-    </div>
-  </div>
-  <!-- Argon Scripts -->
-  <?php
-  require_once('partials/_scripts.php');
-  ?>
+
 </body>
 
-</html>
+<div id="searchresultorder"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript">    
+    $(document).ready(function(){
+        $("#live_search_order").keyup(function(){
+            var input = $(this).val();
+            //alert(input);
+            
+            if(input !=""){
+                $.ajax({
+                    url:"resultdata.php",
+                    method:"POST",
+                    data:{input:input},
+                    
+                    success:function(data){
+                        $("#searchresultorder").html(data).show();
+                        $("#searchresultorder").css("display","block");
+                    }
+                });
+            }else{
+                $("#searchresultorder").css("display","block").show();
+                }
+        });
+    });
+
+</script>
+    </body>
+    </html> 

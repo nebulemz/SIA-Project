@@ -1,85 +1,94 @@
 <?php
 session_start();
 include('config/config.php');
-
-//Add Staff
-if (isset($_GET['addArea'])) {
-  //Prevent Posting Blank Values
-  if (empty($_GET["net_layout_area"])|| empty($_GET["net_institution"]) || empty($_GET['net_ergo'])) {
-    $err = "Blank Values Not Accepted";
-  } else {
-    $net_layout_area = $_GET['net_layout_area'];
-    $net_instituion = $_GET['net_institution'];
-    $net_ergo = $_GET['net_ergo'];
-
-    //Insert Captured information to a database table
-    $postQuery = " SELECT FROM netlayout (net_layout_area, net_institution, net_ergo) VALUES(?,?,?)";
-    $postStmt = $mysqli->prepare($postQuery);
-    //bind paramaters
-    $rc = $postStmt->bind_param('sss', $net_layout_area, $net_institution, $net_ergo);
-    $postStmt->execute();
-    //declare a varible which will be passed to alert function
-    if ($postStmt) {
-      $success = "Generating Layout" && header("refresh:1; url=resultdata.php");
-    } else {
-      $err = "Please Try Again Or Try Later";
-    }
-  }
-}
-require_once('partials/_head.php');
-?>
+include('config/checklogin.php');
 
 
-<body>
-  <!-- Sidenav -->
-  <?php
-  require_once('partials/_sidebar.php');
-  ?>
-  <!-- Main content -->
-  <div class="main-content">
-    <!-- Top navbar -->
-    <?php
-    require_once('partials/_topnav.php');
-    ?>
-    <!-- Header -->
-    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
-    <span class="mask bg-gradient-dark opacity-8"></span>
-      <div class="container-fluid">
-        <div class="header-body">
-        </div>
-      </div>
-    </div>
-    <!-- Page content -->
+if (isset($_POST['input'])){
+    $input = $_POST['input'];
 
-     <div class="container-fluid mt--8">
-      <!-- Table -->
+
+    $ret = "SELECT * FROM  netlayout ORDER BY ABS(net_layout_area - $input)";
+    $stmt = $mysqli->prepare($ret); 
+    $stmt->execute();
+    $res = $stmt->get_result();
+
+    if (mysqli_num_rows($res) > 0){?>
+        <div class="container-fluid mt--10">
       <div class="row">
         <div class="col">
           <div class="card shadow">
-            <div class="card-header border-0">
-              <h3>Assuming the room is Empty </h3>
+              <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                <tr>
+                  <th scope="col">Network Image</th>
+                  <th scope="col">Network Area (sqm)</th>
+                  <th scope="col">Institution</th>
+                  <th scope="col">Length (m)</th>
+                  <th scope="col">Width (m)</th>
+                  <th scope="col">Action</th>
+                </tr> 
+                </thead>
+                <tbody>
+                <?php
+                            
+                            $ret = "SELECT * FROM  netlayout ORDER BY ABS(net_layout_area - $input) LIMIT 5";
+                            $stmt = $mysqli->prepare($ret);
+                            $stmt->execute();
+                            $res = $stmt->get_result();
+                                       
+                            while ($row = mysqli_fetch_assoc($res)) {
+            
+                              $net_layout_id = $row['net_layout_id'];
+                              $net_layout_area = $row['net_layout_area'];
+                              $net_institution = $row['net_institution'];
+                              $net_length = $row['net_length'];
+                              $net_width = $row['net_width'];
+                              $net_image = $row ['net_image'];
+                        
+                              ?>
+                          <tr>
+                              <td> <?php
+                                  if ($net_image) {
+                                    echo "<img src='assets/img/netlayout/$net_image' height='60' width='60 class='img-thumbnail'>";
+                                  } else {
+                                    echo "<img src='assets/img/products/default.jpg' height='60' width='60 class='img-thumbnail'>";
+                                  }
+            
+                                  ?></td>
+                              <td><?php echo $net_layout_area; ?></td>
+                              <td><?php echo $net_institution; ?></td>
+                              <td><?php echo $net_length; ?></td>
+                              <td><?php echo $net_width;?></td> 
+                              <td>
+                                
+                                    <a href="display_info.php?=<?php echo $net_layout_id; ?>">
+                                      <button class="btn btn-sm btn-primary">
+                                        <i class="fas fa-user-edit"></i>
+                                       View Details
+                                      </button>
+                                    </a>
+                                  </td>
+            
+                          </tr>
+                          <?php
+                          }
+                          ?>
+            
+                </tbody>
+            </table>
             </div>
-            <div class="card-body">
-              <form method="POST">
-                <div class="form-row">
-                <hr>
-
-              </form>
-            </div>
-          </div>
+            
+                 </div>
+              </div>
+           </div>
         </div>
-</div>
-      </div>
-      <!-- Footer -->
-      <?php
-      require_once('partials/_footer.php');
-      ?>
-    </div>
-  </div>
-  <!-- Argon Scripts -->
-  <?php
-  require_once('partials/_scripts.php');
-  ?>
-</body>
 
-</html>
+    <?php
+    }else{  
+        $err = "No Data Found";
+    }
+  }
+  require_once('partials/_head.php');
+?>

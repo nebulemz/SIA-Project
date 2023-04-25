@@ -1,32 +1,6 @@
 <?php
 session_start();
 include('config/config.php');
-
-//Add Staff
-if (isset($_POST['addStaff'])) {
-  //Prevent Posting Blank Values
-  if (empty($_POST["staff_number"]) || empty($_POST["staff_name"]) || empty($_POST['staff_user_name']) || empty($_POST['staff_password'])) {
-    $err = "Blank Values Not Accepted";
-  } else {
-    $staff_number = $_POST['staff_number'];
-    $staff_name = $_POST['staff_name'];
-    $staff_user_name = $_POST['staff_user_name'];
-    $staff_password =$_POST['staff_password'];
-
-    //Insert Captured information to a database table
-    $postQuery = "INSERT INTO staff (staff_number, staff_name, staff_user_name, staff_password) VALUES(?,?,?,?)";
-    $postStmt = $mysqli->prepare($postQuery);
-    //bind paramaters
-    $rc = $postStmt->bind_param('ssss', $staff_number, $staff_name, $staff_user_name, $staff_password);
-    $postStmt->execute();
-    //declare a varible which will be passed to alert function
-    if ($postStmt) {
-      $success = "Staff Added" && header("refresh:1; url=hrm.php");
-    } else {
-      $err = "Please Try Again Or Try Later";
-    }
-  }
-}
 require_once('partials/_head.php');
 ?>
 
@@ -59,15 +33,15 @@ require_once('partials/_head.php');
               <h3>Assuming the room is Empty</h3>
             </div>
             <div class="card-body">
-              <form method="POST">
+              <form action ="resultdata.php" form method="POST">
                 <div class="form-row">
                   <div class="col-md-6">
                     <label>Length in meters</label>
-                    <input type="text" name="staff_number" class="form-control" placeholder="Input a number">
+                    <input type="text" name="net_length" class="form-control" placeholder="Input a number">
                   </div>
                   <div class="col-md-6">
                     <label>Width in meters</label>
-                    <input type="text" name="staff_name" class="form-control" placeholder="Input a number">
+                    <input type="text" name="net_width" class="form-control" placeholder="Input a number">
                   </div>
                 </div>
                 <hr>
@@ -76,9 +50,9 @@ require_once('partials/_head.php');
                     <label>For which Institution? </label>
                     <select name="net_layout_institution" class="form-control">
                   
-                    <option>-- Please Select Institution -- </option>"Please Select Institution">
+                    <option>-- Please Select Institution -- </option>"Please Select an Institution">
                     <option>School</option> 
-                    <option>Institution</option> 
+                    <option>Office</option> 
                   </select>
                   </div>
                 
@@ -94,7 +68,9 @@ require_once('partials/_head.php');
                 </div><hr>
                 <div class="form-row text-center">
                   <div class="col-md-12">
-                    <input type="submit" name="addStaff" value="Generate" class="btn btn-success" value="">
+                    <input type="button"  value="Generate" class="btn btn-success"  id="generate_area" onclick="myGenerate()">
+                 
+
                   </div>
                 </div>
               </form>
@@ -114,4 +90,23 @@ require_once('partials/_head.php');
   ?>
 </body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript">    
+    $(document).ready(function(){
+        $("#generate_area").click(function(){
+            var input = $(this).val();
+            //alert(input);
+            
+            if(input !=""){
+                $.ajax({
+                    url:"resultdata.php",
+                    method:"POST",
+                    data:{input:input}, 
+                    
+                });
+                }
+        });
+    });
+
+</script>
 </html>

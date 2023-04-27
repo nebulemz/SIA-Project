@@ -1,8 +1,23 @@
+<!DOCTYPE html> 
+<html>
 <?php
 session_start();
 include('config/config.php');
+include('config/checklogin.php');
+
+check_login();
+if (isset($_POST['make'])) {
+
+    //declare a varible which will be passed to alert function
+    if ($postStmt) {
+      $success = "Order Submitted" && header("refresh:1; url=orders.php");
+    } else {
+      $err = "Please Try Again Or Try Later";
+    }
+  }
 require_once('partials/_head.php');
 ?>
+
 
 <body>
   <!-- Sidenav -->
@@ -23,77 +38,37 @@ require_once('partials/_head.php');
         </div>
       </div>
     </div>
+
     <!-- Page content -->
-     <div class="container-fluid mt--8">
+    <div class="container-fluid mt--8">
       <!-- Table -->
       <div class="row">
         <div class="col">
           <div class="card shadow">
-            <div class="card-header border-0">
-              <h3>Assuming the room is Empty</h3>
+            <div class="card-header border-6">
+              Assuming the room is Empty
             </div>
-            <div class="card-body">
-              <form action ="resultdata.php" form method="POST">
-                <div class="form-row">
-                  <div class="col-md-6">
-                    <label>Length in meters</label>
-                    <input type="text" name="net_length" class="form-control" placeholder="Input a number">
-                  </div>
-                  <div class="col-md-6">
-                    <label>Width in meters</label>
-                    <input type="text" name="net_width" class="form-control" placeholder="Input a number">
-                  </div>
-                </div>
-                <hr>
-                <div class="form-row">
                 <div class="col-md-6">
-                    <label>For which Institution? </label>
-                    <select name="net_layout_institution" class="form-control">
-                  
-                    <option>-- Please Select Institution -- </option>"Please Select an Institution">
-                    <option>School</option> 
-                    <option>Office</option> 
-                  </select>
-                  </div>
-                
-                  <div class="col-md-6">
-                    <label>Ergonomically Designed? </label>
-                    <select name="net_layout_institution" class="form-control">
-                  
-                    <option>-- Yes or No-- </option>
-                    <option>Yes</option> 
-                    <option>No</option> 
-                  </select>
-                  </div>
-                </div><hr>
-                <div class="form-row text-center">
-                  <div class="col-md-12">
-                    <input type="button"  value="Generate" class="btn btn-success"  id="generate_area" onclick="myGenerate()">
-                 
-
-                  </div>
+                <input type="text" class="form-control" id="live_search_order" autocomplete="off" 
+                placeholder="Search">
                 </div>
-              </form>
+                <div class="col-md-6">
+                <input type="text" class="form-control" id="live_search_order2" autocomplete="off" 
+                placeholder="Search">
+                </div>
+              </div>
             </div>
           </div>
-        </div>
       </div>
-      <!-- Footer -->
-      <?php
-      require_once('partials/_footer.php');
-      ?>
-    </div>
-  </div>
-  <!-- Argon Scripts -->
-  <?php
-  require_once('partials/_scripts.php');
-  ?>
+
 </body>
+
+<div id="searchresultorder"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript">    
     $(document).ready(function(){
-        $("#generate_area").click(function(){
+        $("#live_search_order").keyup(function(){
             var input = $(this).val();
             //alert(input);
             
@@ -101,12 +76,19 @@ require_once('partials/_head.php');
                 $.ajax({
                     url:"resultdata.php",
                     method:"POST",
-                    data:{input:input}, 
+                    data:{input:input},
                     
+                    success:function(data){
+                        $("#searchresultorder").html(data).show();
+                        $("#searchresultorder").css("display","block");
+                    }
                 });
+            }else{
+                $("#searchresultorder").css("display","block").show();
                 }
         });
     });
 
 </script>
-</html>
+    </body>
+    </html> 

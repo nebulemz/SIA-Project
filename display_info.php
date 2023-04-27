@@ -4,10 +4,27 @@ include('config/config.php');
 include('config/checklogin.php');
 
 
-check_login();
-if (isset($_POST['UpdateProduct'])) {
-  //Prevent Posting Blank Values
-}
+if (isset($_GET['display'])) {
+    $id = $_GET['display'];
+    
+    // Retrieve network layout details from the database
+    $stmt = $mysqli->prepare("SELECT * FROM netlayout WHERE net_layout_id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    
+    if (mysqli_num_rows($res) == 1) {
+        $row = mysqli_fetch_assoc($res);
+        
+        // Display network layout details on the page
+        $net_layout_id = $row['net_layout_id'];
+        $net_layout_area = $row['net_layout_area'];
+        $net_institution = $row['net_institution'];
+        $net_ergo = $row['net_ergo'];
+        $net_length = $row['net_length'];
+        $net_width = $row['net_width'];
+        $net_image = $row ['net_image'];
+        
 require_once('partials/_head.php');
 ?>
 
@@ -19,15 +36,6 @@ require_once('partials/_head.php');
   <!-- Main content -->
   <div class="main-content">
     <!-- Top navbar -->
-    <?php
-    require_once('partials/_topnav.php');
-
-    $ret = "SELECT * FROM netlayout WHERE net_layout_id";
-    $stmt = $mysqli->prepare($ret);
-    $stmt->execute();
-    $res = $stmt->get_result();
-    while ($display = $res->fetch_object()) {
-    ?>
       <!-- Header -->
       <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
       <span class="mask bg-gradient-dark opacity-8"></span>
@@ -40,59 +48,89 @@ require_once('partials/_head.php');
       <div class="container-fluid mt--8">
         <!-- Table -->
         <div class="row">
-          <div class="col">
-            <div class="card shadow">
+         <div class="col">
+         <div class="card shadow">
               <div class="card-header border-0">
-                <h3>Network Layout Plan</h3>
-              </div>
-              <div class="card-body">
-                <form method="POST" enctype="multipart/form-data">
-                  <div class="form-row">
-                    <div class="col-md-12">
-                      <label>Image</label>
-                    <?php "<img src='assets/img/products/$display->net_image' height='250' width='300 class=''>"?> 
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="form-row">
-                    <div class="col-md-6">
-                      <label>Product Image</label>
-                      <input type="file" name="prod_img" class="btn btn-outline-success form-control" value="<?php echo $prod_img; ?>">
-                    </div>
-                    <div class="col-md-6">
-                      <label>Product Price</label>
-                      <input type="text" name="prod_price" class="form-control" value="<?php echo $prod->prod_price; ?>">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="form-row">
-                    <div class="col-md-12">
-                      <label>Product Description</label>
-                      <textarea rows="5" name="prod_desc" class="form-control" value=""><?php echo $prod->prod_desc; ?></textarea>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="form-row">
-                    <div class="col-md-6">
-                      <input type="submit" name="UpdateProduct" value="Update Product" class="btn btn-success" value="">
-                    </div>
-                  </div>
-                </form>
+                    <h2>Network Layout Details</h2>
+                    <hr>
+                    <a href="generateplantestt.php" class="btn btn-outline-success">
+                         <i class="fas fa-user-plus"></i>
+                            GENERATE ANOTHER LAYOUT
+                         </a>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="col-md-6 center" style="margin-left: 50px";>
+                            <img src="<?php echo $net_image ? 'assets/img/netlayout/' . $net_image : 'assets/img/products/default.jpg'; ?>" class="img-fluid mx-auto">
+                        </div>
+                    </div>                                                   
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <strong>Network Area:</strong> <?php echo $net_layout_area; ?> sqm<br>
+                            <strong>Institution:</strong> <?php echo $net_institution; ?><br>
+                            <strong>Ergonomics:</strong> <?php echo $net_ergo; ?><br>
+                            <strong>Length:</strong> <?php echo $net_length; ?> m<br>
+                            <strong>Width:</strong> <?php echo $net_width; ?> m<br></br>
+                            <strong>LEGEND:</strong><br>
+                            <strong>R:</strong> Router
+                            <strong>S:</strong> Switches
+                            </div>
+                            <div class="col-md-6" style="text-align: right;">
+                            
+                            <?php
+                            
+                                $stmt = $mysqli->prepare("SELECT no_pcs FROM netlayout");
+                                $stmt->execute();
+                                $res = $stmt->get_result();
+
+                                if ($res->num_rows > 0) {
+                                    $row = $res->fetch_assoc();
+                                    $num_computers = intval($row["no_pcs"]);
+                                
+                                    // Generate the IP addresses
+                                    for($i = 1; $i <= $num_computers; $i++) {
+                                        $ip_address = "192.168.0." . $i; // You can change the IP address format based on your network configuration
+                                        
+                                        echo "<b>PC#"." $i</b>"."  ". $ip_address . "<br>";
+                                    }
+                                } else {
+                                    echo "No configuration data found.";
+                                }
+                                
+                            ?>
+                       
+                            </div>
+                        </div>
+                        <hr>
+                        </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <!-- Footer -->
-      <?php
+        <?php
       require_once('partials/_footer.php');
-    }
       ?>
       </div>
   </div>
   <!-- Argon Scripts -->
   <?php
   require_once('partials/_scripts.php');
-  ?>
-</body>
 
-</html>
+  ?>
+    </body>
+
+        <?php
+    } else {
+        // Network layout not found
+        $err = "Network layout not found";
+        header("location: index.php?err=$err");
+    }
+} else {
+    // No network layout ID provided
+    $err = "No network layout ID provided";
+    header("location: index.php?err=$err");
+}
+
+
+?>

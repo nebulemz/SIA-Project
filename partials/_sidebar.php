@@ -339,11 +339,11 @@ body.dark .switch::before {
 }
 
 .img {
-  content: url("../admin/assets/img/brand/bosunlogo.png");
+  content: url("../SIA-Project/assets/img/brand/networkit logo 1.png");
 }
 
 .img-navbar-close {
-  content: url("../admin/assets/img/brand/bosunlogo-close.png");
+  content: url("../SIA-Project/assets/img/brand/networkit logo 2.png");
 }
 
 body.dark .home .text {
@@ -396,7 +396,7 @@ body.dark .home .text {
           </li>
 
           <li class="">
-            <a href="generateplan.php">
+            <a href="generateplantestt.php">
               <i class='bx bx-network-chart icon'></i>
               <span class="text nav-text">Generate a Plan</span>
             </a>

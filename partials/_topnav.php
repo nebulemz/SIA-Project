@@ -19,7 +19,6 @@ while ($admin = $res->fetch_object()) {
     <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="dashboard.php"><?php 
       
       if(isHaveTextInUrl("dashboard")) {
-        echo $admin->admin_name. "'S " ."Dashboard";
       } else if (isHaveTextInUrl("genplan")) {
         echo "NETWORK LAYOUT PLANNER";
       }
@@ -36,15 +35,7 @@ while ($admin = $res->fetch_object()) {
 
     <!-- User -->
       <li class="nav-item dropdown">
-        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
           <div class="media align-items-center">
-            <span class="avatar avatar-sm rounded-circle">
-              <img alt="Image placeholder" src="assets/img/theme/user-a-min.png">
-            </span>
-            <div class="media-body ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold"><?php echo $admin->admin_name; ?></span>
-            </div>
           </div>
          </a>
          

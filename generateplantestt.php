@@ -6,33 +6,7 @@ include('config/config.php');
 include('config/checklogin.php');
 
 check_login();
-if (isset($_POST['make'])) {
-  //Prevent Posting Blank Values
-  if (empty($_POST["order_qty"])) {
-    $err = "Blank Values Not Accepted";
-  } else {
 
-    $order_qty = $_POST['order_qty'];
-   
-
-    //Insert Captured information to a database table
-    $postQuery = "INSERT INTO orders (order_qty) VALUES(?)";
-    $postStmt = $mysqli->prepare($postQuery);
-    //bind paramaters
-    $rc = $postStmt->bind_param('s', $order_qty);
-    $postStmt->execute();
-
-    //Object Product Quantity minus Product Count 
-    
-
-    //declare a varible which will be passed to alert function
-    if ($postStmt) {
-      $success = "Order Submitted" && header("refresh:1; url=orders.php");
-    } else {
-      $err = "Please Try Again Or Try Later";
-    }
-  }
-}
 require_once('partials/_head.php');
 ?>
 
@@ -64,11 +38,11 @@ require_once('partials/_head.php');
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-6">
-              Assuming the room is Empty
+              Assuming the room is Empty 
             </div>
-                <div class="col-md-12">
+                <div class="col-md-12"><label>Unit of Measure is in (sqm)</label>
                 <input type="text" class="form-control" id="live_search_order" autocomplete="off" 
-                placeholder="Search">
+                placeholder="Input a numerical value">
                 </div>
               </div>
             </div>

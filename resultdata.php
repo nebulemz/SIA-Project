@@ -8,6 +8,8 @@ if (isset($_POST['input'])){
     $input = $_POST['input'];
 
 
+    if(is_numeric($input)){
+
     $ret = "SELECT * FROM  netlayout ORDER BY ABS(net_layout_area - $input)";
     $stmt = $mysqli->prepare($ret); 
     $stmt->execute();
@@ -25,6 +27,7 @@ if (isset($_POST['input'])){
                   <th scope="col">Network Image</th>
                   <th scope="col">Network Area (sqm)</th>
                   <th scope="col">Institution</th>
+                  <th scope="col">Ergonomics</th>
                   <th scope="col">Length (m)</th>
                   <th scope="col">Width (m)</th>
                   <th scope="col">Action</th>
@@ -33,7 +36,7 @@ if (isset($_POST['input'])){
                 <tbody>
                 <?php
                             
-                            $ret = "SELECT * FROM  netlayout ORDER BY ABS(net_layout_area - $input) LIMIT 5";
+                            $ret = "SELECT * FROM  netlayout ORDER BY ABS(net_layout_area - $input)LIMIT 10";
                             $stmt = $mysqli->prepare($ret);
                             $stmt->execute();
                             $res = $stmt->get_result();
@@ -43,6 +46,7 @@ if (isset($_POST['input'])){
                               $net_layout_id = $row['net_layout_id'];
                               $net_layout_area = $row['net_layout_area'];
                               $net_institution = $row['net_institution'];
+                              $net_ergo = $row['net_ergo'];
                               $net_length = $row['net_length'];
                               $net_width = $row['net_width'];
                               $net_image = $row ['net_image'];
@@ -59,17 +63,21 @@ if (isset($_POST['input'])){
                                   ?></td>
                               <td><?php echo $net_layout_area; ?></td>
                               <td><?php echo $net_institution; ?></td>
+                              <td><?php echo $net_ergo; ?></td>
                               <td><?php echo $net_length; ?></td>
                               <td><?php echo $net_width;?></td> 
                               <td>
                                 
-                                    <a href="display_info.php?=<?php echo $net_layout_id; ?>">
+                                    <a href="display_info.php?display=<?php echo $net_layout_id; ?>">
                                       <button class="btn btn-sm btn-primary">
                                         <i class="fas fa-user-edit"></i>
                                        View Details
                                       </button>
                                     </a>
                                   </td>
+                                  <?php
+                          }
+                          ?>
             
                           </tr>
                           <?php
@@ -87,7 +95,7 @@ if (isset($_POST['input'])){
 
     <?php
     }else{  
-        $err = "No Data Found";
+        $err = "Insert Numerical Value!";
     }
   }
   require_once('partials/_head.php');

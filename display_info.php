@@ -102,6 +102,7 @@ require_once('partials/_head.php');
                         </div>
                         <hr>
                         </form>
+                        <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
                 </div>
               </div>
             </div>

@@ -5,10 +5,24 @@ include('config/config.php');
 require_once('partials/_head.php');
 
 ?>
+
+<body>
+
+  <!-- Sidenav -->
+  <?php
+  require_once('partials/_sidebar.php');
+  ?>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+    <?php
+    require_once('partials/_topnav.php');
+    ?>
+
 <style>
 .form-container {
   width: 100%;
-  max-width: 550px;
+  max-width: 1100px;
   flex-direction: column;
   align-items: left;
   display: flex;
@@ -18,7 +32,7 @@ require_once('partials/_head.php');
 
 p.text {
   text-align: left;
-  margin-top:80px ;
+  margin-top:-110px ;
   margin-left: 100px;
   margin-bottom: 30px;
   font-weight: 800;
@@ -27,14 +41,14 @@ p.text {
 }
 
 .picture-container {
-  width: 8rem;
-  margin-left: 750px;
+  width: 6rem;
+  margin-left: 1000px;
   object-fit: none;  
   object-position:right;
 }
 
 .picture {
-  width: 100%;
+  width: 150px;
 }
 
 .form-container-2 {
@@ -58,7 +72,7 @@ p.caption {
 .submit-btn-container {
   display: grid;
   padding-left: center;
-  width: 20%;
+  width:300px ;
   margin-top: 3rem;
   margin-left: 100px;
 }
@@ -88,33 +102,39 @@ p.caption {
 
 }
 </style>
-
-<body>
-
-  <!-- Sidenav -->
-  <?php
-  require_once('partials/_sidebar.php');
-  ?>
-  <!-- Main content -->
-  <div class="main-content" style="color:#0F6973">
-    <!-- Top navbar -->
-    <?php
-    require_once('partials/_topnav.php');
-    ?>
-    <div class= "form-container">
-    <div class="picture-container">
-        <img class="picture" src="assets/img/brand/office-interior-top-view_1284-6526-removebg-preview.png">
+  <!-- Header -->
+  <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="pb-9 pt-6 pt-md-9">
+    <span class="mask bg-gradient-dark opacity-8"></span>
+    <!-- Page content -->
+    <div class="container-fluid">
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+              <div class="card-body">
+              </div>
+        </div>
       </div>
-      <p style="font-size: 55px;" class= "text">Visualize Your Network, <br> Optimize Your Performance</p>
+  <div class= "form-container">
+    
+      <p style="font-size: 80px;" class= "text">Visualize Your Network, <br> Optimize Your Performance</p>
     </div>
     <div class= "form-container-2">
-      <p style="font-size: 20px;" class= "caption" >
+      <p style="font-size: 22px;" class= "caption" >
       Revamp your network layout with ease: <br>
       Generate a network floor plan and <br>
       corresponding IP addresses in seconds.</p>
     </div>
     <div class= "submit-btn-container">
       <button type="submit" name="login" class="submit-btn">CREATE A LAYOUT</button>
+    </div>
+  </div>
+  
+
+
+      <!-- Footer -->
+      <?php
+      require_once('partials/_footer.php');
+      ?>
     </div>
   </div>
   <!-- Argon Scripts -->
@@ -124,4 +144,3 @@ p.caption {
 </body>
 
 </html>
-

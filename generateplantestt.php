@@ -40,7 +40,7 @@ require_once('partials/_head.php');
             <div class="card-header border-6">
               Assuming the room is Empty 
             </div>
-                <div class="col-md-12"><label>Unit of Measure is in (sqm)</label>
+                <div class="col-md-8"><label>Unit of Measure is in (sqm)</label>
                 <input type="text" class="form-control" id="live_search_order" autocomplete="off" 
                 placeholder="Input a numerical value">
                 </div>

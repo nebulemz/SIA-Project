@@ -124,11 +124,11 @@ p.caption {
       Generate a network floor plan and <br>
       corresponding IP addresses in seconds.</p>
     </div>
-    <div class= "submit-btn-container">
-      <button type="submit" name="login" class="submit-btn">CREATE A LAYOUT</button>
-    </div>
-  </div>
-  
+    <div class="submit-btn-container">
+  <a href="generateplantestt.php">
+    <button type="submit" name="login" class="submit-btn">CREATE A LAYOUT</button>
+  </a>
+</div>
 
 
       <!-- Footer -->

@@ -403,13 +403,25 @@ body.dark .home .text {
           </li>
 
           <li class="">
-            <a href="generateipadd.php">
-              <i class='bx bxs-location-plus icon'></i>
-              <span class="text nav-text">Generate IP Address</span>
+            <a href="products.php">
+              <i class='bx bxs-cart icon'></i>
+              <span class="text nav-text">Products</span>
             </a>
           </li>
+
+          <li class="">
+            <a href="productreview.php">
+              <i class='bx bx-glasses icon'></i>
+              <span class="text nav-text">Product Reviews</span>
+            </a>
           </li>
 
+          <li class="">
+            <a href="logout.php">
+              <i class='bx bx-log-out icon'></i>
+              <span class="text nav-text">Logout</span>
+            </a>
+          </li>
     </div>
 </div>
   </nav>

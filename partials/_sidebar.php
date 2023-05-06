@@ -409,12 +409,6 @@ body.dark .home .text {
             </a>
           </li>
 
-          <li class="">
-            <a href="productreview.php">
-              <i class='bx bx-glasses icon'></i>
-              <span class="text nav-text">Product Reviews</span>
-            </a>
-          </li>
 
           <li class="">
             <a href="logout.php">

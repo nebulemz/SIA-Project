@@ -6,10 +6,20 @@ include('config/config.php');
 include('config/checklogin.php');
 
 check_login();
-
 require_once('partials/_head.php');
 ?>
 
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $length = $_POST['length'];
+  $width = $_POST['width'];
+  $net_institution = $_POST['net_institution'];
+  $net_ergo = $_POST['net_ergo'];
+  $input = $length * $width;
+  header("Location: result.php?length=$length&width=$width&input=$input&net_institution=$net_institution&net_ergo=$net_ergo");
+  exit();
+}
+?>
 
 <body>
   <!-- Sidenav -->
@@ -30,7 +40,6 @@ require_once('partials/_head.php');
         </div>
       </div>
     </div>
-
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
@@ -38,45 +47,95 @@ require_once('partials/_head.php');
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-6">
-              Assuming the room is Empty 
+              <h3>Please Select and Fill the Field</h3>
             </div>
-                <div class="col-md-8"><label>Unit of Measure is in (sqm)</label>
-                <input type="text" class="form-control" id="live_search_order" autocomplete="off" 
-                placeholder="Input a numerical value">
-                </div>
+            <div class="card-body">
+
+            <form method="POST" action="" onsubmit="return validateForm()">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label>Length (meter/s)</label><span id="lengthError" style="color: red;"></span>
+                <input type="text" name="length" class="form-control" id="length" value="">
+             
+              </div>
+              <div class="col-md-6">
+                <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
+                <input type="text" name="width" class="form-control" id="width" value="">
+                
               </div>
             </div>
+            <hr>
+            <div class="form-row">
+              <div class="col-md-6">
+              <label for="net_institution">Net Institution</label>
+              <select id="net_institution" name="net_institution" class="form-control">
+                <option value="">-- Select --</option>
+                <option value="Office">Office</option>
+                <option value="School">School</option>
+              </select>
+              <span id="netInstitutionError" style="color: red;"></span>
+                </div>
+            </div>
+            <hr>
+            <div class="form-row text-center">
+              <div class="col-md-12">
+                <input type="submit" name="generate" value="Generate" class="btn btn-success" value="">
+              </div>
+            </div>
+            <input type="hidden" name="input" value="<?php echo $input; ?>">
+          </form>
+            </div>
           </div>
+        </div>
       </div>
+      <!-- Footer -->
+      <?php
+      require_once('partials/_footer.php');
+      ?>
+    </div>
+  </div>
+  </body>
+  <!-- Argon Scripts -->
+  <?php
+  require_once('partials/_scripts.php');
+  ?>
+<script>
+  function validateForm() {
+    let lengthInput = document.getElementById("length");
+    let widthInput = document.getElementById("width");
+    let lengthError = document.getElementById("lengthError");
+    let widthError = document.getElementById("widthError");
+    let length = lengthInput.value;
+    let width = widthInput.value;
+    let netInstitution = document.getElementById("net_institution").value;
+    let netErgo = document.getElementById("net_ergo").value;
+    let netInstitutionError = document.getElementById("netInstitutionError");
+    let netErgoError = document.getElementById("netErgoError");
 
-</body>
+    if (isNaN(length)) {
+      lengthError.innerHTML = " *Length must be a number.";
+      lengthInput.focus();
+      return false;
+    } else {
+      lengthError.innerHTML = "";
+    }
 
-<div id="searchresultorder"></div>
+    if (isNaN(width)) {
+      widthError.innerHTML = " *Width must be a number.";
+      widthInput.focus();
+      return false;
+    } else {
+      widthError.innerHTML = "";
+    }
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script type="text/javascript">    
-    $(document).ready(function(){
-        $("#live_search_order").keyup(function(){
-            var input = $(this).val();
-            //alert(input);
-            
-            if(input !=""){
-                $.ajax({
-                    url:"resultdata.php",
-                    method:"POST",
-                    data:{input:input},
-                    
-                    success:function(data){
-                        $("#searchresultorder").html(data).show();
-                        $("#searchresultorder").css("display","block");
-                    }
-                });
-            }else{
-                $("#searchresultorder").css("display","block").show();
-                }
-        });
-    });
+    if (netInstitution === "") {
+      netInstitutionError.innerHTML = " *Please select a net institution.";
+      return false;
+    } else {
+      netInstitutionError.innerHTML = "";
+    }
 
+    return true;
+  }
 </script>
-    </body>
-    </html> 
+</html>

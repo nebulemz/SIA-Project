@@ -3,20 +3,12 @@ session_start();
 include('config/config.php');
 include('config/checklogin.php');
 
-if (isset($_POST['input'])){
-    $input = $_POST['input'];
 
+$input = $_GET['input'];
+$net_institution = $_GET['net_institution'];
 
-    if(is_numeric($input)){
+?>
 
-    $ret = "SELECT * FROM  netlayout ORDER BY ABS(net_layout_area - $input)";
-    $stmt = $mysqli->prepare($ret); 
-    $stmt->execute();
-    $res = $stmt->get_result();
-
-    if (mysqli_num_rows($res) > 0){?>
-
-    
 <body>
   <!-- Sidenav -->
   <?php
@@ -28,14 +20,24 @@ if (isset($_POST['input'])){
     <?php
     require_once('partials/_topnav.php');
     ?>
-    <!-- Header -->
-    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
+        <!-- Header -->
+    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: 1500px 1000px;background-repeat: no-repeat;" class="header  pb-8 pt-5 pt-md-8">
     <span class="mask bg-gradient-dark opacity-8"></span>
       <div class="container-fluid">
         <div class="header-body">
         </div>
       </div>
     </div>
+
+<?php
+if(is_numeric($input)){
+
+    $ret = "SELECT * FROM  netlayout WHERE net_institution = '$net_institution' ORDER BY ABS(net_layout_area - $input)";
+    $stmt = $mysqli->prepare($ret); 
+    $stmt->execute();
+    $res = $stmt->get_result();
+
+    if (mysqli_num_rows($res) > 0){?>
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
@@ -43,11 +45,12 @@ if (isset($_POST['input'])){
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <a href="add_product.php" class="btn btn-outline-success">
+              <a href="generateplantestt.php" class="btn btn-outline-success">
                 <i class="fas fa-plus"></i>
-                Add New Product
+                Generate New Layout
               </a>
             </div>
+            <h3 style="margin-left: 20px;"><?php echo "Your Area is: $input";?></h3>
               <div class="table-responsive">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
@@ -115,13 +118,19 @@ if (isset($_POST['input'])){
                 </tbody>
             </table>
             </div>
+            
+                 </div>
+              </div>
+           </div>
         </div>
-      </body>
-
-    <?php
+    </body>
+      <!-- Footer -->
+      <?php
+      require_once('partials/_footer.php');
+      ?>
+          <?php
     }else{  
         $err = "Insert Numerical Value!";
     }
-  }
   require_once('partials/_head.php');
 ?>

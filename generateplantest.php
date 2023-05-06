@@ -1,35 +1,20 @@
-+<?php
+<?php
 session_start();
 include('config/config.php');
 include('config/checklogin.php');
 
 check_login();
-//Add Staff
-if (isset($_POST['addStaff'])) {
-  //Prevent Posting Blank Values
-  if (empty($_POST["staff_number"]) || empty($_POST["staff_name"]) || empty($_POST['staff_user_name']) || empty($_POST['staff_password'])) {
-    $err = "Blank Values Not Accepted";
-  } else {
-    $staff_number = $_POST['staff_number'];
-    $staff_name = $_POST['staff_name'];
-    $staff_user_name = $_POST['staff_user_name'];
-    $staff_password =$_POST['staff_password'];
-
-    //Insert Captured information to a database table
-    $postQuery = "INSERT INTO staff (staff_number, staff_name, staff_user_name, staff_password) VALUES(?,?,?,?)";
-    $postStmt = $mysqli->prepare($postQuery);
-    //bind paramaters
-    $rc = $postStmt->bind_param('ssss', $staff_number, $staff_name, $staff_user_name, $staff_password);
-    $postStmt->execute();
-    //declare a varible which will be passed to alert function
-    if ($postStmt) {
-      $success = "Staff Added" && header("refresh:1; url=hrm.php");
-    } else {
-      $err = "Please Try Again Or Try Later";
-    }
-  }
-}
 require_once('partials/_head.php');
+?>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $length = $_POST['length'];
+  $width = $_POST['width'];
+  $input = $length * $width;
+  header("Location: result.php?length=$length&width=$width&input=$input");
+  exit();
+}
 ?>
 
 <body>
@@ -52,34 +37,38 @@ require_once('partials/_head.php');
       </div>
     </div>
     <!-- Page content -->
-     <div class="container-fluid mt--8">
+    <div class="container-fluid mt--8">
       <!-- Table -->
       <div class="row">
         <div class="col">
           <div class="card shadow">
-            <div class="card-header border-0">
+            <div class="card-header border-6">
               <h3>Please Select and Fill the Field</h3>
             </div>
             <div class="card-body">
-              <form method="POST">
-                <div class="form-row">
-                  <div class="col-md-6">
-                    <label>Length</label>
-                    <input type="text" name="staff_number" class="form-control" value="">
-                  </div>
-                  <div class="col-md-6">
-                    <label>Width</label>
-                    <input type="text" name="staff_name" class="form-control" value="">
-                  </div>
-                </div>
+
+            <form method="POST" action="" onsubmit="return validateForm()">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label>Length (meter/s)</label><span id="lengthError" style="color: red;"></span>
+                <input type="text" name="length" class="form-control" id="length" value="">
+             
+              </div>
+              <div class="col-md-6">
+                <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
+                <input type="text" name="width" class="form-control" id="width" value="">
                 
-                <hr>
-                <div class="form-row text-center">
-                  <div class="col-md-12">
-                    <input type="submit" name="addStaff" value="Generate" class="btn btn-success" value="">
-                  </div>
-                </div>
-              </form>
+              </div>
+            </div>
+            
+            <hr>
+            <div class="form-row text-center">
+              <div class="col-md-12">
+                <input type="submit" name="generate" value="Generate" class="btn btn-success" value="">
+              </div>
+            </div>
+            <input type="hidden" name="input" value="<?php echo $input; ?>">
+          </form>
             </div>
           </div>
         </div>
@@ -90,10 +79,39 @@ require_once('partials/_head.php');
       ?>
     </div>
   </div>
+  </body>
   <!-- Argon Scripts -->
   <?php
   require_once('partials/_scripts.php');
   ?>
-</body>
+<script>
+  function validateForm() {
+    let lengthInput = document.getElementById("length");
+    let widthInput = document.getElementById("width");
+    let lengthError = document.getElementById("lengthError");
+    let widthError = document.getElementById("widthError");
+    let length = lengthInput.value;
+    let width = widthInput.value;
+
+    if (isNaN(length)) {
+      lengthError.innerHTML = " *Length must be a number.";
+      lengthInput.focus();
+      return false;
+    } else {
+      lengthError.innerHTML = "";
+    }
+
+    if (isNaN(width)) {
+      widthError.innerHTML = " *Width must be a number.";
+      widthInput.focus();
+      return false;
+    } else {
+      widthError.innerHTML = "";
+    }
+
+    return true;
+  }
+</script>
+
 
 </html>

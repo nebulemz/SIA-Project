@@ -409,6 +409,13 @@ body.dark .home .text {
             </a>
           </li>
 
+          <li class="">
+            <a href="samplecart.php">
+              <i class='bx bxs-cart icon'></i>
+              <span class="text nav-text">Products Sample</span>
+            </a>
+          </li>
+
 
           <li class="">
             <a href="logout.php">

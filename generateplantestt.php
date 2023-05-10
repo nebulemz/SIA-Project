@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <hr>
             <div class="form-row">
               <div class="col-md-6">
-              <label for="net_institution">Net Institution</label>
+              <label for="net_institution">Institution</label>
               <select id="net_institution" name="net_institution" class="form-control">
                 <option value="">-- Select --</option>
                 <option value="Office">Office</option>

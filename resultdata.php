@@ -1,7 +1,10 @@
 <?php
 session_start();
+session_start();
 include('config/config.php');
 include('config/checklogin.php');
+
+check_login();
 
 if (isset($_POST['input'])){
     $input = $_POST['input'];

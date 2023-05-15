@@ -3,6 +3,7 @@ session_start();
 include('config/config.php');
 include('config/checklogin.php');
 
+check_login();
 
 if (isset($_GET['display'])) {
     $id = $_GET['display'];

@@ -3,6 +3,8 @@ session_start();
 include('config/config.php');
 include('config/checklogin.php');
 
+check_login();
+
 
 $input = $_GET['input'];
 $net_institution = $_GET['net_institution'];

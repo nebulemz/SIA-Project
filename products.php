@@ -4,8 +4,8 @@
 session_start();
 include('config/config.php');
 include('config/checklogin.php');
-
 check_login();
+
 if (isset($_POST['make'])) {
   //Prevent Posting Blank Values
   if (empty($_POST["order_qty"])) {

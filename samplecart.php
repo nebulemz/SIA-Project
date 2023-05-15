@@ -542,6 +542,6 @@
             </ul>
         </footer>
         <script src="JS/script.js"></script>
-        <script src="shopping-cart.js"></script>
+        <script src="JS/shopping-cart.js"></script>
     </body>
 </html>

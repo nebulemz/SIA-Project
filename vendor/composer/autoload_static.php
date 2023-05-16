@@ -66,6 +66,7 @@ class ComposerStaticInita00333377dea50d385929061c2fef9d1
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Phpml\\' => 6,
         ),
         'O' => 
         array (
@@ -140,6 +141,10 @@ class ComposerStaticInita00333377dea50d385929061c2fef9d1
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/src',
+        ),
+        'Phpml\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-ai/php-ml/src',
         ),
         'OkBloomer\\' => 
         array (

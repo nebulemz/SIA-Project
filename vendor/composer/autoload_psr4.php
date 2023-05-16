@@ -20,6 +20,7 @@ return array(
     'Symfony\\Polyfill\\Iconv\\' => array($vendorDir . '/symfony/polyfill-iconv'),
     'Rubix\\ML\\' => array($vendorDir . '/rubix/ml/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
+    'Phpml\\' => array($vendorDir . '/php-ai/php-ml/src'),
     'OkBloomer\\' => array($vendorDir . '/andrewdalpino/okbloomer/src'),
     'Amp\\Sync\\' => array($vendorDir . '/amphp/sync/src'),
     'Amp\\Serialization\\' => array($vendorDir . '/amphp/serialization/src'),

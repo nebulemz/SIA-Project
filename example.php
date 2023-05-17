@@ -31,3 +31,4 @@ foreach($predicted as &$target){
 $accuracy = Phpml\Metric\Accuracy::score($dataset->getTestLabels(), $predicted);
 echo 'accuracy is: ' .$accuracy;
 //making predictions with trained model
+

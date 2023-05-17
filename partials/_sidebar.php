@@ -401,7 +401,13 @@ body.dark .home .text {
               <span class="text nav-text">Generate a Plan</span>
             </a>
           </li>
-
+          <li class="">
+            <a href="forum.php">
+              <i class='bx bxs-chat icon'></i>
+              <span class="text nav-text">Cost Prediction</span>
+            </a>
+          </li>
+          
           <li class="">
             <a href="products.php">
               <i class='bx bxs-cart icon'></i>
@@ -415,6 +421,15 @@ body.dark .home .text {
               <span class="text nav-text">Products Sample</span>
             </a>
           </li>
+
+          
+          <li class="">
+            <a href="forum.php">
+              <i class='bx bxs-chat icon'></i>
+              <span class="text nav-text">Forum</span>
+            </a>
+          </li>
+
 
 
           <li class="">

@@ -402,15 +402,14 @@ body.dark .home .text {
             </a>
           </li>
           <li class="">
-            <a href="forum.php">
-              <i class='bx bxs-chat icon'></i>
+            <a href="costpredict.php">
+              <i class='bx bxs-bot icon'></i>
               <span class="text nav-text">Cost Prediction</span>
             </a>
-          </li>
-          
+          </li>         
           <li class="">
             <a href="products.php">
-              <i class='bx bxs-cart icon'></i>
+              <i class='bx bxs-cart-add icon'></i>
               <span class="text nav-text">Products</span>
             </a>
           </li>

@@ -12,7 +12,6 @@ $dataset = new \Phpml\CrossValidation\StratifiedRandomSplit($data, testSize:0.2,
 //$dataset->getTestSamples();
 //$dataset->getTrainLabels();
 
-
 //training
 $regression = new \Phpml\Regression\LeastSquares();
 $regression->train($dataset->getTrainSamples(), $dataset->getTrainLabels());

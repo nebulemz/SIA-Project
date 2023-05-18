@@ -110,18 +110,15 @@ p {
 
 .dropzone {
   border: dashed 4px white;
-  border-radius: 4px;
   padding: 10px;
   transition: background-color 0.3s;
 }
 .element-trash{
 margin-top: 377px;
 margin-left: 80px;
-height: 20%;
 color: white;
 background: maroon;
 width: 200px;
-position: fixed;
 /* padding-top: 60px; */
 }
 

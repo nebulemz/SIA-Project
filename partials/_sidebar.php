@@ -407,6 +407,13 @@ body.dark .home .text {
               <span class="text nav-text">Cost Prediction</span>
             </a>
           </li>
+
+          <li class="">
+            <a href="makeplan.php">
+              <i class='bx bxs-chat icon'></i>
+              <span class="text nav-text">Cost Prediction</span>
+            </a>
+          </li>
           
           <li class="">
             <a href="products.php">

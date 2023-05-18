@@ -75,6 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               </select>
               <span id="netInstitutionError" style="color: red;"></span>
                 </div>
+                <div class="col-md-6">
+                <label>You can create you own!</label><br>
+                <input type="submit" value="Create Own Layout" class="btn btn-success" value="">
+                </div>
             </div>
             <hr>
             <div class="form-row text-center">
@@ -82,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="submit" name="generate" value="Generate" class="btn btn-success" value="">
               </div>
             </div>
+            
             <input type="hidden" name="input" value="<?php echo $input; ?>">
           </form>
             </div>

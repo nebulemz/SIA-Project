@@ -8,8 +8,9 @@ check_login();
 require_once('partials/_head.php');
 
 ?>
-
+<head><link rel="stylesheet" href="makeplanstyle.css"></head>
 <body>
+
   <!-- Sidenav -->
   <?php
   require_once('partials/_sidebar.php');
@@ -40,56 +41,82 @@ require_once('partials/_head.php');
             <div class = "container">
             <div id = "form-container">
               <div class="row">
-                  <div id = "scroll-box" style = "margin-left:-100px">
-                     <div class="col-4"> <b> ITEMS: </b>
-                       <div class="drag-element-source drag-element">
-                          <div class="rect" style = "margin-bottom: 110px; margin-left: 0px"><img src="assets/img/items/cubicle.png" draggable="false"/></div>
-                       </div>
+                     <div class="col-4"> <b style = "margin-left: -190px; margin-top: 10px;"> ITEMS: </b>
+                        <div><button class="collapsible" style = "margin-left: -190px; margin-top: 10px;"><b>Cubicles</b></button> 
+                          <div class="content" id = "scroll-box" style = "margin-left: -190px; display:none">
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-bottom: 110px;"><img src="assets/img/items/cubicle.png" draggable="false"/>  
+                                <div class="middle desc" style = "padding-left: 130px; padding-top: 100px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
+                              </div>
+                            </div>
                 
-                        <div class="drag-element-source drag-element">
-                          <div class="rect"><img src="assets/img/items/U-shaped_cubicle.png" draggable="false"/></div>
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-left: 100px; transform: rotate(90deg);"><img src="assets/img/items/U-shaped_cubicle.png" draggable="false"/></div>
+                              <div class="middle desc" style = "margin-right:-300px; margin-top: 80px"> <b>U-shape Cubicle </b> <br>260cmX185cm</div>
+                            </div>
+                           </div>
+                        </div>
+                        <div><button class="collapsible"><b>Tables</b></button> 
+                          <div class="content" id = "scroll-box" style = "margin-left: -190px; display:none">
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-top: 10px; margin-left: 11px"><img src="assets/img/items/L-table.png" draggable="false"/></div>
+                              <div class="middle desc" style = "margin-left: 60px; margin-top: 40px"> <b>L-shaped Table </b> <br>155cmX130cm</div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-top: 70px; margin-left: -3px"><img src="assets/img/items/U-table.png" draggable="false"/></div>
+                              <div class="middle desc" style = "margin-left: 55px; margin-top: 65px"> <b>U-shaped Table </b> <br>196cmX155cm</div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-top: 80px"><img src="assets/img/items/office_table_chair.png" draggable="false"/></div>
+                              <div class="middle desc" style = "margin-left: 65px; margin-top: 65px"> <b>Office Table w/ Chair </b> <br>162cmX112cm</div>
+                            </div>
+                          </div>
                         </div>
 
-                        <div class="drag-element-source drag-element">
-                          <div class="rect" style = "margin-top: 110px; margin-left: 11px"><img src="assets/img/items/L-table.png" draggable="false"/></div>
+                        <div><button class="collapsible"><b>Chairs</b></button> 
+                          <div class="content" id = "scroll-box" style = "margin-left: -190px; display:none">
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-top: 20px; margin-left: 8px"><img src="assets/img/items/office_chair.png" draggable="false"/></div>
+                              <div class="middle desc" style = "color:whitesmoke; margin-top: -10px; margin-left:-13px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                            </div>
+                          </div>
                         </div>
 
-                        <div class="drag-element-source drag-element">
-                          <div class="rect" style = "margin-top: 70px; margin-left: -3px"><img src="assets/img/items/U-table.png" draggable="false"/></div>
+                        <div><button class="collapsible"><b>Network Equipments</b></button> 
+                          <div class="content" id = "scroll-box" style = "margin-left: -190px; display:none">
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-top: 20px;"><img src="assets/img/items/computer.png" draggable="false"/></div>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: -5px"> <b>Computer </b> <br>60cmX43cm</div>
+                            </div>
+                          </div>
                         </div>
 
-                        <div class="drag-element-source drag-element">
-                          <div class="rect" style = "margin-top: 80px"><img src="assets/img/items/office_table_chair.png" draggable="false"/></div>
-                        </div>
-
-                        <div class="drag-element-source drag-element">
-                          <div class="rect" style = "margin-top: 100px; margin-left: 8px"><img src="assets/img/items/office_chair.png" draggable="false"/></div>
-                        </div>
-
-                        <div class="drag-element-source drag-element">
-                          <div class="rect" style = "margin-left: 15px"><img src="assets/img/items/door.png" draggable="false"/></div>
-                        </div>
-
-                        <div class="drag-element-source drag-element">
-                          <div class="rect"><img src="assets/img/items/computer.png" draggable="false"/></div>
+                        <div><button class="collapsible"><b>Others</b></button> 
+                          <div class="content" id = "scroll-box" style = "margin-left: -190px; display:none">
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-left: 15px; margin-top: 20px;"><img src="assets/img/items/door.png" draggable="false"/></div>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: -5px"> <b>Door </b> <br>68cmX68cm</div>
+                            </div>
+                          </div>
                         </div>
 
                       </div> 
-                  </div>
-                  <div class="col-6" id = "plane-container">
+                  <div class="col-6" id = "plane-container" style = "margin-left:-200px">
                     <div>
                       <p>5x5</p>
                     </div>
                   </div> 
                   <div class ="col-2">
-                  <div class="dropzone element-trash" style = "text-align:center; font-size:smaller"><b>DROP TO DELETE</b></div> 
+                  <div class="dropzone element-trash" style = "text-align:center; font-size:smaller; position: absolute; height: 200px;"><b>DROP TO DELETE</b></div> 
                 </div>
               </div>
               </div>
             </div>
             <hr>
             <div class="form-row text-center">
-              <div class="col-md-12" style = "margin-bottom:15px">
+              <div class="col-md-12" style = "margin-bottom:25px; margin-left: -700px">
                 <input type="submit" name="generate" value="Print" class="btn btn-success" value="">
               </div>
             </div>
@@ -111,6 +138,21 @@ require_once('partials/_head.php');
   require_once('partials/_scripts.php');
   ?>
 <script>
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
   function validateForm() {
     let lengthInput = document.getElementById("length");
     let widthInput = document.getElementById("width");
@@ -148,10 +190,10 @@ require_once('partials/_head.php');
 
     return true;
   }
+
 </script>
         <script src="http://cdn.jsdelivr.net/interact.js/1.2.4/interact.min.js"></script>
         <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
         <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
         <script src="makeplanscript.js"></script>
-        <link rel="stylesheet" href="makeplanstyle.css">
 </html>

@@ -82,7 +82,7 @@ require_once('partials/_head.php');
                     </div>
                   </div> 
                   <div class ="col-2">
-                  <div class="dropzone element-trash" style = "text-align:center; font-size:smaller"><b>DROP TO DELETE</b></div> 
+                  <div class="dropzone element-trash" style = "text-align:center; font-size:smaller; position: absolute; height: 40%; margin-top:50px"><b>DROP TO DELETE</b></div> 
                 </div>
               </div>
               </div>

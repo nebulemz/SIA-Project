@@ -114,14 +114,11 @@ p {
   padding: 10px;
   transition: background-color 0.3s;
 }
+
 .element-trash{
-margin-top: 377px;
-margin-left: 80px;
-height: 20%;
 color: white;
 background: maroon;
-width: 200px;
-position: fixed;
+width: 300px;
 /* padding-top: 60px; */
 }
 

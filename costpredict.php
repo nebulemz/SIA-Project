@@ -9,18 +9,6 @@ require_once('partials/_head.php');
 
 ?>
 
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $length = $_POST['length'];
-  $width = $_POST['width'];
-  $net_institution = $_POST['net_institution'];
-  $net_ergo = $_POST['net_ergo'];
-  $input = $length * $width;
-  header("Location: result.php?length=$length&width=$width&input=$input&net_institution=$net_institution&net_ergo=$net_ergo");
-  exit();
-}
-?>
-
 <body>
   <!-- Sidenav -->
   <?php
@@ -47,48 +35,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-6">
-              <h3>Please Select and Fill the Field</h3>
+              <h3>Please Select Institution</h3>
             </div>
             <div class="card-body">
+            <hr>
+            <div class="form-row">
+            <div class="col-md-6"><div class="text-center">
+                <label>Predict Cost for School</label><br><a href = predictschool.php>
+                <input type="" value="School" class="btn btn-success" value=""></a>
+                </div></div>
+                <div class="col-md-6"><div class="text-center">
+                <label>Predict Cost for Office</label><br><a href = predictoffice.php>
+                <input type="" value="Office" class="btn btn-success" value=""></a>
+                </div></div>
+            </div>
+            <hr>
 
-            <form method="POST" action="" onsubmit="return validateForm()">
-            <div class="form-row">
-              <div class="col-md-6">
-                <label>Length (meter/s)</label><span id="lengthError" style="color: red;"></span>
-                <input type="text" name="length" class="form-control" id="length" value="">
-             
-              </div>
-              <div class="col-md-6">
-                <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
-                <input type="text" name="width" class="form-control" id="width" value="">
-                
-              </div>
-            </div>
-            <hr>
-            <div class="form-row">
-              <div class="col-md-6">
-              <label for="net_institution">Institution</label>
-              <select id="net_institution" name="net_institution" class="form-control">
-                <option value="">-- Select --</option>
-                <option value="Office">Office</option>
-                <option value="School">School</option>
-              </select>
-              <span id="netInstitutionError" style="color: red;"></span>
-                </div>
-                <div class="col-md-6">
-                <label>You can create your own!</label><br><a href = makeplan.php>
-                <input type="" value="Create Own Layout" class="btn btn-success" value=""></a>
-                </div>
-            </div>
-            <hr>
-            <div class="form-row text-center">
-              <div class="col-md-12">
-                <input type="submit" name="generate" value="Generate" class="btn btn-success" value="">
-              </div>
-            </div>
-            
-            <input type="hidden" name="input" value="<?php echo $input; ?>">
-          </form>
             </div>
           </div>
         </div>

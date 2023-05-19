@@ -41,7 +41,7 @@ require_once('partials/_head.php');
             <div class = "container">
             <div id = "form-container">
               <div class="row">
-                     <div class="col-4"> <b style = "margin-top: 10px;"> ITEMS: </b>
+                     <div class="col-md-4"> <b style = "margin-top: 10px;"> ITEMS: </b>
                         <div><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none">
                             <div class="drag-element-source drag-element">
@@ -62,21 +62,34 @@ require_once('partials/_head.php');
                           <div class="content" id = "scroll-box" style = "display:none">
                             <div class="drag-element-source drag-element">
                               <div class="rect" style = "margin-top: 10px; margin-left: 11px"><img src="assets/img/items/L-table.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 60px; margin-top: 40px"> <b>L-shaped Table </b> <br>155cmX130cm</div>
+                              <div class="middle desc" style = "margin-left: 50px; margin-top: 30px"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
                             </div>
 
                             <div class="drag-element-source drag-element">
                               <div class="rect" style = "margin-top: 70px; margin-left: -3px"><img src="assets/img/items/U-table.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 55px; margin-top: 40px"> <b>U-shaped Table </b> <br>196cmX155cm</div>
+                              <div class="middle desc" style = "margin-left: 55px; margin-top: 30px"> <b>U-shaped Table </b> <br>196cmX155cm</div>
                             </div>
                             </div>
 
                             <div class="drag-element-source drag-element">
-                              <div class="rect" style = "margin-top: 80px"><img src="assets/img/items/office_table_chair.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 65px; margin-top: 30px"> <b>Office Table w/ Chair </b> <br>162cmX112cm</div>
+                              <div class="rect" style = "margin-top: 80px; margin-left:-3px;"><img src="assets/img/items/office_table_chair.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: 45px; margin-top: 35px"> <b>Office Table w/ Chair </b> <br>162cmX112cm</div>
                             </div>
                             </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-top: 50px; margin-left:2px;"><img src="assets/img/items/table_standard.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: 16px; margin-top: -19px; color: white"> <b>Standard Table</b> <br>120cmX60cm</div>
+                            </div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-left: -2px; margin-top: -15px;"><img src="assets/img/items/computer_table.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: 11px; margin-top: -15px;"> <b>Computer Table</b> <br>102cmX60cm</div>
+                            </div>
+                            </div>
+
                           </div>
                         </div>
 
@@ -87,6 +100,20 @@ require_once('partials/_head.php');
                               <div class="middle desc" style = "color:whitesmoke; margin-top: -20px; margin-left:-17px"> <b >Office Chair </b> <br>63cmX66cm</div>
                               </div>
                             </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-top: 20px; margin-left: -25px"><img src="assets/img/items/office_chair2.png" draggable="false"/>
+                              <div class="middle desc" style = "color:gray; margin-top: -20px; margin-left: 0px"> <b >Small Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-top: -30px; margin-left: -12px"><img src="assets/img/items/school_chair.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-top: -20px; margin-left:0px"> <b >School Chair <br> (Monoblock) </b> <br>42cmX47cm</div>
+                              </div>
+                            </div>
+
+                          
                           </div>
                         </div>
 
@@ -111,14 +138,14 @@ require_once('partials/_head.php');
                         </div>
                       </div> 
 
-                    <div class="col-6" id = "plane-container">
+                    <div class="col-md-6" id = "plane-container">
                       <div>
                         <p>5x5</p>
                       </div>
                     </div> 
 
-                    <div class ="col-2">
-                      <div class="dropzone element-trash" style = "text-align:center; font-size:smaller; position: absolute; height: 200px;"><b>DROP TO DELETE</b></div> 
+                    <div class ="col-md-2">
+                      <div class="dropzone element-trash" style = "text-align:center; font-size:smaller; position: absolute; height: 250px;"><b>DROP TO DELETE</b></div> 
                     </div>
 
               </div>
@@ -126,7 +153,7 @@ require_once('partials/_head.php');
             </div>
             <hr>
             <div class="form-row text-center">
-              <div class="col-md-12" style = "margin-bottom:25px; margin-left: -700px">
+              <div class="col-md-12" style = "margin-bottom:25px; margin-left: -500px">
                 <input type="submit" name="generate" value="Print" class="btn btn-success" value="">
               </div>
             </div>

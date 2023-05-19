@@ -14,18 +14,20 @@ p {
 
 #drag-container {
   border: 2px solid #0000; 
-  margin: 0; 
+  margin-left: 100px; 
   padding: 50px;
 }
 
 .form-container{
-  max-width: 200%;
+  position: relative; 
+  border: 1px solid #0000ff; 
 }
 
 .drag-element {
   position: absolute;
   top: 0px;
   left: 0px;
+  
 }
 
 .drag-element.dropped {
@@ -33,7 +35,7 @@ p {
 }
 
 .drag-element-source {
-  position: relative;
+  position: static;
   float: left;
   display: block;
 }
@@ -113,8 +115,8 @@ p {
   transition: background-color 0.3s;
 }
 .element-trash{
-margin-top: 377px;
-margin-left: 80px;
+margin-top: 298px;
+margin-left: 30px;
 color: white;
 background: maroon;
 width: 200px;
@@ -190,3 +192,4 @@ width: 200px;
   font-size: 12px;
   margin-bottom: -100px;
 }
+

@@ -104,8 +104,8 @@ p.caption {
 }
 </style>
   <!-- Header -->
-  <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="pb-9 pt-6 pt-md-9">
-    <span class="mask bg-gradient-dark opacity-8"></span>
+  <div style="background-image: url(assets/img/theme/background.jpg); background-size: cover;" class="pb-9 pt-6 pt-md-9">
+    <span class="mask bg-gradient-dark opacity-6"></span>
     <!-- Page content -->
     <div class="container-fluid">
       <!-- Table -->
@@ -126,8 +126,8 @@ p.caption {
       corresponding IP addresses in seconds.</p>
     </div>
     <div class="submit-btn-container">
-  <a href="generateplantestt.php">
-    <button type="submit" name="login" class="submit-btn">CREATE A LAYOUT</button>
+      <a href="generateplantestt.php">
+      <button type="submit" name="login" class="submit-btn">GENERATE A PLAN</button>
   </a>
 </div>
 

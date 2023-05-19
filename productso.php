@@ -49,20 +49,12 @@ if (isset($_POST['input'])){
                   <td>₱<?php echo $prod_price; ?></td>
   
                   <td>
-                    
-                        <a href="productso.php?delete=<?php echo $prod_id; ?>">
-                          <button class="btn btn-sm btn-danger">
-                            <i class="fas fa-trash"></i>
-                            Delete
-                          </button>
-                        </a>
-
-                        <a href="update_product.php?update=<?php echo $prod_id; ?>">
-                          <button class="btn btn-sm btn-primary">
-                            <i class="fas fa-user-edit"></i>
-                            Update
-                          </button>
-                        </a>
+                  <td>
+                      <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>">
+                        <i class="fas fa-cart-plus"></i>
+                        Add to Cart
+                      </button>
+                    </td>
                       </td>
 
               </tr>
@@ -87,3 +79,40 @@ if (isset($_POST['input'])){
 }
 require_once('partials/_head.php');
 ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Initialize total price
+    var totalPrice = 0;
+    
+    // Function to update the total price
+    function updateTotalPrice() {
+      $("#sum-prices").text("Total Price: ₱" + totalPrice.toFixed(2));
+    }
+    
+    // Add to Cart button click event
+    $(".add-to-cart").click(function() {
+      var price = parseFloat($(this).data("price"));
+      totalPrice += price;
+      updateTotalPrice();
+    });
+    
+    // Live search product keyup event
+    $("#live_search_product").keyup(function() {
+      var input = $(this).val();
+      
+      if (input !== "") {
+        $.ajax({
+          url: "productso.php",
+          method: "POST",
+          data: { input: input },
+          success: function(data) {
+            $("#table-data-product").html(data);
+          }
+        });
+      }
+    });
+  });
+</script>
+

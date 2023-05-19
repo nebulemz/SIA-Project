@@ -51,22 +51,18 @@ require_once('partials/_head.php');
           <div class="card-header border-0">
             <label> Products </label>
             <div class="shopping-cart" style="float: right; margin-right:auto;">
-                        <div class="sum-prices">
-                            <!--Shopping cart logo-->
-                            <i
-                                class="fas fa-shopping-cart shoppingCartButton"
-                            ></i>
-                            <!--The total prices of products in the shopping cart -->
-                            <h6 id="sum-prices"></h6>
-                        </div>
-                    </div>
+              <div class="sum-prices">
+                <!--Shopping cart logo-->
+                <i class="fas fa-shopping-cart shoppingCartButton"></i>
+                <!--The total prices of products in the shopping cart -->
+                <h6 id="sum-prices"></h6>
+              </div>
             </div>
-                <div class="col-md-12">
-                <input type="text" class="form-control" id="live_search_product" autocomplete="off" 
-                placeholder="Search">
-                <table class="table align-items-center table-flush" id="table-data-product">
+            
+            <div class="col-md-12">
+              <input type="text" class="form-control" id="live_search_product" autocomplete="off" placeholder="Search">
+              <table class="table align-items-center table-flush" id="table-data-product">
                 <thead class="thead-light">
-
                   <?php
                   $ret = "SELECT * FROM product";
                   $stmt = $mysqli->prepare($ret);
@@ -75,64 +71,83 @@ require_once('partials/_head.php');
                   ?>
                   <tr>
                     <th scope="col">Image</th>
-             
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
-        
                     <th scope="col">Action</th>
                   </tr>
-                  </thead>
-                  <tbody>
+                </thead>
+                <tbody>
                   <?php while ($row = mysqli_fetch_assoc($res)){
-
-                  $prod_id = $row['prod_id'];
-                  $prod_img = $row['prod_img'];
-            
-                  $prod_name = $row['prod_name'];
-                  $prod_price = $row['prod_price'];
-             
+                    $prod_id = $row['prod_id'];
+                    $prod_img = $row['prod_img'];
+                    $prod_name = $row['prod_name'];
+                    $prod_price = $row['prod_price'];
                   ?>
-
-                <tr>
-                <td> <?php
-                    if ($prod_img) {
-                      echo "<img src='assets/img/products/$prod_img' height='60' width='60 class='img-thumbnail'>";
-                    } else {
-                      echo "<img src='assets/img/products/default.jpg' height='60' width='60 class='img-thumbnail'>";
-                    }
-
-                    ?></td>
-                <td><?php echo $prod_name; ?></td>
-                <td>₱<?php echo $prod_price; ?></td>
-             
-                <td>
-                <a href="products.php?delete=<?php echo $prod_id;?>">
-                          <button class="btn btn-sm btn-danger">
-                            <i class="fas fa-trash"></i>
-                            Delete
-                          </button>
-                        </a>
-
-                        <a href="update_product.php?update=<?php echo $prod_id; ?>">
-                          <button class="btn btn-sm btn-primary">
-                            <i class="fas fa-user-edit"></i>
-                            Update
-                          </button>
-                        </a>
-                  </td>
-
-                </tr>
-                <?php
-                }
-                ?>
+                  <tr>
+                    <td>
+                      <?php
+                      if ($prod_img) {
+                        echo "<img src='assets/img/products/$prod_img' height='60' width='60 class='img-thumbnail'>";
+                      } else {
+                        echo "<img src='assets/img/products/default.jpg' height='60' width='60 class='img-thumbnail'>";
+                      }
+                      ?>
+                    </td>
+                    <td><?php echo $prod_name; ?></td>
+                    <td>₱<?php echo $prod_price; ?></td>
+                    <td>
+                      <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>">
+                        <i class="fas fa-cart-plus"></i>
+                        Add to Cart
+                      </button>
+                    </td>
+                  </tr>
+                  <?php } ?>
                 </tbody>
-            </table>
-              </div>
+              </table>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Initialize total price
+    var totalPrice = 0;
+    
+    // Function to update the total price
+    function updateTotalPrice() {
+      $("#sum-prices").text("Total Price: ₱" + totalPrice.toFixed(2));
+    }
+    
+    // Add to Cart button click event
+    $(".add-to-cart").click(function() {
+      var price = parseFloat($(this).data("price"));
+      totalPrice += price;
+      updateTotalPrice();
+    });
+    
+    // Live search product keyup event
+    $("#live_search_product").keyup(function() {
+      var input = $(this).val();
+      
+      if (input !== "") {
+        $.ajax({
+          url: "productso.php",
+          method: "POST",
+          data: { input: input },
+          success: function(data) {
+            $("#table-data-product").html(data);
+          }
+        });
+      }
+    });
+  });
+</script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript">    
@@ -156,7 +171,3 @@ require_once('partials/_head.php');
     });
 
 </script>
-    </body>
-    </html> 
-
-

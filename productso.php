@@ -47,8 +47,10 @@ if (isset($_POST['input'])){
           
                   <td><?php echo $prod_name; ?></td>
                   <td>₱<?php echo $prod_price; ?></td>
-  
-                  <td>
+                    <td>
+                          <input type="number" class="form-control quantity-input" min="1" value="1">
+                        </td>
+                  
                   <td>
                       <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>">
                         <i class="fas fa-cart-plus"></i>
@@ -83,36 +85,34 @@ require_once('partials/_head.php');
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
-    // Initialize total price
-    var totalPrice = 0;
-    
-    // Function to update the total price
-    function updateTotalPrice() {
-      $("#sum-prices").text("Total Price: ₱" + totalPrice.toFixed(2));
-    }
-    
-    // Add to Cart button click event
-    $(".add-to-cart").click(function() {
-      var price = parseFloat($(this).data("price"));
-      totalPrice += price;
-      updateTotalPrice();
-    });
-    
-    // Live search product keyup event
-    $("#live_search_product").keyup(function() {
-      var input = $(this).val();
-      
-      if (input !== "") {
-        $.ajax({
-          url: "productso.php",
-          method: "POST",
-          data: { input: input },
-          success: function(data) {
-            $("#table-data-product").html(data);
-          }
-        });
+// Add to Cart button click event
+$(".add-to-cart").click(function() {
+  var price = parseFloat($(this).data("price"));
+  var name = $(this).data("name");
+  var image = $(this).data("image");
+  var quantity = parseInt($(this).closest("tr").find(".quantity-input").val());
+
+  if (isNaN(quantity) || quantity <= 0) {
+    alert("Invalid quantity. Please enter a valid number greater than zero.");
+    return;
+  }
+
+  var item = {
+    name: name,
+    price: price,
+    image: image,
+    quantity: quantity
+  };
+
+  // Save cart data in session
+  $.ajax({
+    url: "cart.php?item=" + JSON.stringify(item), // Include the image in the item object
+    method: "GET",
+    success: function(response) {
+      alert("Item added to cart");
       }
     });
   });
+});
 </script>
 

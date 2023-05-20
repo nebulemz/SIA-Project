@@ -28,8 +28,6 @@ while ($admin = $res->fetch_object()) {
         echo "PRODUCTS";
 
     }
-
-      
       ?></a>
     <!-- Form -->
 

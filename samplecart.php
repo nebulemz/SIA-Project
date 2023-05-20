@@ -1,556 +1,168 @@
 <!DOCTYPE html>
+<html>
 <?php
 session_start();
 include('config/config.php');
 include('config/checklogin.php');
 
-check_login();
+// Delete product
+if (isset($_GET['delete'])) {
+  $id = $_GET['delete'];
+  $adn = "DELETE FROM product WHERE prod_id = ?";
+  $stmt = $mysqli->prepare($adn);
+  $stmt->bind_param('s', $id);
+  $stmt->execute();
+  $stmt->close();
+  if ($stmt) {
+    $success = "Deleted" && header("refresh:1; url=products.php");
+  } else {
+    $err = "Try Again Later";
+  }
+}
 require_once('partials/_head.php');
-
 ?>
-<html lang="sv">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link type="text/css" href="main.css" rel="stylesheet" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-            integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-            crossorigin="anonymous"
-        />
-        <script src="JS/jquery-3.5.1.min.js"></script>
-        <script src="JS/multislider.min.js"></script>
-        <title>Demo</title>
-    </head>
 
-    <body>
-        <!--Navbar-->
-        <nav>
-            <!--Navbar has two part the top one and the bottom one-->
-            <!--Here is top one and in this part I put logo, my account part, and the shopping cart-->
-            <div class="navbar-top">
-                <div>
-                    <button id="menuButton"><i class="fas fa-bars"></i></button>
-                    <!--Logo-->
-                    <a href="index.html">
-                        <h2 class="logo">LOGO</h2>
-                    </a>
-                </div>
-                <div>
-                    <!--My account part-->
-                    <div class="account">
-                        <a href="index.html">
-                            <button class="account-btn">
-                                <i class="fas fa-user-alt"></i>
-                            </button>
-                            <span class="account-text">My account</span>
-                        </a>
-                        <!--When we click the btnShowAccountInfo this section will be displayed-->
-                    </div>
-                    <!--Shopping cart-->
-                    <div class="shopping-cart">
-                        <div class="sum-prices">
-                            <!--Shopping cart logo-->
-                            <i
-                                class="fas fa-shopping-cart shoppingCartButton"
-                            ></i>
-                            <!--The total prices of products in the shopping cart -->
-                            <h6 id="sum-prices"></h6>
-                        </div>
-                    </div>
-                </div>
+<body>
+  <!-- Sidenav -->
+  <?php require_once('partials/_sidebar.php'); ?>
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+    <?php require_once('partials/_topnav.php'); ?>
+    <!-- Header -->
+    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
+      <span class="mask bg-gradient-dark opacity-8"></span>
+      <div class="container-fluid">
+        <div class="header-body"></div>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-fluid mt--8">
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <label> Products </label>
+              <div class="col-md-12">
+                <input type="text" class="form-control" id="live_search_product" autocomplete="off" placeholder="Search">
+                <table class="table align-items-center table-flush" id="table-data-product">
+                  <thead class="thead-light">
+                    <?php
+                    $ret = "SELECT * FROM product";
+                    $stmt = $mysqli->prepare($ret);
+                    $stmt->execute();
+                    $res = $stmt->get_result();
+                    ?>
+                    <tr>
+                      <th scope="col">Image</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php while ($row = mysqli_fetch_assoc($res)) {
+                      $prod_id = $row['prod_id'];
+                      $prod_img = $row['prod_img'];
+                      $prod_name = $row['prod_name'];
+                      $prod_price = $row['prod_price'];
+                    ?>
+                      <tr>
+                        <td>
+                          <?php if ($prod_img) {
+                            echo "<img src='assets/img/products/$prod_img' height='60' width='60' class='img-thumbnail'>";
+                          } else {
+                            echo "<img src='assets/img/products/default.jpg' height='60' width='60' class='img-thumbnail'>";
+                          } ?>
+                        </td>
+                        <td><?php echo $prod_name; ?></td>
+                        <td>₱<?php echo $prod_price; ?></td>
+                        <td>
+                          <input type="number" class="form-control quantity-input" min="1" value="1">
+                        </td>
+                        <td>
+                          <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>" data-name="<?php echo $prod_name; ?>">
+                            <i class="fas fa-cart-plus"></i>
+                            Add to Cart
+                          </button>
+                        </td>
+                      </tr>
+                    <?php } ?>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <!-- Navbar bottom part -->
-            <!-- Here I put the links to the other pages or nav links -->
-            <div class="navbar" id="navbar">
-                <div class="links">
-                    <ul>
-                        <li class="nav-links">
-                            <a href="mobil.html" class="link">PC</a>
-                        </li>
-                        <li class="nav-links">
-                            <a href="mobil.html" class="link">Mobile</a>
-                        </li>
-                        <li class="nav-links">
-                            <a href="mobil.html" class="link">Gaming</a>
-                        </li>
-                        <li class="nav-links">
-                            <a href="mobil.html" class="link">Camera</a>
-                        </li>
-                        <li class="nav-links">
-                            <a href="#" class="link">Sound</a>
-                        </li>
-                        <li class="nav-links">
-                            <a href="#" class="link">About</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- The searchbar which will be in the right side of the links -->
-                <div class="searchbar">
-                    <form action="#">
-                        <input type="search" placeholder="Sök efter produkte" />
-                        <i class="fa fa-search" id="search-icon"></i>
-                    </form>
-                </div>
-            </div>
-            <div class="producstOnCart hide">
-                <div class="overlay"></div>
-                <div class="top">
-                    <button id="closeButton">
-                        <i class="fas fa-times-circle"></i>
-                    </button>
-                    <h3>Cart</h3>
-                </div>
-                <ul id="buyItems">
-                    <h4 class="empty">Your shopping cart is empty</h4>
-                    <!-- <li class="buyItem">
-						<img src="Images/producs-images/Mobiles/galaxynote10.png">
-						<div>
-							<h5>Products Name</h5>
-							<h6>$199</h6>
-							<div>
-								<button>-</button>
-								<span class="countOfProduct">1</span>
-								<button>+</button>
-							</div>
-						</div>
-					</li> -->
-                </ul>
-                <button class="btn checkout hidden">Check out</button>
-            </div>
-        </nav>
-        <header id="hearderSlide">
-            <div class="MS-content">
-                <a href="detail_page.html" class="item">
-                    <img src="Images/Other/slide1.jpg" />
-                </a>
-                <a href="#" class="item">
-                    <img src="Images/Other/slide2.jpg" />
-                </a>
-                <a href="detail_page.html" class="item">
-                    <img src="Images/Other/slide3.jpg" />
-                </a>
-                <a href="detail_page.html" class="item">
-                    <img src="Images/Other/Iphone 12.png" />
-                </a>
-                <a href="detail_page.html" class="item">
-                    <img src="Images/Other/slide5.jpg" />
-                </a>
-            </div>
-            <div class="MS-controls">
-                <button class="MS-right">
-                    <i class="fas fa-chevron-right fa-3x"></i>
-                </button>
-                <button class="MS-left">
-                    <i class="fas fa-chevron-left fa-3x"></i>
-                </button>
-            </div>
-        </header>
-        <main>
-            <section class="main-section">
-                <div class="product-container">
-                    <h3>popular laptops</h3>
-                    <div class="products">
-                        <div class="product">
-                            <div class="product-under">
-                                <figure class="product-image">
-                                    <img
-                                        src="Images/producs-images/Laptops/laptop-1.png"
-                                        alt="popular labtops and computers"
-                                    />
-                                    <div class="product-over">
-                                        <button
-                                            class="btn btn-small addToCart"
-                                            data-product-id="1"
-                                        >
-                                            <i class="fas fa-cart-plus"></i>Add
-                                            to cart
-                                        </button>
-                                        <a
-                                            href="detail_page.html"
-                                            class="btn btn-small"
-                                            >More Info</a
-                                        >
-                                    </div>
-                                </figure>
-                                <div class="product-summary">
-                                    <h4 class="productName">Product 1</h4>
-                                    <span class="stars"></span>
-                                    <p>
-                                        luctus quis et est. Integer pretium
-                                        purus
-                                    </p>
-                                    <h6 class="price">
-                                        $<span class="priceValue">999</span>
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="product-under">
-                                <figure class="product-image">
-                                    <img
-                                        src="Images/producs-images/Laptops/laptop-2.png"
-                                        alt="popular labtops and computers"
-                                    />
-                                    <div class="product-over">
-                                        <button
-                                            class="btn btn-small addToCart"
-                                            data-product-id="2"
-                                        >
-                                            <i class="fas fa-cart-plus"></i>Add
-                                            to cart
-                                        </button>
-                                        <a
-                                            href="detail_page.html"
-                                            class="btn btn-small"
-                                            >More Info</a
-                                        >
-                                    </div>
-                                </figure>
-                                <div class="product-summary">
-                                    <h4 class="productName">Product 2</h4>
-                                    <span class="stars"></span>
-                                    <p>
-                                        luctus quis et est. Integer pretium
-                                        purus
-                                    </p>
-                                    <h6 class="price">
-                                        $<span class="priceValue">599</span>
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="product-under">
-                                <figure class="product-image">
-                                    <img
-                                        src="Images/producs-images/Laptops/laptop-3.png"
-                                        alt="popular labtops and computers"
-                                    />
-                                    <div class="product-over">
-                                        <button
-                                            class="btn btn-small addToCart"
-                                            data-product-id="3"
-                                        >
-                                            <i class="fas fa-cart-plus"></i>Add
-                                            to cart
-                                        </button>
-                                        <a
-                                            href="detail_page.html"
-                                            class="btn btn-small"
-                                            >More Info</a
-                                        >
-                                    </div>
-                                </figure>
-                                <div class="product-summary">
-                                    <h4 class="productName">Product 3</h4>
-                                    <span class="stars"></span>
-                                    <p>
-                                        luctus quis et est. Integer pretium
-                                        purus
-                                    </p>
-                                    <h6 class="price">
-                                        $<span class="priceValue">650</span>
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="product-under">
-                                <figure class="product-image">
-                                    <img
-                                        src="Images/producs-images/Laptops/laptop-4.png"
-                                        alt="popular labtops and computers"
-                                    />
-                                    <div class="product-over">
-                                        <button
-                                            class="btn btn-small addToCart"
-                                            data-product-id="4"
-                                        >
-                                            <i class="fas fa-cart-plus"></i>Add
-                                            to cart
-                                        </button>
-                                        <a
-                                            href="detail_page.html"
-                                            class="btn btn-small"
-                                            >More Info</a
-                                        >
-                                    </div>
-                                </figure>
-                                <div class="product-summary">
-                                    <h4 class="productName">Product 4</h4>
-                                    <span class="stars"></span>
-                                    <p>
-                                        luctus quis et est. Integer pretium
-                                        purus
-                                    </p>
-                                    <h6 class="price">
-                                        $<span class="priceValue">899</span>
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="main-section">
-                <div class="pop-mobiles">
-                    <div class="pop-mobiles-1">
-                        <figure>
-                            <img
-                                src="Images/producs-images/Mobiles/new_iphone.png"
-                            />
-                        </figure>
-                        <div>
-                            <h2>New Iphone</h2>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Veniam eius ut labore
-                                repudiandae.
-                            </p>
-                            <h4>$1099</h4>
-                            <a href="detail_page.html" class="btn"
-                                >Buy now<i class="fas fa-angle-right"></i
-                            ></a>
-                        </div>
-                    </div>
-                    <h3>Popular mobiles</h3>
-                    <div class="pop-mobiles-2">
-                        <ul class="products">
-                            <li class="product">
-                                <div class="product-under">
-                                    <figure class="product-image">
-                                        <img
-                                            src="Images/producs-images/Mobiles/galaxynote10.png"
-                                            alt="popular mobiles"
-                                        />
-                                        <div class="product-over">
-                                            <button
-                                                class="btn btn-small addToCart"
-                                                data-product-id="5"
-                                            >
-                                                <i class="fas fa-cart-plus"></i
-                                                >Add to cart
-                                            </button>
-                                            <a
-                                                href="detail_page.html"
-                                                class="btn btn-small"
-                                                >More Info</a
-                                            >
-                                        </div>
-                                    </figure>
-                                    <div class="product-summary">
-                                        <h4 class="productName">Product 5</h4>
-                                        <span class="stars"></span>
-                                        <h4 class="price">
-                                            $<span class="priceValue"
-                                                >1099</span
-                                            >
-                                        </h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product">
-                                <div class="product-under">
-                                    <figure class="product-image">
-                                        <img
-                                            src="Images/producs-images/Mobiles/mobile-3.png"
-                                            alt="popular mobiles"
-                                        />
-                                        <div class="product-over">
-                                            <button
-                                                class="btn btn-small addToCart"
-                                                data-product-id="6"
-                                            >
-                                                <i class="fas fa-cart-plus"></i
-                                                >Add to cart
-                                            </button>
-                                            <a
-                                                href="detail_page.html"
-                                                class="btn btn-small"
-                                                >More Info</a
-                                            >
-                                        </div>
-                                    </figure>
-                                    <div class="product-summary">
-                                        <h4 class="productName">Product 6</h4>
-                                        <span class="stars"></span>
-                                        <h4 class="price">
-                                            $<span class="priceValue">999</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product">
-                                <div class="product-under">
-                                    <figure class="product-image">
-                                        <img
-                                            src="Images/producs-images/Mobiles/galaxy s.png"
-                                            alt="popular mobiles"
-                                        />
-                                        <div class="product-over">
-                                            <button
-                                                class="btn btn-small addToCart"
-                                                data-product-id="7"
-                                            >
-                                                <i class="fas fa-cart-plus"></i
-                                                >Add to cart
-                                            </button>
-                                            <a
-                                                href="detail_page.html"
-                                                class="btn btn-small"
-                                                >More Info</a
-                                            >
-                                        </div>
-                                    </figure>
-                                    <div class="product-summary">
-                                        <h4 class="productName">Product 7</h4>
-                                        <span class="stars"></span>
-                                        <h4 class="price">
-                                            $<span class="priceValue">800</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product">
-                                <div class="product-under">
-                                    <figure class="product-image">
-                                        <img
-                                            src="Images/producs-images/Mobiles/mobile-2.png"
-                                            alt="popular mobiles"
-                                        />
-                                        <div class="product-over">
-                                            <button
-                                                class="btn btn-small addToCart"
-                                                data-product-id="8"
-                                            >
-                                                <i class="fas fa-cart-plus"></i
-                                                >Add to cart
-                                            </button>
-                                            <a
-                                                href="detail_page.html"
-                                                class="btn btn-small"
-                                                >More Info</a
-                                            >
-                                        </div>
-                                    </figure>
-                                    <div class="product-summary">
-                                        <h4 class="productName">Product 8</h4>
-                                        <span class="stars"></span>
-                                        <h4 class="price">
-                                            $<span class="priceValue">599</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product">
-                                <div class="product-under">
-                                    <figure class="product-image">
-                                        <img
-                                            src="Images/producs-images/Mobiles/mobile.1.png"
-                                            alt="popular mobiles"
-                                        />
-                                        <div class="product-over">
-                                            <button
-                                                class="btn btn-small addToCart"
-                                                data-product-id="9"
-                                            >
-                                                <i class="fas fa-cart-plus"></i
-                                                >Add to cart
-                                            </button>
-                                            <a
-                                                href="detail_page.html"
-                                                class="btn btn-small"
-                                                >More Info</a
-                                            >
-                                        </div>
-                                    </figure>
-                                    <div class="product-summary">
-                                        <h4 class="productName">Product 9</h4>
-                                        <span class="stars"></span>
-                                        <h4 class="price">
-                                            $<span class="priceValue">850</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="product">
-                                <div class="product-under">
-                                    <figure class="product-image">
-                                        <img
-                                            src="Images/producs-images/Mobiles/mobile-3.png"
-                                            alt="popular mobiles"
-                                        />
-                                        <div class="product-over">
-                                            <button
-                                                class="btn btn-small addToCart"
-                                                data-product-id="10"
-                                            >
-                                                <i class="fas fa-cart-plus"></i
-                                                >Add to cart
-                                            </button>
-                                            <a
-                                                href="detail_page.html"
-                                                class="btn btn-small"
-                                                >More Info</a
-                                            >
-                                        </div>
-                                    </figure>
-                                    <div class="product-summary">
-                                        <h4 class="productName">Product 10</h4>
-                                        <span class="stars"></span>
-                                        <h4 class="price">
-                                            $<span class="priceValue">769</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <div class="footer-second">
-                <div class="footer-column-1">
-                    <h3>News</h3>
-                    <a href="#"></a>
-                    <a href="#">Lorem ipsum</a>
-                    <a href="#">dolor sit</a>
-                </div>
-                <div class="footer-column-2">
-                    <h3>Customer service</h3>
-                    <a href="#">Contact</a>
-                    <a href="#">Track your order</a>
-                    <a href="#">terms of purchase</a>
-                    <a href="#">common questions</a>
-                </div>
-                <div class="footer-column-3">
-                    <h3>About us</h3>
-                    <a href="#">Who we are</a>
-                    <a href="#">Our Services</a>
-                    <a href="#">Events</a>
-                    <a href="#">Data protection</a>
-                </div>
-            </div>
-            <ul class="footer-last">
-                <li>
-                    <p><i class="fab fa-cc-mastercard"></i></p>
-                </li>
-                <li>
-                    <p><i class="fab fa-cc-paypal"></i></p>
-                </li>
-                <li>
-                    <p><i class="fab fa-cc-visa"></i></p>
-                </li>
-                <li>
-                    <p><i class="fab fa-cc-amex"></i></p>
-                </li>
-            </ul>
-        </footer>
-        <script src="JS/script.js"></script>
-        <script src="JS/shopping-cart.js"></script>
-    </body>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Function to redirect to cart page
+    function redirectToCart() {
+      window.location.href = "cart.php";
+    }
+
+    // Add to Cart button click event
+    $(".add-to-cart").click(function() {
+      var price = parseFloat($(this).data("price"));
+      var name = $(this).data("name");
+      var quantity = parseInt($(this).closest("tr").find(".quantity-input").val());
+
+      if (isNaN(quantity) || quantity <= 0) {
+        alert("Invalid quantity. Please enter a valid number greater than zero.");
+        return;
+      }
+
+      var item = {
+        name: name,
+        price: price,
+        quantity: quantity
+      };
+
+      // Store the item in session storage
+      var items = sessionStorage.getItem("cartItems");
+      if (items) {
+        items = JSON.parse(items);
+      } else {
+        items = [];
+      }
+      items.push(item);
+      sessionStorage.setItem("cartItems", JSON.stringify(items));
+
+      alert("Item added to cart successfully!");
+    });
+
+    // Shopping Cart button click event
+    $(".shoppingCartButton").click(function() {
+      redirectToCart();
+    });
+
+    // Live search product keyup event
+    $("#live_search_product").keyup(function() {
+      var input = $(this).val();
+
+      if (input !== "") {
+        $.ajax({
+          url: "productso.php",
+          method: "POST",
+          data: {
+            input: input
+          },
+          success: function(data) {
+            $("#table-data-product").html(data);
+          }
+        });
+      }
+    });
+  });
+</script>
+
 </html>

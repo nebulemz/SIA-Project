@@ -409,18 +409,17 @@ body.dark .home .text {
           </li>         
           <li class="">
             <a href="products.php">
-              <i class='bx bxs-cart-add icon'></i>
+              <i class='bx bxs-cart icon'></i>
               <span class="text nav-text">Products</span>
             </a>
           </li>
-
           <li class="">
-            <a href="samplecart.php">
-              <i class='bx bxs-cart icon'></i>
-              <span class="text nav-text">Products Sample</span>
+            <a href="cart.php">
+              <i class='bx bxs-cart-add icon'></i>
+              <span class="text nav-text">Cart</span>
             </a>
           </li>
-
+          
           
           <li class="">
             <a href="forum.php">

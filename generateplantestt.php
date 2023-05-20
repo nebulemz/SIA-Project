@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <span id="netInstitutionError" style="color: red;"></span>
                 </div>
                 <div class="col-md-6">
-                <label>You can create your own!</label><br><a href = makeplan.php>
+                <label>You can create your own!</label><br><a href = makeplan5x5.php>
                 <input type="" value="Create Own Layout" class="btn btn-success" value=""></a>
                 </div>
             </div>

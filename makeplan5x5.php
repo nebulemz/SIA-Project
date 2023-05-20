@@ -46,13 +46,13 @@ require_once('partials/_head.php');
                           <div class="content" id = "scroll-box" style = "display:none">
                             <div class="drag-element-source drag-element">
                               <div class="rect" style = "margin-bottom: 110px;"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                                <div class="middle desc" style = "padding-left: 130px; padding-top: 100px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
+                                <div class="middle desc" style = "padding-left: 110px; padding-top: 90px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
                               </div>
                             </div>
                 
                             <div class="drag-element-source drag-element">
-                              <div class="rect" style = "margin-left: -7px"><img src="assets/img/items/U-shaped_cubicle.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left:60px; margin-top: 80px"> <b>U-shape Cubicle </b> <br>260cmX185cm</div>
+                              <div class="rect" style = "margin-left: 2px"><img src="assets/img/items/U-shaped_cubicle.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left:45px; margin-top: 80px"> <b>U-shape Cubicle </b> <br>260cmX185cm</div>
                             </div>
                             </div>
                         </div>
@@ -68,25 +68,31 @@ require_once('partials/_head.php');
 
                             <div class="drag-element-source drag-element">
                               <div class="rect" style = "margin-top: 70px; margin-left: -3px"><img src="assets/img/items/U-table.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 55px; margin-top: 30px"> <b>U-shaped Table </b> <br>196cmX155cm</div>
+                              <div class="middle desc" style = "margin-left: 55px; margin-top: 30px"> <b>U-shaped Table </b> <br>195cmX155cm</div>
                             </div>
                             </div>
 
                             <div class="drag-element-source drag-element">
-                              <div class="rect" style = "margin-top: 80px; margin-left:-3px;"><img src="assets/img/items/office_table_chair.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 45px; margin-top: 35px"> <b>Office Table w/ Chair </b> <br>162cmX112cm</div>
-                            </div>
-                            </div>
-
-                            <div class="drag-element-source drag-element">
-                              <div class="rect" style = "margin-top: 50px; margin-left:2px;"><img src="assets/img/items/table_standard.png" draggable="false"/>
+                              <div class="rect" style = "margin-top: 90px; margin-left:2px;"><img src="assets/img/items/table_standard.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: 16px; margin-top: -19px; color: white"> <b>Standard Table</b> <br>120cmX60cm</div>
                             </div>
                             </div>
 
                             <div class="drag-element-source drag-element">
-                              <div class="rect" style = "margin-left: -2px; margin-top: -15px;"><img src="assets/img/items/computer_table.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 11px; margin-top: -15px;"> <b>Computer Table</b> <br>102cmX60cm</div>
+                              <div class="rect" style = "margin-left: -4px; margin-top: -15px;"><img src="assets/img/items/computer_desk.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: 11px; margin-top: -15px;"> <b>Computer Desk</b> <br>100cmX60cm</div>
+                            </div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-left: 6px; margin-top: -15px;"><img src="assets/img/items/computer_table.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: -8px; margin-top: -28px;"> <b>Computer Table</b> <br>80cmX55cm</div>
+                            </div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-left: 9px; margin-top: -25px;"><img src="assets/img/items/workstation.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: 18px; margin-top: -28px;"> <b>Workstation</b> <br>140cmX60cm</div>
                             </div>
                             </div>
 
@@ -94,7 +100,7 @@ require_once('partials/_head.php');
                         </div>
 
                         <div><button class="collapsible"><b>Chairs</b></button> 
-                          <div class="content" id = "scroll-box" style = "display:none">
+                          <div class="content" id = "scroll-box" style = "display:none; height:200px">
                             <div class="drag-element-source drag-element">
                               <div class="rect" style = "margin-top: 20px; margin-left: 8px"><img src="assets/img/items/office_chair.png" draggable="false"/>
                               <div class="middle desc" style = "color:whitesmoke; margin-top: -20px; margin-left:-17px"> <b >Office Chair </b> <br>63cmX66cm</div>
@@ -118,28 +124,73 @@ require_once('partials/_head.php');
                         </div>
 
                         <div><button class="collapsible"><b>Network Equipments</b></button> 
-                          <div class="content" id = "scroll-box" style = "display:none">
+                          <div class="content" id = "scroll-box" style = "display:none; height:200px">
                             <div class="drag-element-source drag-element">
                               <div class="rect" style = "margin-top: 20px;"><img src="assets/img/items/computer.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -5px; margin-top: -20px"> <b>Computer </b> <br>60cmX43cm</div>
                               </div>
                             </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-top: -25px;"><img src="assets/img/items/switch.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: -30px; padding-left: 100px; margin-top: -27px"> <b>Switch </b> </div>
+                              </div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-top: -60px; margin-left: -3px;"><img src="assets/img/items/router.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: -30px; padding-left: 100px; margin-top: -27px"> <b>Router </b></div>
+                              </div>
+                            </div>
+
                           </div>
                         </div>
 
                         <div><button class="collapsible"><b>Others</b></button> 
-                          <div class="content" id = "scroll-box" style = "display:none">
+                          <div class="content" id = "scroll-box" style = "display:none;">
                             <div class="drag-element-source drag-element">
                               <div class="rect" style = "margin-left: 15px; margin-top: 20px;"><img src="assets/img/items/door.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -15px; margin-top: -18px"> <b>Door </b> <br>68cmX68cm</div>
                               </div>
                             </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-left: 0px; margin-top: -10px;"><img src="assets/img/items/cabinet.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: -20px; margin-top: -18px"> <b>File Cabinet</b> <br>43cmX52cm</div>
+                              </div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-left: 0px; margin-top: -10px;"><img src="assets/img/items/cabinet2.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: -4px; margin-top: -27px"> <b>Cupboard </b> <br>80cmX35cm</div>
+                              </div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-left: -15px; margin-top: -30px;"><img src="assets/img/items/cabinet3.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: 20px; margin-top: -18px; color:white"> <b> File Cabinet </b> <br>99cmX56cm</div>
+                              </div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-left: 0px; margin-top: -10px;"><img src="assets/img/items/cabinet4.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: 15px; margin-top: -20px"> <b>Office Cabinet </b> <br>117cmX53cm</div>
+                              </div>
+                            </div>
+
+                            <div class="drag-element-source drag-element">
+                              <div class="rect" style = "margin-left: 0px; margin-top: -20px;"><img src="assets/img/items/cabinet5.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left:43px; margin-top: -20px"> <b>Cabinet </b> <br>160cmX45cm</div>
+                              </div>
+                            </div>
+
+
                           </div>
                         </div>
                       </div> 
 
-                    <div class="col-md-6" id = "plane-container">
-                      <div>
+                    <div class="col-md-6">
+                      <div id = "plane-container">
                         <p>5x5</p>
                       </div>
                     </div> 

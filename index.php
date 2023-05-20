@@ -70,6 +70,7 @@ require_once('partials/_head.php');
                 </div>
                 <div class="text-center">
                   <button type="submit" name="login" class="btn btn-primary my-4">Log In</button>
+                  <button type="submit" name="login" class="btn btn-info my-4">Sign-Up</button>
                 </div>
               </form>
 

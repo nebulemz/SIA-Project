@@ -428,7 +428,12 @@ body.dark .home .text {
             </a>
           </li>
 
-
+          <li class="">
+            <a href="testforum.php">
+              <i class='bx bxs-chat icon'></i>
+              <span class="text nav-text">Test Forum</span>
+            </a>
+          </li>
 
           <li class="">
             <a href="logout.php">

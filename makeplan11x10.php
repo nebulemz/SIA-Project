@@ -36,11 +36,11 @@ require_once('partials/_head.php');
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-6">
-              <h3>Customize your Layout: 5x5 Dimension</h3>
+              <h3>Customize your Layout: 11x10 Dimension</h3>
             </div>
             <div id = "form-container">
               <div class="row">
-                     <div class="col-md-4" style = "padding-right: 150px; padding-left: 30px;" > <b style = "margin-top: 10px;"> ITEMS: </b>
+                     <div class="col-md-4" style = "padding-right: 200px; padding-left: 30px;" > <b style = "margin-top: 10px;"> ITEMS: </b>
                         <div><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none">
                             <div class="drag-element-source drag-element">
@@ -107,7 +107,7 @@ require_once('partials/_head.php');
                             </div>
 
                             <div class="drag-element-source drag-element">
-                              <div class="rect" style = "margin-top: 20px; margin-left: -35px"><img src="assets/img/items/office_chair2.png" draggable="false"/>
+                              <div class="rect" style = "margin-top: 0px; "><img src="assets/img/items/office_chair2.png" draggable="false"/>
                               <div class="middle desc" style = "color:gray; margin-top: -20px; margin-left: 0px"> <b >Small Office Chair </b> <br>53cmX57cm</div>
                               </div>
                             </div>
@@ -189,13 +189,13 @@ require_once('partials/_head.php');
                       </div> 
 
                     <div class="col-md-6">
-                      <div id = "plane-container" style = "height: 143mm; width: 143mm;">
-                        <p>5x5</p>
+                      <div id = "plane-container" style = "height: 311mm; width: 283mm; margin-left: -270px;">
+                        <p>11x10</p>
                       </div>
                     </div> 
 
-                    <div class ="col-md-2">
-                      <div class="dropzone element-trash" style = "text-align:center; font-size:smaller; position: absolute; height: 260px;"><b>DROP TO DELETE</b></div> 
+                    <div class ="col-md-2" style = "margin-top:100px">
+                      <div class="dropzone element-trash" style = "text-align:center; font-size:smaller; position: absolute; height: 560px;"><b>DROP TO DELETE</b></div> 
                     </div>
 
               </div>

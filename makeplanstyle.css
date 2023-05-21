@@ -19,8 +19,9 @@ p {
 }
 
 .form-container{
-  position: relative; 
   border: 1px solid #0000ff; 
+  padding-top: 400px;
+
 }
 
 .drag-element {
@@ -70,8 +71,6 @@ p {
   border-style: solid;
   border-color: black;
   border-width: 5px;
-  height: 140mm;
-  width: 140mm;
   border-radius: 5px;
   transition: transform 0.5s;
 

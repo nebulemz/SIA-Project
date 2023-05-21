@@ -104,27 +104,34 @@ p.caption {
 }
 </style>
   <!-- Header -->
-  <div style="background-image: url(assets/img/theme/background.jpg); background-size: cover;" class="pb-9 pt-6 pt-md-9">
+  <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="pb-9 pt-6 pt-md-9">
     <span class="mask bg-gradient-dark opacity-6"></span>
     <!-- Page content -->
     <div class="container-fluid">
       <!-- Table -->
       <div class="row">
-        <div class="col">
+        <div class="col-4">
               <div class="card-body">
               </div>
         </div>
       </div>
-  <div class= "form-container">
+      <div class = "row">
+        <div class= "form-container col-6">
     
-      <p style="font-size: 80px;" class= "text">Visualize Your Network, <br> Optimize Your Performance</p>
-    </div>
-    <div class= "form-container-2">
-      <p style="font-size: 22px;" class= "caption" >
-      Revamp your network layout with ease: <br>
-      Generate a network floor plan and <br>
-      corresponding IP addresses in seconds.</p>
-    </div>
+          <p style="font-size: 80px;" class= "text">Visualize Your Network, <br> Optimize Your Performance</p>
+            <div class= "form-container" style = "margin-left: 105px">
+              <p style="font-size: 22px;" class= "caption" >
+                Revamp your network layout with ease: <br>
+                Generate a network floor plan and <br>
+                corresponding IP addresses in seconds.</p>
+            </div>
+        </div>
+
+        <div class= "form-container col-4">
+        <img src="assets/img/brand/networkit logo 3.png" style = "height: 130mm; width:143mm; border-radius:5px; margin-left:80px;"/>
+        </div>
+      </div>
+
     <div class="submit-btn-container">
       <a href="generateplantestt.php">
       <button type="submit" name="login" class="submit-btn">GENERATE A PLAN</button>
@@ -143,5 +150,6 @@ p.caption {
   require_once('partials/_scripts.php');
   ?>
 </body>
+
 
 </html>

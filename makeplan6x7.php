@@ -36,7 +36,7 @@ require_once('partials/_head.php');
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-6">
-              <h3>Customize your Layout: 5x5 Dimension</h3>
+              <h3>Customize your Layout: 6x7 Dimension</h3>
             </div>
             <div id = "form-container">
               <div class="row">
@@ -189,12 +189,12 @@ require_once('partials/_head.php');
                       </div> 
 
                     <div class="col-md-6">
-                      <div id = "plane-container" style = "height: 143mm; width: 143mm;">
-                        <p>5x5</p>
+                      <div id = "plane-container" style = "height: 171mm; width: 199mm; margin-left: -100px;" >
+                        <p>6x7</p>
                       </div>
                     </div> 
 
-                    <div class ="col-md-2">
+                    <div class ="col-md-2" style = "margin-top:106px">
                       <div class="dropzone element-trash" style = "text-align:center; font-size:smaller; position: absolute; height: 260px;"><b>DROP TO DELETE</b></div> 
                     </div>
 

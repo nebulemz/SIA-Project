@@ -21,7 +21,7 @@ require_once('partials/_head.php');
     require_once('partials/_topnav.php');
     ?>
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
+    <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
     <span class="mask bg-gradient-dark opacity-8"></span>
       <div class="container-fluid">
         <div class="header-body">
@@ -38,7 +38,6 @@ require_once('partials/_head.php');
               <h3>Please Select Institution</h3>
             </div>
             <div class="card-body">
-            <hr>
             <div class="form-row">
             <div class="col-md-6"><div class="text-center">
                 <label>Predict Cost for School</label><br><a href = predictschool.php>

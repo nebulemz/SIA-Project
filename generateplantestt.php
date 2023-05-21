@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once('partials/_topnav.php');
     ?>
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
+    <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
     <span class="mask bg-gradient-dark opacity-8"></span>
       <div class="container-fluid">
         <div class="header-body">
@@ -59,32 +59,79 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              
               </div>
               <div class="col-md-6">
-                <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
-                <input type="text" name="width" class="form-control" id="width" value="">
+
+              <label>You can create your own!</label><br>
+                <select id="Opt" class="form-control" style="font-size: 15px;">
+                <option value="5x5">5x5</option>
+                <option value="5x6">5x6</option>
+                <option value="5x7">5x7</option>
+                <option value="5x8">5x8</option>
+                <option value="5x9">5x9</option>
+                <option value="5x10">5x10</option>
+                <option value=""></option>
+
+                <option value="6x6">6x6</option>
+                <option value="6x7">6x7</option>
+                <option value="6x8">6x8</option>
+                <option value="6x9">6x9</option>
+                <option value="6x10">6x10</option>
+
+                <option value=""></option>
+                <option value="7x7">7x7</option>
+                <option value="7x8">7x8</option>
+                <option value="7x9">7x9</option>
+                <option value="7x10">7x10</option>
+
+                <option value=""></option>
+                <option value="8x8">8x8</option>
+                <option value="8x9">8x9</option>
+                <option value="8x10">8x10</option>
+
+                <option value=""></option>
+                <option value="9x9">9x9</option>
+                <option value="9x10">9x10</option>
+                <option value="10x10">10x10</option>
+
+                <option value=""></option>
+                <option value="11x5">11x5</option>
+                <option value="11x6">11x6</option>
+                <option value="11x7">11x7</option>
+                <option value="11x8">11x8</option>
+                <option value="11x9">11x9</option>
+                <option value="11x10">11x10</option>
+
+                </select>
                 
               </div>
             </div>
-            <hr>
             <div class="form-row">
-              <div class="col-md-6">
-              <label for="net_institution">Institution</label>
-              <select id="net_institution" name="net_institution" class="form-control">
+              <div class="col-md-6" style="margin-top:10px;">
+              <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
+              <input type="text" name="width" class="form-control" id="width" value="">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6" style="margin-top:10px;">
+                <label for="net_institution">Institution</label>
+                <select id="net_institution" name="net_institution" class="form-control">
                 <option value="">-- Select --</option>
                 <option value="Office">Office</option>
                 <option value="School">School</option>
-              </select>
+                </select>
               <span id="netInstitutionError" style="color: red;"></span>
-                </div>
-                <div class="col-md-6">
-                <label>You can create your own!</label><br><a href = makeplan5x5.php>
-                <input type="" value="Create Own Layout" class="btn btn-success" value=""></a>
+
                 </div>
             </div>
             <hr>
-            <div class="form-row text-center">
-              <div class="col-md-12">
+            <div class="form-row text-left">
+              <div class="col-md-6">
                 <input type="submit" name="generate" value="Generate" class="btn btn-success" value="">
               </div>
+
+              <div class="col-md-6">
+                <input type="button" value="Create Own Layout" class="btn btn-success" id = "but"></a>
+              </div>
+
             </div>
             
             <input type="hidden" name="input" value="<?php echo $input; ?>">
@@ -144,4 +191,72 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     return true;
   }
 </script>
+
+<script>
+$('#but').click(function(e){
+  var choice = $("#Opt").val();
+  if(choice == '5x5')
+    location.href = "makeplan5x5.php";
+  else if (choice == '5x6')
+    location.href = "makeplan5x6.php"
+  else if (choice == '5x7')
+    location.href = "makeplan5x7.php"
+  else if (choice == '5x8')
+    location.href = "makeplan5x8.php"
+  else if (choice == '5x9')
+    location.href = "makeplan5x9.php"
+  else if (choice == '5x10')
+    location.href = "makeplan5x10.php"
+
+  else if (choice == '6x6')
+    location.href = "makeplan6x6.php"
+  else if (choice == '6x7')
+    location.href = "makeplan6x7.php"
+  else if (choice == '6x8')
+    location.href = "makeplan6x8.php"
+  else if (choice == '6x9')
+    location.href = "makeplan6x9.php"
+  else if (choice == '6x10')
+    location.href = "makeplan6x10.php"
+
+  else if (choice == '7x7')
+    location.href = "makeplan7x7.php"
+  else if (choice == '7x8')
+    location.href = "makeplan7x8.php"
+  else if (choice == '7x9')
+    location.href = "makeplan7x9.php"
+  else if (choice == '7x10')
+    location.href = "makeplan7x10.php"
+
+  else if (choice == '8x8')
+    location.href = "makeplan8x8.php"
+  else if (choice == '8x9')
+    location.href = "makeplan8x9.php"
+  else if (choice == '8x10')
+    location.href = "makeplan8x10.php"
+
+  else if (choice == '9x9')
+    location.href = "makeplan9x9.php"
+  else if (choice == '9x10')
+    location.href = "makeplan9x10.php"
+  else if (choice == '10x10')
+    location.href = "makeplan9x10.php"
+
+  else if(choice == '11x5')
+    location.href = "makeplan11x5.php";
+  else if (choice == '11x6')
+    location.href = "makeplan11x6.php"
+  else if (choice == '11x7')
+    location.href = "makeplan11x7.php"
+  else if (choice == '11x8')
+    location.href = "makeplan11x8.php"
+  else if (choice == '11x9')
+    location.href = "makeplan11x9.php"
+  else if (choice == '11x10')
+    location.href = "makeplan5x10.php"
+
+});
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </html>

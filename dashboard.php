@@ -125,12 +125,6 @@ p.caption {
                 Generate a network floor plan and <br>
                 corresponding IP addresses in seconds.</p>
             </div>
-        </div>
-
-        <div class= "form-container col-4">
-        <img src="assets/img/brand/networkit logo 3.png" style = "height: 130mm; width:143mm; border-radius:5px; margin-left:80px;"/>
-        </div>
-      </div>
 
     <div class="submit-btn-container">
       <a href="generateplantestt.php">

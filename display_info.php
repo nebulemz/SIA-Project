@@ -64,21 +64,21 @@ require_once('partials/_head.php');
                             Minimum
                            </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Details</a>
+                              <a class="dropdown-item" href="#">Details:</a>
                             </div>
 
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color:#FFCC33; color:white">
                             Average
                            </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Details</a>
+                              <a class="dropdown-item" href="#">Details:</a>
                             </div>
 
                             <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             High-End
                            </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Details</a>
+                              <a class="dropdown-item" href="#">Details:</a>
                             </div>
                          </div>
 

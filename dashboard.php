@@ -132,8 +132,6 @@ p.caption {
   </a>
 </div>
 
-        </div>
-</div>
 
       <!-- Footer -->
       <?php

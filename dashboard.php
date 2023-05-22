@@ -116,7 +116,7 @@ p.caption {
         </div>
       </div>
       <div class = "row">
-        <div class= "form-container col-6">
+        <div class= "form-container">
     
           <p style="font-size: 80px;" class= "text">Visualize Your Network, <br> Optimize Your Performance</p>
             <div class= "form-container" style = "margin-left: 105px">

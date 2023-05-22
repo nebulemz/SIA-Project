@@ -38,7 +38,7 @@ require_once('partials/_head.php');
   <div class="main-content">
     <!-- Top navbar -->
       <!-- Header -->
-      <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
+      <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
       <span class="mask bg-gradient-dark opacity-8"></span>
         <div class="container-fluid">
           <div class="header-body">
@@ -58,6 +58,30 @@ require_once('partials/_head.php');
                          <i class="fas fa-user-plus"></i>
                             GENERATE ANOTHER LAYOUT
                          </a>
+
+                         <div class="dropdown" style = "margin-left:650px">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Minimum
+                           </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">Details</a>
+                            </div>
+
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color:#FFCC33; color:white">
+                            Average
+                           </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">Details</a>
+                            </div>
+
+                            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            High-End
+                           </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">Details</a>
+                            </div>
+                         </div>
+
                     <div class="card-body">
                         <div class="form-row">
                             <div class="col-md-6 center" style="margin-left: 50px";>
@@ -86,15 +110,7 @@ require_once('partials/_head.php');
                                 if ($res->num_rows > 0) {
                                     $row = $res->fetch_assoc();
                                     $num_computers = intval($row["no_pcs"]);
-                                
-                                    // Generate the IP addresses
-                                    for($i = 1; $i <= $num_computers; $i++) {
-                                        $ip_address = "192.168.0." . $i; // You can change the IP address format based on your network configuration
-                                        
-                                        echo "<b>PC#"." $i</b>"."  ". $ip_address . "<br>";
-                                    }
-                                } else {
-                                    echo "No configuration data found.";
+                              
                                 }
                                 
                             ?>

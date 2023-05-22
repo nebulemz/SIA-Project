@@ -123,7 +123,7 @@ p.caption {
               <p style="font-size: 22px;" class= "caption" >
                 Revamp your network layout with ease: <br>
                 Generate a network floor plan and <br>
-                corresponding IP addresses in seconds.</p>
+                corresponding costs in seconds.</p>
             </div>
 
     <div class="submit-btn-container">
@@ -132,6 +132,8 @@ p.caption {
   </a>
 </div>
 
+        </div>
+</div>
 
       <!-- Footer -->
       <?php

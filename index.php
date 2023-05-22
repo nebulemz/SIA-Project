@@ -96,3 +96,5 @@ require_once('partials/_head.php');
 </body>
 
 </html>
+
+<?php

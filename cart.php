@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-<?php
-session_start();
-include('config/config.php');
-include('config/checklogin.php');
-
+  <?php
+    session_start();
+    include('config/config.php');
+    include('config/checklogin.php');
 // Delete customer
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
@@ -23,26 +22,6 @@ require_once('partials/_head.php');
 ?>
 
 <body>
-<?php
-  if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-    echo "<table>";
-    echo "<tr><th>Image</th><th>Name</th><th>Price</th><th>Quantity</th><th>Action</th></tr>";
-    foreach ($_SESSION['cart'] as $index => $item) {
-      echo "<tr>";
-      echo "<td><img src='assets/img/products".$item['image']."' class='product-image'></td>";
-      echo "<td>".$item['name']."</td>";
-      echo "<td>".$item['price']."</td>";
-      echo "<td>".$item['quantity']."</td>";
-      echo "<td><a href='cart.php?remove=".$index."'>Remove</a></td>";
-      echo "</tr>";
-    }
-    echo "</table>";
-    echo "<p>Total Amount: ₱" . number_format($totalAmount, 2) . "</p>";
-  } else {
-    echo "<p>Cart is empty</p>";
-  }
-  ?>
-
   <!-- Sidenav -->
   <?php
   require_once('partials/_sidebar.php');
@@ -61,6 +40,43 @@ require_once('partials/_head.php');
         </div>
       </div>
     </div>
+    <?php
+
+if (isset($_GET['item'])) {
+  $item = json_decode($_GET['item'], true);
+
+  // Process the item data and add it to the cart
+  // You can store the cart data in the session or a database
+
+  // Example: Storing the cart data in the session
+  if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array();
+  }
+
+  $_SESSION['cart'][] = $item;
+
+  // You can also redirect the user to a different page or display a success message
+  // header("Location: cart.php");
+  // exit();
+}
+
+// Remove item from the cart
+if (isset($_GET['remove'])) {
+  $removeIndex = $_GET['remove'];
+
+  if (isset($_SESSION['cart'][$removeIndex])) {
+    unset($_SESSION['cart'][$removeIndex]);
+  }
+}
+
+// Calculate the total amount in the cart
+$totalAmount = 0;
+if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+  foreach ($_SESSION['cart'] as $item) {
+    $totalAmount += $item['price'] * $item['quantity'];
+  }
+}
+?>
 
     <!-- Page content -->
     <div class="container-fluid mt--8">
@@ -69,31 +85,43 @@ require_once('partials/_head.php');
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
+              <label> Cart </label>
               <div class="col-md-12">
                 <table class="table align-items-center table-flush" id="table-data-product">
                   <thead class="thead-light">
-                  <h1>Cart</h1>
+                    <tr>
+                      <th scope="col">Image</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                 <tbody><!-- Added missing opening <tbody> tag -->
+                    <?php
+                    $totalAmount = 0.00; // Initialize totalAmount variable
 
-<?php
-if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-  echo "<table>";
-  echo "<tr><th>Image</th><th>Name</th><th>Price</th><th>Quantity</th><th>Action</th></tr>";
-  foreach ($_SESSION['cart'] as $index => $item) {
-    echo "<tr>";
-    echo "<td><img src='assets/img/products".$item['image']."' class='product-image'></td>";
-    echo "<td>".$item['name']."</td>";
-    echo "<td>".$item['price']."</td>";
-    echo "<td>".$item['quantity']."</td>";
-    echo "<td><a href='cart.php?remove=".$index."'>Remove</a></td>";
-    echo "</tr>";
-  }
-  echo "</table>";
-  echo "<p>Total Amount: ₱" .number_format($totalAmount, 2). "</p>";
-} else {
-  echo "<p>Cart is empty</p>";
-}
-?>
-</div>
+                    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                      foreach ($_SESSION['cart'] as $index => $item) {
+                        echo "<tr>";
+                        echo "<td><img src='assets/img/products" . $item['image'] . "' class='product-image'></td>";
+                        echo "<td>" . $item['name'] . "</td>";
+                        echo "<td>₱" . $item['price'] . "</td>";
+                        echo "<td>" . $item['quantity'] . "</td>";
+                        echo "<td>₱" . number_format($item['price'] * $item['quantity'], 2) . "</td>"; // Calculate and display the amount for each item
+                        echo "<td><a href='cart.php?remove=" . $index . "'>Remove</a></td>";
+                        echo "</tr>";
+
+                        $totalAmount += $item['price'] * $item['quantity']; // Update the total amount
+                      }
+
+                      echo "<tr><td colspan='4' style='text-align: right; font-weight: bold;'>Total Amount:</td>";
+                      echo "<td>₱" . number_format($totalAmount, 2) . "</td></tr>";
+                    } else {
+                      echo "<tr><td colspan='6'>Cart is empty</td></tr>";
+                    }
+                    ?>
                   </tbody>
                 </table>
               </div>
@@ -104,55 +132,4 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
     </div>
   </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() {
-// Add to Cart button click event
-$(".add-to-cart").click(function() {
-  var price = parseFloat($(this).data("price"));
-  var name = $(this).data("name");
-  var image = $(this).data("image");
-  var quantity = parseInt($(this).closest("tr").find(".quantity-input").val());
-
-  if (isNaN(quantity) || quantity <= 0) {
-    alert("Invalid quantity. Please enter a valid number greater than zero.");
-    return;
-  }
-
-  var item = {
-    name: name,
-    price: price,
-    image: image,
-    quantity: quantity
-  };
-
-  // Save cart data in session
-  $.ajax({
-    url: "cart.php?item=" + JSON.stringify(item), // Include the image in the item object
-    method: "GET",
-    success: function(response) {
-      alert("Item added to cart");
-    }
-  });
-});
-
-    // Live search product keyup event
-    $("#live_search_product").keyup(function() {
-      var input = $(this).val();
-
-      if (input !== "") {
-        $.ajax({
-          url: "productso.php",
-          method: "POST",
-          data: {
-            input: input
-          },
-          success: function(data) {
-            $("#table-data-product").html(data);
-          }
-        });
-      }
-    });
-  });
-</script>
 </html>

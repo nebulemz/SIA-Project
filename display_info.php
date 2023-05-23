@@ -25,6 +25,11 @@ if (isset($_GET['display'])) {
         $net_length = $row['net_length'];
         $net_width = $row['net_width'];
         $net_image = $row ['net_image'];
+        $no_pcs = $row ['no_pcs'];
+        $low_total_price = $row ['low_total_price'];
+        $ave_total_price = $row ['ave_total_price'];
+        $high_total_price = $row ['high_total_price'];
+        $switch_model = $row ['switch_model'];
         
 require_once('partials/_head.php');
 ?>
@@ -64,30 +69,126 @@ require_once('partials/_head.php');
                 </div>
 
                 <div class = "dropdown col-6" style = "float:right">
-                  <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Minimum
-                           </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item">Details:</a>
+                          <div class="dropdown">
+                                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                    Minimum
+                                  </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style ="width:570px">
+                                  <a class="dropdown-item" href=""><b>Details:</b>
+                                    <div class = "row">
+                                      <div class = "col-6">
+                                        <strong>Number of PCs:</strong> <?php echo $no_pcs; ?> <br>
+                                        <strong>Number of Tables:</strong> <?php echo $no_pcs; ?><br>
+                                        <strong>Number of Chairs:</strong> <?php echo $no_pcs; ?><br> <br>
+                                        <strong>Switch Model:</strong> <?php echo $switch_model; ?><br> <br>
+                                        <br>
+
+                                        <strong>Specs for Minimum:</strong><br>
+                                        <strong>CPU</strong> - Intel Core I3-10100F (3.6GHZ) Processor                      <br>
+                                        <strong>SSD</strong> - Kingston SSDNow A400 240GB SATA 2.5                          <br>
+                                        <strong>RAM</strong> – Patriot CL19 RAM 8GB DDR4                                    <br>
+                                        <strong>MONITOR</strong> – Nvision N190HD 19 Inch LED Monitor                       <br>
+                                        <strong>UPS</strong> –                                                              <br>
+                                        <strong>KB & M</strong> – A4Tech KRS-8572 Usb Keyboard and Mouse Black              <br>
+                                        <strong>PSU</strong> – Gigabyte P450B 450 watts 80 Plus Bronze 120mm                <br>
+                                        <strong>CASE</strong> – Honeycomb Micro ATX                                         <br></a>
+                                      </div>
+                                    
+                                      <div class = "col-6" style = padding-left:130px><br><br><br><br><br><br><br>
+                                      <a class="dropdown-item" href="">
+                                      <b>(P4,695.00)</b><br>
+                                      <b>(P2,850.00)</b><br>
+                                      <b>(P1425)</b><br>
+                                      <b>(P1999)</b><br>
+                                      <b>(P1650)</b><br>
+                                      <b>(P490)</b><br>
+                                      <b>(P2150)</b><br>
+                                      <b>(P436)</b>
+                                      <hr>
+                                      Total Price: <b><?php echo $low_total_price; ?> </b></a>
+                                      </div>
+
+                                    </div>
+                              </div>
                             </div>
 
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color:#FFCC33; color:white">
+                            <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color:#FFCC33; color:white">
                             Average
                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Details:</a>
+                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style ="width:570px">
+                                  <a class="dropdown-item" href=""><b>Details:</b>
+                                    <div class = "row">
+                                      <div class = "col-6">
+                                        <strong>Number of PCs:</strong> <?php echo $no_pcs; ?> <br>
+                                        <strong>Number of Tables:</strong> <?php echo $no_pcs; ?><br>
+                                        <strong>Number of Chairs:</strong> <?php echo $no_pcs; ?><br> <br>
+                                        <strong>Switch Model:</strong> <?php echo $switch_model; ?><br> <br>
+                                        <br>
+
+                                        <strong>Specs for Average:</strong><br>
+                                        <strong>CPU</strong> - Intel Core I3-13100 Processor                                <br>
+                                        <strong>SSD</strong> - Crucial MX500 250GB 3D NAND SATA 2.5-inch SSD                <br>
+                                        <strong>RAM</strong> – Kingston Fury Beast 8GB DDR4                                 <br>
+                                        <strong>MONITOR</strong> – Nvision N2255-B 21.5" 75HZ IPS Monitor                    <br>
+                                        <strong>UPS</strong> –                                                              <br>
+                                        <strong>KB & M</strong> – A4Tech KRS-8572 Usb Keyboard and Mouse Black               <br>
+                                        <strong>PSU</strong> – Gigabyte P450B 450 watts 80 Plus Bronze 120mm                <br>
+                                        <strong>CASE</strong> – Honeycomb Micro ATX                                         <br></a>
+                                      </div>
+                                    
+                                      <div class = "col-6" style = padding-left:130px><br><br><br><br><br><br><br>
+                                      <a class="dropdown-item" href="">
+                                      <b>(P4,799.00)</b><br>
+                                      <b>(P1,653.00)</b><br>
+                                      <b>(P2442)</b><br>
+                                      <b>(P3495)</b><br>
+                                      <b>(P1650)</b><br>
+                                      <b>(P490)</b><br>
+                                      <b>(P2150)</b><br>
+                                      <b>(P436)</b>
+                                      <hr>
+                                      Total Price: <b><?php echo $ave_total_price; ?> </b></a>
+                                      </div>
+
+                                    </div>
+                              </div>
                             </div>
 
+                          <div class="dropdown">
                             <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             High-End
                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Details:</a>
+                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style ="width:570px">
+                                  <a class="dropdown-item" href=""><b>Details:</b>
+                                    <div class = "row">
+                                      <div class = "col-6">
+                                        <strong>Number of PCs:</strong> <?php echo $no_pcs; ?> <br>
+                                        <strong>Number of Tables:</strong> <?php echo $no_pcs; ?><br>
+                                        <strong>Number of Chairs:</strong> <?php echo $no_pcs; ?><br> <br>
+                                        <strong>Switch Model:</strong> <?php echo $switch_model; ?><br> <br>
+                                        <br>
+
+                                        <strong>Specs for Average:</strong><br>
+                                        <strong>Desktop</strong> - iMac    <br>
+                                        <strong>CPU</strong> - Apple M1 chip with 8-core CPU                             <br>
+                                        <strong>SSD</strong> - 256GB SSD storage                <br>
+                                        <strong>RAM</strong> – 8GB unified memory                                 <br>
+                                        <strong>MONITOR</strong> – Built-in 24-inch Apple Monitor                   <br>
+                                        <strong>UPS</strong> –                                                              <br>
+                                        <strong>KB & M</strong> – Magic Mouse and Magic Keyboard             <br>
+                                        <br>Price per piece: <b> 79990 </b><br>
+                                        Total Price: <b><?php echo $high_total_price; ?> </b></a>
+                                      </div>
+                                      
+                                    
+
+                                    </div>
+                              </div>
                             </div>
-                          </div>
                       </div>
                   </div>
+                </div>
                     <hr>
                  
 

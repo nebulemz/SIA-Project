@@ -52,19 +52,24 @@ require_once('partials/_head.php');
          <div class="col">
          <div class="card shadow">
               <div class="card-header border-0">
+              <div class = "row">
+                <div class = "col-6">
                     <h2>Network Layout Details</h2>
-                    <hr>
-                    <a href="generateplantestt.php" class="btn btn-outline-success">
+                </div>
+                <div class = "col-md-6">
+                <a href="generateplantestt.php" class="btn btn-outline-success" style="float: right">
                          <i class="fas fa-user-plus"></i>
                             GENERATE ANOTHER LAYOUT
                          </a>
+                </div>
 
-                         <div class="dropdown" style = "margin-left:650px">
+                <div class = "dropdown col-6" style = "float:right">
+                  <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Minimum
                            </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Details:</a>
+                              <a class="dropdown-item">Details:</a>
                             </div>
 
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style = "background-color:#FFCC33; color:white">
@@ -80,7 +85,11 @@ require_once('partials/_head.php');
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="#">Details:</a>
                             </div>
-                         </div>
+                          </div>
+                      </div>
+                  </div>
+                    <hr>
+                 
 
                     <div class="card-body">
                         <div class="form-row">

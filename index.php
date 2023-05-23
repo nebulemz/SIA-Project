@@ -62,15 +62,18 @@ require_once('partials/_head.php');
                     <input class="form-control" required name="admin_password" placeholder="Password" type="password">
                   </div>
                 </div>
-                <div class="custom- control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                  <label class="custom-control-label" for=" customCheckLogin">
-                    <span class="text-muted">Remember Me</span>
-                  </label>
-                </div>
+          
+                <span style="float: right; color: violet; text-decoration: underline; cursor: pointer;" onclick="redirectToSignUp()">No account? Sign Up</span>
+
+                <script>
+                  function redirectToSignUp() {
+                    window.location.href = "add_user.php";
+                  }
+                </script>
+                <br>
                 <div class="text-center">
                   <button type="submit" name="login" class="btn btn-primary my-4">Log In</button>
-                  <button type="submit" name="login" class="btn btn-info my-4">Sign-Up</button>
+                  
                 </div>
               </form>
 

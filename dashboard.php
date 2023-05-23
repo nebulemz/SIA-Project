@@ -21,7 +21,182 @@ while ($admin = $res->fetch_object()) {
 <!-- Main content -->
 <div class="main-content">
 
-    
+    <style>
+        .form-container {
+            width: 100%;
+            max-width: 1100px;
+            flex-direction: column;
+            align-items: left;
+            display: flex;
+            position: relative;
+        }
+
+        p.text {
+            text-align: left;
+            margin-top: -110px;
+            margin-left: 100px;
+            margin-bottom: 30px;
+            font-weight: 800;
+            line-height: 1.4;
+            color: white;
+        }
+
+        .picture-container {
+            width: 6rem;
+            margin-left: 1000px;
+            object-fit: none;
+            object-position: right;
+        }
+
+        .picture {
+            width: 150px;
+        }
+
+        .form-container-2 {
+            width: 100%;
+            max-width: 450px;
+            text-align: left;
+            flex-direction: column;
+            align-items: left;
+            display: flex;
+            position: relative;
+            margin-top: -30px;
+            margin-bottom: -50px;
+            margin-left: 100px;
+        }
+
+        p.caption {
+            font-weight: 600;
+            color: white;
+        }
+
+        .submit-btn-container {
+            display: grid;
+            padding-left: center;
+            width: 300px;
+            margin-top: 3rem;
+            margin-left: 100px;
+            margin-bottom: 50px;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 30px;
+            outline: none;
+            position: relative;
+            font-weight: 900;
+            font-size: 1rem;
+            outline: none;
+            border: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: 1px solid white;
+            background-color: white;
+            color: #0F6973;
+        }
+
+        .submit-btn {
+            background: #0F6973;
+            color: #fff;
+            width: 100%;
+        }
+              /*-- navigation--*/
+
+        .navigation.navbar {
+            float: right;
+            padding-top: 31px !important;
+            padding: 0;
+        }
+
+        .navigation.navbar-dark .navbar-nav .nav-link {
+            padding: 0 25px;
+            color: #fff;
+            font-size: 25px;
+            line-height: 20px;
+            font-weight: 500;
+        }
+
+        .navigation.navbar-dark .navbar-nav .nav-link:focus,
+        .navigation.navbar-dark .navbar-nav .nav-link:hover {
+            color: #30D5C8;
+        }
+
+        .navigation.navbar-dark .navbar-nav .active>.nav-link,
+        .navigation.navbar-dark .navbar-nav .nav-link.active,
+        .navigation.navbar-dark .navbar-nav .nav-link.show,
+        .navigation.navbar-dark .navbar-nav .show>.nav-link {
+            color: #30D5C8;
+        }
+
+        .navbar-expand-md .navbar-nav {
+            padding-right: 10px;
+        }
+
+        .padd_right {
+            padding-right: 10px;
+        }
+
+        .sign_btn {
+            padding-left: 50px;
+        }
+
+        .sign_btn a {
+            display: inline-block;
+            padding: 7px 10px;
+            color: #fff;
+            font-size: 17px;
+        }
+
+        .sign_btn a:hover {
+            color: #fff;
+        }
+        footer {
+        background-color: #f1f1f1;
+        padding: 20px 0;
+        position: relative;
+        }
+
+        .footer{
+        height: 100px;
+        width: 1900px;
+        }
+        
+        .footer-container {
+        max-width: 3000px;
+        margin: 0 auto;
+        text-align: center;
+        }
+
+        .footer-container p {
+        margin: 0;
+        font-size: 14px;
+        color: #888;
+        }
+
+        .footer-container ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 10px;
+        }
+
+        .footer-container ul li {
+        display: inline-block;
+        margin-right: 10px;
+        }
+
+        .footer-container ul li a {
+        text-decoration: none;
+        font-size: 14px;
+        color: #888;
+        }
+
+        .footer-container ul li a:hover {
+        color: #555;
+        }
+      </style>
 
     <!-- Header -->
     <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="pb-12 pt-md-12">
@@ -74,7 +249,7 @@ while ($admin = $res->fetch_object()) {
                                                                          aria-hidden="true"></i></a>
                                     </li>
                                     <li class="nav-item d_none">
-                                        <a class="nav-link" href="#">Login</a>
+                                        <a class="nav-link" href="testforum.php">Forum</a>
                                     </li>
                                 </ul>
                                 <ul class="navbar-nav align-items-center d-none d-md-flex">
@@ -142,7 +317,17 @@ while ($admin = $res->fetch_object()) {
                             <button type="submit" name="login" class="submit-btn">GENERATE A PLAN</button>
                         </a>
                     </div>
-
+                    <footer>
+                        <div class="footer-container">
+                            <p>&copy; <?php echo date("Y"); ?> Your Website Name. All rights reserved.</p>
+                            <ul>
+                            <li><a href="home.php">Home</a></li>
+                            <li><a href="about.php">About</a></li>
+                            <li><a href="generateplantestt.php">Generate a Plan</a></li>
+                            <li><a href="costpredict.php">Cost Prediction</a></li>
+                            </ul>
+                        </div>
+                    </footer>
                 </div>
             </div>
         </div>
@@ -151,5 +336,6 @@ while ($admin = $res->fetch_object()) {
     <?php
     require_once('partials/_scripts.php');
     ?>
+
 </body>
 </html>

@@ -84,7 +84,7 @@
 
         .navigation.navbar {
             float: right;
-            padding-top: 31px !important;
+            padding-top: 15px !important;
             padding: 0;
         }
 

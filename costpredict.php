@@ -69,10 +69,7 @@ require_once('partials/_head.php');
           </div>
         </div>
       </div>
-      <!-- Footer -->
-      <?php
-      require_once('partials/_footer.php');
-      ?>
+      
     </div>
   </div>
   </body>
@@ -120,4 +117,8 @@ require_once('partials/_head.php');
     return true;
   }
 </script>
+<!-- Footer -->
+<?php
+require_once('partials/_footer.php');
+?>
 </html>

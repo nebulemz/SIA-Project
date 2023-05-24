@@ -227,7 +227,7 @@ require_once('partials/_head.php');
                             
                             if ($no_pcs <= 4){
 
-                              echo "5- 25 Mbps";
+                              echo "5 - 25 Mbps";
 
                             } 
 
@@ -257,7 +257,7 @@ require_once('partials/_head.php');
                             <strong><br>Recommended Topology: </strong>
                             <?php 
                             
-                            if ($net_institution == "office"){
+                            if ($net_institution == "Office"){
 
                               echo "Star Topology";
 

@@ -22,9 +22,9 @@ require_once('partials/_head.php');
 ?>
 
 <body>
- <!-- topnav -->
- <?php
-  require_once('partials/_topnavfinal.php');
+  <!-- Sidenav -->
+  <?php
+  require_once('partials/_sidebar.php');
   ?>
   <!-- Main content -->
   <div class="main-content">
@@ -32,6 +32,14 @@ require_once('partials/_head.php');
     <?php
     require_once('partials/_topnav.php');
     ?>
+    <!-- Header -->
+    <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
+      <span class="mask bg-gradient-dark opacity-8"></span>
+      <div class="container-fluid">
+        <div class="header-body">
+        </div>
+      </div>
+    </div>
     <?php
 
 if (isset($_GET['item'])) {

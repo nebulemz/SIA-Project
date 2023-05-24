@@ -10,13 +10,24 @@ require_once('partials/_head.php');
 ?>
 
 <body>
-   <!-- topnav -->
-   <?php
-  require_once('partials/_topnavfinal.php');
+  <!-- Sidenav -->
+  <?php
+  require_once('partials/_sidebar.php');
   ?>
   <!-- Main content -->
   <div class="main-content">
-  
+    <!-- Top navbar -->
+    <?php
+    require_once('partials/_topnav.php');
+    ?>
+    <!-- Header -->
+    <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
+    <span class="mask bg-gradient-dark opacity-8"></span>
+      <div class="container-fluid">
+        <div class="header-body">
+        </div>
+      </div>
+    </div>
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
@@ -29,47 +40,24 @@ require_once('partials/_head.php');
             <div class="card-body">
             <div class="form-row">
             <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for School</label></b><br><a href = predictschool.php>
-                <input type="" value="Low Budget" class="btn btn-primary value=""></a>
-                </div>
-              </div>
+                <label>Predict Cost for School</label><br><a href = predictschool.php>
+                <input type="" value="School" class="btn btn-success" value=""></a>
+                </div></div>
                 <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for Office</label></b><br><a href = predictoffice.php>
-                <input type="" value="Low Budget" class="btn btn-primary" value=""></a>
-                </div>
-                <hr>
-              </div>
-              <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for School</label></b><br><a href = predictschool.php>
-                <input type="" value="Medium Budget"  class="btn" style = "background-color:#FFCC33; color:white"></a>
-                </div>
-              </div>
-                <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for Office</label></b><br><a href = predictoffice.php>
-                <input type="" value="Medium Budget" class="btn" style = "background-color:#FFCC33; color:white"></a>
-                </div>
-              </div>  
-              
+                <label>Predict Cost for Office</label><br><a href = predictoffice.php>
+                <input type="" value="Office" class="btn btn-success" value=""></a>
+                </div></div>
             </div>
-            <hr>
-            <div class="form-row">
-            <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for School</label></b><br><a href = predictschool.php>
-                <input type="" value="High Budget" class="btn btn-danger value=""></a>
-                </div>
-              </div>
-                <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for Office</label></b><br><a href = predictoffice.php>
-                <input type="" value="High Budget" class="btn btn-danger" value=""></a>
-                </div>
-            
             <hr>
 
             </div>
           </div>
         </div>
       </div>
-      
+      <!-- Footer -->
+      <?php
+      require_once('partials/_footer.php');
+      ?>
     </div>
   </div>
   </body>
@@ -117,8 +105,4 @@ require_once('partials/_head.php');
     return true;
   }
 </script>
-<!-- Footer -->
-<?php
-require_once('partials/_footer.php');
-?>
 </html>

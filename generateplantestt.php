@@ -33,23 +33,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       <!-- Table -->
       <div class="row">
-        <div class="col">
+        <div class="col-md-6">
           <div class="card shadow">
             <div class="card-header border-6">
-              <h3>Please Select and Fill the Field</h3>
+              <h3>Generate Your Layout:</h3>
             </div>
             <div class="card-body">
 
             <form method="POST" action="" onsubmit="return validateForm()">
             <div class="form-row">
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <label>Length (meter/s)</label><span id="lengthError" style="color: red;"></span>
                 <input type="text" name="length" class="form-control" id="length" value="">
              
               </div>
-              <div class="col-md-6">
+            </div>
+            <div class="form-row">
+              <div class="col-md-12" style="margin-top:10px;">
+              <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
+              <input type="text" name="width" class="form-control" id="width" value="">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12" style="margin-top:10px;">
+                <label for="net_institution">Institution</label>
+                <select id="net_institution" name="net_institution" class="form-control">
+                <option value="">-- Select --</option>
+                <option value="Office">Office</option>
+                <option value="School">School</option>
+                </select>
+              <span id="netInstitutionError" style="color: red;"></span>
 
-              <label>You can create your own!</label><br>
+                </div>
+            </div>
+            <hr>
+            <div class="form-row text-left">
+              <div class="col-md-6">
+                <input type="submit" name="generate" value="Generate" class="btn btn-success" value="">
+              </div>
+            </div>
+            
+            <input type="hidden" name="input" value="<?php echo $input; ?>">
+          </form>
+            </div>
+          </div>
+        </div>
+
+      <div class="col-md-6">
+          <div class="card shadow">
+            <div class="card-header border-6">
+              <label><h3>Or You Can Create Your Own!</h3></label><br>
+            </div>
+            <div class="card-body">
+                <label>Select Dimension to Customize:</label><span id="lengthError" style="color: red;"></span>
                 <select id="Opt" class="form-control" style="font-size: 15px;">
                 <option value="5x5">5x5</option>
                 <option value="5x6">5x6</option>
@@ -90,54 +126,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <option value="11x10">11x10</option>
 
                 </select>
-                
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="col-md-6" style="margin-top:10px;">
-              <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
-              <input type="text" name="width" class="form-control" id="width" value="">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="col-md-6" style="margin-top:10px;">
-                <label for="net_institution">Institution</label>
-                <select id="net_institution" name="net_institution" class="form-control">
-                <option value="">-- Select --</option>
-                <option value="Office">Office</option>
-                <option value="School">School</option>
-                </select>
-              <span id="netInstitutionError" style="color: red;"></span>
-
+                <hr>
+                <div class="form-row text-left">
+                  <div class="col-md-6">
+                    <input type="button" value="Create Own Layout" class="btn btn-success" id = "but"></a>
+                  </div>
                 </div>
-            </div>
-            <hr>
-            <div class="form-row text-left">
-              <div class="col-md-6">
-                <input type="submit" name="generate" value="Generate" class="btn btn-success" value="">
               </div>
-
-              <div class="col-md-6">
-                <input type="button" value="Create Own Layout" class="btn btn-success" id = "but"></a>
-              </div>
-
-            </div>
-            
-            <input type="hidden" name="input" value="<?php echo $input; ?>">
-          </form>
-            </div>
           </div>
         </div>
       </div>
-<<<<<<< HEAD
     </div>
       
-=======
-      <!-- Footer -->
-      <?php
-      require_once('partials/_footer.php');
-      ?>
->>>>>>> parent of 41d4482 (Merge branch 'master' of https://github.com/nebulemz/SIA-Project)
     </div>
   </div>
   </body>

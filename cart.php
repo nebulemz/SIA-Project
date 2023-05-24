@@ -73,8 +73,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
-      <div class="row">
-        <div class="col">
+
           <div class="card shadow">
             <div class="card-header border-0">
               <label> Cart </label>

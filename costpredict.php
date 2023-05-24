@@ -41,38 +41,30 @@ require_once('partials/_head.php');
             <div class="form-row">
             <div class="col-md-6"><div class="text-center">
             <b><label>Predict Cost for School</label></b><br><a href = predictschool.php>
-                <input type="" value="Low Budget" class="btn btn-primary value=""></a>
+                <input type="" value="Low Budget" class="btn btn-primary value=" style = "margin:10px;"></a>
                 </div>
-                <hr>
               </div>
                 <div class="col-md-6"><div class="text-center">
                 <b><label>Predict Cost for Office</label></b><br><a href = predictoffice.php>
-                <input type="" value="Low Budget" class="btn btn-primary" value=""></a>
+                <input type="" value="Low Budget" class="btn btn-primary" value="" style = "margin:10px"></a>
                 </div>
-                <hr>
               </div>
               <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for School</label></b><br><a href = predictschool.php>
-                <input type="" value="Medium Budget"  class="btn" style = "background-color:#FFCC33; color:white"></a>
+                <input type="" value="Medium Budget"  class="btn" style = "background-color:#FFCC33; color:white" style = "margin:10px"></a>
                 </div>
               </div>
                 <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for Office</label></b><br><a href = predictoffice.php>
-                <input type="" value="Medium Budget" class="btn" style = "background-color:#FFCC33; color:white"></a>
+                <input type="" value="Medium Budget" class="btn" style = "background-color:#FFCC33; color:white" style = "margin:10px"></a>
                 </div>
               </div>  
             </div>
-            <hr>
             <div class="form-row">
             <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for School</label></b><br><a href = predictschool.php>
-                <input type="" value="High Budget" class="btn btn-danger value=""></a>
+                <input type="" value="High Budget" class="btn btn-danger value=" style = "margin:10px"></a>
                 </div>
-                <hr>
               </div>
                 <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for Office</label></b><br><a href = predictoffice.php>
-                <input type="" value="High Budget" class="btn btn-danger" value=""></a>
+                <input type="" value="High Budget" class="btn btn-danger" value="" style = "margin:10px"></a>
                 </div>
             
             <hr>

@@ -77,6 +77,16 @@ function isValidComputers($computers, $roomSize)
         return true;
     } elseif ($roomSize >66 && $roomSize <= 71 && $computers >=5 && $computers <= 39) {
         return true;
+    } elseif ($roomSize >72 && $roomSize <= 80 && $computers >=5 && $computers <= 51) {
+        return true;
+    } elseif ($roomSize >81 && $roomSize <= 88 && $computers >=5 && $computers <= 57) {
+        return true;
+    } elseif ($roomSize >89 && $roomSize <= 90 && $computers >=5 && $computers <= 59) {
+        return true;
+    } elseif ($roomSize >91 && $roomSize <=100 && $computers >=5 && $computers <= 66) {
+        return true;
+    } elseif ($roomSize >101 && $roomSize <=110 && $computers >=5 && $computers <= 74) {
+        return true;
     } else {
         return false;
     }

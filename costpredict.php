@@ -49,21 +49,21 @@ require_once('partials/_head.php');
                 <input type="" value="Low Budget" class="btn btn-primary" value="" style = "margin:10px"></a>
                 </div>
               </div>
-              <div class="col-md-6"><div class="text-center">
+              <div class="col-md-6"><div class="text-center"><a href = predictschoolmid.php>
                 <input type="" value="Medium Budget"  class="btn" style = "background-color:#FFCC33; color:white" style = "margin:10px"></a>
                 </div>
               </div>
-                <div class="col-md-6"><div class="text-center">
+                <div class="col-md-6"><div class="text-center"><a href = predictofficemid.php>
                 <input type="" value="Medium Budget" class="btn" style = "background-color:#FFCC33; color:white" style = "margin:10px"></a>
                 </div>
               </div>  
             </div>
             <div class="form-row">
-            <div class="col-md-6"><div class="text-center">
+            <div class="col-md-6"><div class="text-center"><a href = predictschoolhigh.php>
                 <input type="" value="High Budget" class="btn btn-danger value=" style = "margin:10px"></a>
                 </div>
               </div>
-                <div class="col-md-6"><div class="text-center">
+                <div class="col-md-6"><div class="text-center"><a href = predictofficehigh.php>
                 <input type="" value="High Budget" class="btn btn-danger" value="" style = "margin:10px"></a>
                 </div>
             

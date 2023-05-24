@@ -85,7 +85,7 @@ p.caption {
   padding-left: center;
   width:300px ;
   margin-top: 3rem;
-  margin-left: 100px;
+  margin-left: 0px;
 }
 .submit-btn {
   padding: 10px 20px;
@@ -128,13 +128,13 @@ p.caption {
       <div class = "row">
         <div class= "form-container col-12">
     
-          <p style="font-size: 80px; " class= "text">Visualize Your Network, <br> Optimize Your Performance</p>
-            <div class= "form-container" style = "margin-left: 105px">
-              <p style="font-size: 22px;" class= "caption" >
+          <p style="font-size: 70px; " class= "text">Visualize Your Network, <br> Optimize Your Performance</p>
+            <div class= "form-container" style = "margin-left: 100px">
+              <p style="font-size: 19px; opacity:0.8;" class= "caption">
                 Revamp your network layout with ease: <br>
                 Generate a network floor plan and <br>
                 corresponding costs in seconds.</p>
-                <div class="submit-btn-container">
+                <div class="submit-btn-container"><br>
                   <a href="generateplantestt.php">
                   <button type="submit" name="login" class="submit-btn">GENERATE A PLAN</button>
                   </a>
@@ -146,7 +146,6 @@ p.caption {
       <!-- Footer -->
   
 </div>
-
 
     </body>
         <!-- Argon Scripts -->

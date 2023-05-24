@@ -11,9 +11,9 @@ require_once('partials/_head.php');
 <head><link rel="stylesheet" href="makeplanstyle.css"></head>
 <body>
 
-  <!-- topnav -->
- <?php
-  require_once('partials/_topnavfinal.php');
+  <!-- Sidenav -->
+  <?php
+  require_once('partials/_sidebar.php');
   ?>
   <!-- Main content -->
   <div class="main-content">

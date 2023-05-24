@@ -52,10 +52,10 @@ if (isset($_POST['input'])){
                         </td>
                   
                   <td>
-                  <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>" data-name="<?php echo $prod_name; ?>" data-image="<?php echo $prod_img; ?>">
-                            <i class="fas fa-cart-plus"></i>
-                            Add to Cart
-                          </button>
+                      <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>">
+                        <i class="fas fa-cart-plus"></i>
+                        Add to Cart
+                      </button>
                     </td>
                       </td>
 
@@ -75,7 +75,6 @@ if (isset($_POST['input'])){
   </div>
 </div>
      <?php
-     
   }else{  
       $err = "No Data Found";
   }

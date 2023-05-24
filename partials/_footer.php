@@ -1,50 +1,19 @@
-<style>
-.footer-container {
-  background-color: #f1f1f1;
-  padding: 20px 0;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.footer-container p {
-  margin: 0;
-  font-size: 14px;
-  color: #888;
-}
-
-.footer-container ul {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-.footer-container ul li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.footer-container ul li a {
-  text-decoration: none;
-  font-size: 14px;
-  color: #888;
-}
-
-.footer-container ul li a:hover {
-  color: #555;
-}
-</style>
-<footer>
-  <div class="footer-container">
-    <p>&copy; <?php echo date("Y"); ?> Your Website Name. All rights reserved.</p>
-    <ul>
-      <li><a href="dashboard.php">Home</a></li>
-      <li><a href="about.php">About</a></li>
-      <li><a href="generateplantestt.php">Generate a Plan</a></li>
-      <li><a href="forum.php">Forum</a></li>
-    </ul>
+<footer class="py-5">
+  <div class="container">
+    <div class="row align-items-center justify-content-xl-between">
+      <ul class="list">
+        <a href=""><i class="fab fa-facebook fa-2x fa-fw text-muted link"></i></a>
+        <a href=""><i class="fab fa-instagram fa-2x fa-fw  text-muted link"></i></a>
+        <a href=""><i class="fab fa-twitter fa-2x fa-fw  text-muted link"></i></a>
+        <a href=""><i class="fab fa-google fa-2x fa-fw text-muted link"></i></a>
+      </ul>
+      <div class="col-xl-6">
+        <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+          <li class="nav-item">
+            <a href="" class="nav-link" target="_blank">NETWORK LAYOUT ASSESSMENT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-</footer>
+</footer>`

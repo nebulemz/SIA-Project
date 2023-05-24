@@ -46,13 +46,13 @@ require_once('partials/_head.php');
                 <hr>
               </div>
                 <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for Office</label></b><br><a href = predictoffice.php>
+                <b><label>Predict Cost for Office</label></b><br><a href = predictofficelow.php>
                 <input type="" value="Low Budget" class="btn btn-primary" value=""></a>
                 </div>
                 <hr>
               </div>
               <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for School</label></b><br><a href = predictschool.php>
+                <b><label>Predict Cost for School</label></b><br><a href = predictschoolmid.php>
                 <input type="" value="Medium Budget"  class="btn" style = "background-color:#FFCC33; color:white"></a>
                 </div>
               </div>
@@ -65,7 +65,7 @@ require_once('partials/_head.php');
             <hr>
             <div class="form-row">
             <div class="col-md-6"><div class="text-center">
-                <b><label>Predict Cost for School</label></b><br><a href = predictschool.php>
+                <b><label>Predict Cost for School</label></b><br><a href = predictschoolhigh.php>
                 <input type="" value="High Budget" class="btn btn-danger value=""></a>
                 </div>
                 <hr>

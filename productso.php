@@ -52,7 +52,7 @@ if (isset($_POST['input'])){
                         </td>
                   
                   <td>
-                      <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>">
+                  <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>" data-name="<?php echo $prod_name; ?>" data-image="<?php echo $prod_img; ?>">
                         <i class="fas fa-cart-plus"></i>
                         Add to Cart
                       </button>

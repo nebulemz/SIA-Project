@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Load the data
-    $data = new CsvDataset("./data/dataschoollow.csv", 2, true); // Update with your dataset path and column details
+    $data = new CsvDataset("./data/datalowoffice.csv", 3, true); // Update with your dataset path and column details
 
     // Preprocessing data
     $dataset = new RandomSplit($data, 0.2);
@@ -31,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Get user input
     $input1 = $_POST["input1"];
     $input2 = $_POST["input2"];
-    $input = [$input1, $input2];
+    $input3 = $_POST["input3"]; // Added input for table shape
+    $input = [$input1, $input2, $input3];
 
     // Check condition for suitable number of computers
     $validComputers = isValidComputers($input1, $input2);
@@ -117,6 +118,13 @@ function isValidComputers($computers, $roomSize)
 
         <label for="input2">Enter Room Size in Square Meters:</label>
         <input type="text" name="input2" id="input2" required><br><br>
+
+        <label for="input3">Select Table Shape:</label>
+        <select name="input3" id="input3" required>
+            <option value="0">Standard Table</option>
+            <option value="1">L-Shape Table</option>
+            <option value="2">U-Shape Table</option>
+        </select><br><br>
 
         <input type="submit" value="Predict">
     </form>

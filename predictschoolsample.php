@@ -19,10 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Load the data
-    $data = new CsvDataset("./data/dataschoollow.csv", 2, true); // Update with your dataset path and column details
+    $data = new CsvDataset("./data/dataschoollow.csv", 2, true);
 
     // Preprocessing data
-    $dataset = new RandomSplit($data, 0.2);
+    $dataset = new RandomSplit($data, 0.2, 156);
 
     // Training
     $regression = new LeastSquares();
@@ -45,10 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Set the flag to true for printing the result
         $printResult = true;
     } else {
-        if ($input1 < 5 || $input1 >= 118) {
+        if ($input1 < 5 || $input1 > 118) {
             $errors[] = "Invalid number of computers.";
         }
-        if ($input2 < 10 || $input2 >= 160) {
+        if ($input2 < 10 || $input2 > 160) {
             $errors[] = "Invalid room size.";
         }
     }
@@ -71,34 +71,34 @@ function isValidComputers($computers, $roomSize)
 
     if ($roomSize >= 54 && $roomSize <= 110) {
         return true;
-    } elseif ($roomSize == 54 && $computers >= 5 && $computers <= 31) {
+    } elseif ($roomSize = 54 && $computers >= 5 && $computers <= 31) {
         return true;
-    } elseif ($roomSize > 54 && $roomSize <= 66 && $computers >= 5 && $computers <= 35) {
+    } elseif ($roomSize >54 && $roomSize <= 66 && $computers >=5 && $computers <= 35) {
         return true;
-    } elseif ($roomSize > 66 && $roomSize <= 71 && $computers >= 5 && $computers <= 39) {
+    } elseif ($roomSize >66 && $roomSize <= 71 && $computers >=5 && $computers <= 39) {
         return true;
-    } elseif ($roomSize > 71 && $roomSize <= 79 && $computers >= 5 && $computers <= 45) {
+    } elseif ($roomSize >71 && $roomSize <= 79 && $computers >=5 && $computers <= 45) {
         return true;
-    } elseif ($roomSize > 79 && $roomSize <= 87 && $computers >= 5 && $computers <= 51) {
+    } elseif ($roomSize >79 && $roomSize <= 87 && $computers >=5 && $computers <= 51) {
         return true;
-    } elseif ($roomSize > 87 && $roomSize <= 89 && $computers >= 5 && $computers <= 57) {
+    } elseif ($roomSize >87 && $roomSize <= 89 && $computers >=5 && $computers <= 57) {
         return true;
-    } elseif ($roomSize > 89 && $roomSize <= 95 && $computers >= 5 && $computers <= 59) {
+    } elseif ($roomSize >89 && $roomSize <=95 && $computers >=5 && $computers <= 59) {
         return true;
-    } elseif ($roomSize > 95 && $roomSize <= 99 && $computers >= 5 && $computers <= 65) {
+    } elseif ($roomSize >95 && $roomSize <=99 && $computers >=5 && $computers <= 65) {
         return true;
-    } elseif ($roomSize > 99 && $roomSize <= 103 && $computers >= 5 && $computers <= 66) {
+    } elseif ($roomSize >99 && $roomSize <=103 && $computers >=5 && $computers <= 66) {
         return true;
-    } elseif ($roomSize > 103 && $roomSize <= 119 && $computers >= 5 && $computers <= 75) {
+    } elseif ($roomSize >103 && $roomSize <=119 && $computers >=5 && $computers <= 75) {
         return true;
-    } elseif ($roomSize > 119 && $roomSize <= 129 && $computers >= 5 && $computers <= 83) {
-        return true;
-    } elseif ($roomSize > 129 && $roomSize <= 139 && $computers >= 5 && $computers <= 91) {
-        return true;
-    } elseif ($roomSize > 139 && $roomSize <= 149 && $computers >= 5 && $computers <= 98) {
-        return true;
-    } elseif ($roomSize > 149 && $roomSize <= 160 && $computers >= 5 && $computers <= 118) {
-        return true;
+    } elseif ($roomSize >119 && $roomSize <=129 && $computers >=5 && $computers <= 83) {
+        return true; 
+    } elseif ($roomSize >129 && $roomSize <=139 && $computers >=5 && $computers <=91) {
+        return true; 
+    } elseif ($roomSize >139 && $roomSize <=149 && $computers >=5 && $computers <= 98) {
+        return true; 
+    } elseif ($roomSize >149 && $roomSize <=160 && $computers >=5 && $computers <= 118) {
+        return true; 
     } else {
         return false;
     }
@@ -137,3 +137,4 @@ function isValidComputers($computers, $roomSize)
     ?>
 </body>
 </html>
+

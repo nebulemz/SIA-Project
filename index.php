@@ -55,23 +55,22 @@ require_once('partials/_head.php');
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                    </div>
-                    <input class="form-control" required name="admin_password" placeholder="Password" type="password">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                   </div>
+                  <input class="form-control" required name="admin_password" placeholder="Password" type="password">
                 </div>
-                <div class="custom- control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                  <label class="custom-control-label" for=" customCheckLogin">
-                    <span class="text-muted">Remember Me</span>
-                  </label>
-                </div>
-                <div class="text-center">
-                  <button type="submit" name="login" class="btn btn-primary my-4">Log In</button>
-                  <button type="submit" name="login" class="btn btn-info my-4">Sign-Up</button>
-                </div>
+              </div>
+            
+              <ul style="color: violet; list-style: none;">
+              <li style="float: right;">
+                <a href="add_user.php" style="text-decoration: underline;">Sign-Up?</a>
+              </li>
+            </ul><br>
+              <div class="text-center">
+                <button type="submit" name="login" class="btn btn-primary my-4">Log In</button>
+              </div>
               </form>
 
             </div>

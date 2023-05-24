@@ -135,12 +135,15 @@ p.caption {
                 Generate a network floor plan and <br>
                 corresponding costs in seconds.</p>
                 <div class="submit-btn-container">
-      <a href="generateplantestt.php">
-      <button type="submit" name="login" class="submit-btn">GENERATE A PLAN</button>
-  </a>
+                  <a href="generateplantestt.php">
+                  <button type="submit" name="login" class="submit-btn">GENERATE A PLAN</button>
+                  </a>
+                </div>
+          </div>
+      </div>
     </div>
-</div>
-<!-- Footer -->
+      </div></div>
+      <!-- Footer -->
   
 </div>
 

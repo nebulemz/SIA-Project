@@ -125,6 +125,7 @@ p.caption {
               <div class="card-body">
               </div>
               </div>
+      </div>
       <div class = "row">
         <div class= "form-container col-12">
     

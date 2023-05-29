@@ -1,4 +1,10 @@
 <?php
+session_start();
+include('config/config.php');
+include('config/checklogin.php');
+check_login();
+
+
 require "vendor/autoload.php";
 
 use Phpml\Dataset\CsvDataset;
@@ -104,23 +110,65 @@ function isValidComputers($computers, $roomSize)
     }
 }
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
     <title>Predictive Model Form</title>
-</head>
+
+
 <body>
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <label for="input1">Enter number of Computers in the Room:</label>
-        <input type="text" name="input1" id="input1" required><br><br>
+  <!-- Sidenav -->
+  <?php
+  require_once('partials/_sidebar.php');
+  ?>
+  
+     <?php
+    require_once('partials/_head.php');
+    ?>
+    
+  <!-- Main content -->
+  <div class="main-content">
+    <!-- Top navbar -->
+    <!-- Header -->
+    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
+    <span class="mask bg-gradient-dark opacity-8"></span>
+      <div class="container-fluid">
+        <div class="header-body">
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--8">
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <h3>Please Fill All Fields</h3>
+            </div>
+            <div class="card-body">
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <div class="form-row">
+                  <div class="col-md-6">
+                  <label for="input1">Enter number of Computers in the Room:</label>
+                 <input type="text" name="input1" id="input1" required>
+                  </div>
+                  <div class="col-md-6">
+                    
+                    <label for="input2">Enter Room Size in Square Meters:</label>
+                    <input type="text" name="input2" id="input2" required>
+                  </div>
+                </div>
+                <br>
+                <div class="form-row">
+                  <div class="col-md-6"> 
+                    <input type="submit" value="Predict">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <label for="input2">Enter Room Size in Square Meters:</label>
-        <input type="text" name="input2" id="input2" required><br><br>
-
-        <input type="submit" value="Predict">
-    </form>
-
+</body>
     <?php
     // Display the error messages if they exist
     if (!empty($errors)) {
@@ -136,4 +184,14 @@ function isValidComputers($computers, $roomSize)
     }
     ?>
 </body>
+      <!-- Footer -->
+      <?php
+      require_once('partials/_footer.php');
+      ?>
+    </div>
+  </div>
+  <!-- Argon Scripts -->
+  <?php
+  require_once('partials/_scripts.php');
+  ?>
 </html>

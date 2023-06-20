@@ -144,10 +144,28 @@ function applyOverlay(selector) {
   });
 }
 
+function applyOverlay2(selector) {
+  var elements = document.querySelectorAll(selector);
+  elements.forEach(function (element) {
+    var overlay = document.createElement('div');
+    overlay.classList.add('overlay2');
+    element.appendChild(overlay);
+  });
+}
+
 function removeOverlay(selector) {
   var elements = document.querySelectorAll(selector);
   elements.forEach(function (element) {
     var overlay = element.querySelector('.overlay');
+    if (overlay) {
+      element.removeChild(overlay);
+    }
+  });
+}
+function removeOverlay2(selector) {
+  var elements = document.querySelectorAll(selector);
+  elements.forEach(function (element) {
+    var overlay = element.querySelector('.overlay2');
     if (overlay) {
       element.removeChild(overlay);
     }

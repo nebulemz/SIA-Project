@@ -40,6 +40,7 @@ function captureAndPrint() {
   });
 
   applyOverlay('.elementToOverlay');
+  applyOverlay2('.elementToOverlay2');
 
   domtoimage.toPng(targetDiv)
     .then(function (dataUrl) {
@@ -52,6 +53,7 @@ function captureAndPrint() {
       });
       
       removeOverlay('.elementToOverlay');
+      removeOverlay2('.elementToOverlay2');
 
       var printWindow = window.open('', '_blank');
       if (printWindow === null) {
@@ -101,16 +103,16 @@ function captureAndPrint() {
             </div>
             <div class = "col-sm-12 container" id = "form-container">
               <div class="row">
-                     <div class="col-md-4" style = "padding-right: 150px; padding-left: 30px;max-width:500px" > <b style = "margin-top: 10px;"> ITEMS: </b>
+                     <div class="col-sm-4" style = "padding-right: 150px; padding-left: 30px;max-width:500px" > <b style = "margin-top: 10px;"> ITEMS: </b>
                         <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none">
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:1">
                               <div class="rect" style = "margin-bottom: 110px;"><img src="assets/img/items/cubicle.png" draggable="false"/>  
                                 <div class="middle desc" style = "padding-left: 110px; padding-top: 90px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
                               </div>
                             </div>
                 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:1">
                               <div class="rect" style = "margin-left: 2px"><img src="assets/img/items/U-shaped_cubicle.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left:45px; margin-top: 80px"> <b>U-shape Cubicle </b> <br>260cmX185cm</div>
                             </div>
@@ -120,37 +122,37 @@ function captureAndPrint() {
 
                         <div><button class="collapsible"><b>Tables</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none">
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:2">
                               <div class="rect" style = "margin-top: 10px; margin-left: 11px"><img src="assets/img/items/L-table.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: 50px; margin-top: 30px"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:2">
                               <div class="rect" style = "margin-top: 70px; margin-left: -3px"><img src="assets/img/items/U-table.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: 55px; margin-top: 30px"> <b>U-shaped Table </b> <br>195cmX155cm</div>
                             </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:2">
                               <div class="rect" style = "margin-top: 90px; margin-left:2px;"><img src="assets/img/items/table_standard.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: 16px; margin-top: -19px; color: white"> <b>Standard Table</b> <br>120cmX60cm</div>
                             </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:2">
                               <div class="rect" style = "margin-left: -4px; margin-top: -15px;"><img src="assets/img/items/computer_desk.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: 11px; margin-top: -15px;"> <b>Computer Desk</b> <br>100cmX60cm</div>
                             </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:2">
                               <div class="rect" style = "margin-left: 6px; margin-top: -15px;"><img src="assets/img/items/computer_table.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -8px; margin-top: -28px;"> <b>Computer Table</b> <br>80cmX55cm</div>
                             </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:2">
                               <div class="rect" style = "margin-left: 9px; margin-top: -25px;"><img src="assets/img/items/workstation.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: 18px; margin-top: -28px;"> <b>Workstation</b> <br>140cmX60cm</div>
                             </div>
@@ -161,19 +163,19 @@ function captureAndPrint() {
 
                         <div><button class="collapsible"><b>Chairs</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none; height:200px">
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:3">
                               <div class="rect" style = "margin-top: 20px; margin-left: 8px"><img src="assets/img/items/office_chair.png" draggable="false"/>
                               <div class="middle desc" style = "color:whitesmoke; margin-top: -20px; margin-left:-17px"> <b >Office Chair </b> <br>63cmX66cm</div>
                               </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
-                              <div class="rect" style = "margin-top: 20px; margin-left: -35px"><img src="assets/img/items/office_chair2.png" draggable="false"/>
+                            <div class="drag-element-source drag-element" style = "z-index:3">
+                              <div class="rect" style = "margin-top: 0px; margin-left: -8px"><img src="assets/img/items/office_chair2.png" draggable="false"/>
                               <div class="middle desc" style = "color:gray; margin-top: -20px; margin-left: 0px"> <b >Small Office Chair </b> <br>53cmX57cm</div>
                               </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:3">
                               <div class="rect" style = "margin-top: -30px; margin-left: -12px"><img src="assets/img/items/school_chair.png" draggable="false"/>
                               <div class="middle desc" style = "margin-top: -20px; margin-left:0px"> <b >School Chair</b> <br>42cmX47cm</div>
                               </div>
@@ -185,19 +187,19 @@ function captureAndPrint() {
 
                         <div><button class="collapsible"><b>Network Equipments</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none; height:200px">
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:4">
                               <div class="rect" style = "margin-top: 20px;"><img src="assets/img/items/computer.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -5px; margin-top: -20px"> <b>Computer </b> <br>60cmX43cm</div>
                               </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:4">
                               <div class="rect" style = "margin-top: -25px;"><img src="assets/img/items/switch.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -30px; padding-left: 100px; margin-top: -27px"> <b>Switch </b> </div>
                               </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:4">
                               <div class="rect" style = "margin-top: -60px; margin-left: -3px;"><img src="assets/img/items/router.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -30px; padding-left: 100px; margin-top: -27px"> <b>Router </b></div>
                               </div>
@@ -208,37 +210,37 @@ function captureAndPrint() {
 
                         <div><button class="collapsible"><b>Others</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none;">
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:1">
                               <div class="rect" style = "margin-left: 15px; margin-top: 20px;"><img src="assets/img/items/door.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -15px; margin-top: -18px"> <b>Door </b> <br>68cmX68cm</div>
                               </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:3">
                               <div class="rect" style = "margin-left: 0px; margin-top: -10px;"><img src="assets/img/items/cabinet.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -20px; margin-top: -18px"> <b>File Cabinet</b> <br>43cmX52cm</div>
                               </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:3">
                               <div class="rect" style = "margin-left: 0px; margin-top: -10px;"><img src="assets/img/items/cabinet2.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -4px; margin-top: -27px"> <b>Cupboard </b> <br>80cmX35cm</div>
                               </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:3">
                               <div class="rect" style = "margin-left: -15px; margin-top: -30px;"><img src="assets/img/items/cabinet3.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: 20px; margin-top: -18px; color:white"> <b> File Cabinet </b> <br>99cmX56cm</div>
                               </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:3">
                               <div class="rect" style = "margin-left: 0px; margin-top: -10px;"><img src="assets/img/items/cabinet4.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: 15px; margin-top: -20px"> <b>Office Cabinet </b> <br>117cmX53cm</div>
                               </div>
                             </div>
 
-                            <div class="drag-element-source drag-element">
+                            <div class="drag-element-source drag-element" style = "z-index:3">
                               <div class="rect" style = "margin-left: 0px; margin-top: -20px;"><img src="assets/img/items/cabinet5.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left:43px; margin-top: -20px"> <b>Cabinet </b> <br>160cmX45cm</div>
                               </div>
@@ -249,13 +251,13 @@ function captureAndPrint() {
                         </div>
                       </div> 
 
-                    <div class="col-md-6">
+                    <div class="col-sm-6">
                       <div id = "plane-container" style = "height: 143mm; width: 143mm;">
                         <p>5x5</p>
                       </div>
                     </div> 
 
-                    <div class ="col-md-2 elementToOverlay" style = "width: 200px;">
+                    <div class ="col-sm-2 elementToOverlay2" style = "width: 200px;">
                       <div class="dropzone element-trash" style = "text-align:center; font-size:smaller; position: absolute; height: 260px;"><b>DROP TO DELETE</b></div> 
                     </div>
 

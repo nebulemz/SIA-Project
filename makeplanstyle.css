@@ -197,7 +197,21 @@ width: 200px;
     left: 0;
     right: 0;
     bottom: 0;
+    margin-right:200px;
     color: white;
+    background-color: white;
+    z-index: 9999;
+  }
+
+  .overlay2 {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    margin-left:40px;
     background-color: white;
     z-index: 9999;
   }

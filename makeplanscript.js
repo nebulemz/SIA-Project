@@ -52,7 +52,6 @@ interact('.drag-element').draggable({
 
   }
 }).on('move', function (event) {
-
   var interaction = event.interaction;
 
   // if the pointer was moved while being held down
@@ -69,10 +68,12 @@ interact('.drag-element').draggable({
       
     // insert the clone to the page
     // TODO: position the clone appropriately
+
     document.getElementById('form-container').appendChild(clone);
 
     // start a drag interaction targeting the clone
     interaction.start({ name: 'drag' }, event.interactable, clone);
+    
 
   } else {
   interaction.start({ name: 'drag' }, event.interactable, event.currentTarget);
@@ -133,14 +134,22 @@ event.target.classList.remove('drop-target');
 
 });
 
-function printDiv(divName){
-  var printContents = document.getElementById(divName).innerHTML;
-  var originalContents = document.body.innerHTML;
 
-  document.body.innerHTML = printContents;
+function applyOverlay(selector) {
+  var elements = document.querySelectorAll(selector);
+  elements.forEach(function (element) {
+    var overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    element.appendChild(overlay);
+  });
+}
 
-  window.print();
-
-  document.body.innerHTML = originalContents;
-
+function removeOverlay(selector) {
+  var elements = document.querySelectorAll(selector);
+  elements.forEach(function (element) {
+    var overlay = element.querySelector('.overlay');
+    if (overlay) {
+      element.removeChild(overlay);
+    }
+  });
 }

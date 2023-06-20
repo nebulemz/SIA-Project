@@ -190,3 +190,14 @@ width: 200px;
   margin-bottom: -100px;
 }
 
+  .overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    background-color: white;
+    z-index: 9999;
+  }

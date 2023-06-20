@@ -11,6 +11,67 @@ require_once('partials/_head.php');
 <head><link rel="stylesheet" href="makeplanstyle.css"></head>
 <body>
 
+<script> 
+var draggableElements = [];  // Array to store draggable elements
+
+function captureAndPrint() {
+  var targetDiv = document.getElementById('form-container');
+  if (targetDiv === null) {
+    console.error('Target div is not found.');
+    return;
+  }
+  // Reset the position for capturing
+  targetDiv.style.position = 'static';
+
+  // Capture the initial positions of the draggable elements
+  var initialPositions = draggableElements.map(function (element) {
+    var rect = element.getBoundingClientRect();
+    return { left: rect.left, top: rect.top };
+  });
+
+  // Clone the draggable elements and position them accordingly
+  var clonedElements = draggableElements.map(function (element, index) {
+    var clone = element.cloneNode(true);
+    clone.style.position = 'absolute';  // Set the position to absolute for the clone
+    clone.style.left = initialPositions[index].left + 'px';
+    clone.style.top = initialPositions[index].top + 'px';
+    targetDiv.appendChild(clone);
+    return clone;
+  });
+
+  applyOverlay('.elementToOverlay');
+
+  domtoimage.toPng(targetDiv)
+    .then(function (dataUrl) {
+      // Restore the original position
+      targetDiv.style.position = 'relative';
+
+      // Remove the cloned elements from the targetDiv
+      clonedElements.forEach(function (clone) {
+        targetDiv.removeChild(clone);
+      });
+      
+      removeOverlay('.elementToOverlay');
+
+      var printWindow = window.open('', '_blank');
+      if (printWindow === null) {
+        console.error('Failed to open print window. Please check your browser settings and ensure that pop-ups are allowed.');
+        return;
+      }
+      
+      printWindow.document.open();
+      printWindow.document.write('<html><head><title>Print Preview</title></head><body>');
+      printWindow.document.write('<img src="' + dataUrl + '" style="width: 100%;" onload="setTimeout(function() { window.print(); window.close(); }, 500);" />');
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+    })
+    .catch(function (error) {
+      console.error('Error capturing image:', error);
+    });
+}
+
+</script>
+
   <!-- Sidenav -->
   <?php
   require_once('partials/_sidebar.php');
@@ -38,10 +99,10 @@ require_once('partials/_head.php');
             <div class="card-header border-6">
               <h3>Customize your Layout: 5x5 Dimension</h3>
             </div>
-            <div id = "form-container">
+            <div class = "col-sm-12 container" id = "form-container">
               <div class="row">
-                     <div class="col-md-4" style = "padding-right: 150px; padding-left: 30px;" > <b style = "margin-top: 10px;"> ITEMS: </b>
-                        <div><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
+                     <div class="col-md-4" style = "padding-right: 150px; padding-left: 30px;max-width:500px" > <b style = "margin-top: 10px;"> ITEMS: </b>
+                        <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none">
                             <div class="drag-element-source drag-element">
                               <div class="rect" style = "margin-bottom: 110px;"><img src="assets/img/items/cubicle.png" draggable="false"/>  
@@ -194,7 +255,7 @@ require_once('partials/_head.php');
                       </div>
                     </div> 
 
-                    <div class ="col-md-2">
+                    <div class ="col-md-2 elementToOverlay" style = "width: 200px;">
                       <div class="dropzone element-trash" style = "text-align:center; font-size:smaller; position: absolute; height: 260px;"><b>DROP TO DELETE</b></div> 
                     </div>
 
@@ -203,7 +264,7 @@ require_once('partials/_head.php');
             <hr>
             <div class="form-row text-left">
               <div class="col-md-12" style = "margin-bottom:25px; margin-left: 20px">
-              <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
+              <button type="button" id = "printButton" class="btn btn-primary" onclick="captureAndPrint()">Print</button>
               </div>
             </div>
             <input type="hidden" name="input" value="<?php echo $input; ?>">
@@ -218,6 +279,7 @@ require_once('partials/_head.php');
       ?>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
   </body>
   <!-- Argon Scripts -->
   <?php

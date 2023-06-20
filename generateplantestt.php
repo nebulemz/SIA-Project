@@ -103,6 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <option value="5x8">5x8</option>
                 <option value="5x9">5x9</option>
                 <option value="5x10">5x10</option>
+                <option value="5x11">5x11</option>
                 <option value=""></option>
 
                 <option value="6x6">6x6</option>
@@ -110,31 +111,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <option value="6x8">6x8</option>
                 <option value="6x9">6x9</option>
                 <option value="6x10">6x10</option>
+                <option value="6x11">6x11</option>
 
                 <option value=""></option>
                 <option value="7x7">7x7</option>
                 <option value="7x8">7x8</option>
                 <option value="7x9">7x9</option>
                 <option value="7x10">7x10</option>
+                <option value="7x11">7x11</option>
 
                 <option value=""></option>
                 <option value="8x8">8x8</option>
                 <option value="8x9">8x9</option>
                 <option value="8x10">8x10</option>
+                <option value="8x11">8x11</option>
 
                 <option value=""></option>
                 <option value="9x9">9x9</option>
                 <option value="9x10">9x10</option>
+                <option value="9x11">9x11</option>
                 <option value="10x10">10x10</option>
+                <option value="10x11">10x11</option>
 
                 <option value=""></option>
-                <option value="11x5">11x5</option>
-                <option value="11x6">11x6</option>
-                <option value="11x7">11x7</option>
-                <option value="11x8">11x8</option>
-                <option value="11x9">11x9</option>
-                <option value="11x10">11x10</option>
-
                 </select>
 
 
@@ -217,6 +216,8 @@ $('#but').click(function(e){
     location.href = "makeplan5x9.php"
   else if (choice == '5x10')
     location.href = "makeplan5x10.php"
+    else if (choice == '5x11')
+    location.href = "makeplan5x11.php"
 
   else if (choice == '6x6')
     location.href = "makeplan6x6.php"
@@ -228,6 +229,8 @@ $('#but').click(function(e){
     location.href = "makeplan6x9.php"
   else if (choice == '6x10')
     location.href = "makeplan6x10.php"
+    else if (choice == '6x11')
+    location.href = "makeplan6x11.php"
 
   else if (choice == '7x7')
     location.href = "makeplan7x7.php"
@@ -237,6 +240,8 @@ $('#but').click(function(e){
     location.href = "makeplan7x9.php"
   else if (choice == '7x10')
     location.href = "makeplan7x10.php"
+    else if (choice == '7x11')
+    location.href = "makeplan7x11.php"
 
   else if (choice == '8x8')
     location.href = "makeplan8x8.php"
@@ -244,26 +249,19 @@ $('#but').click(function(e){
     location.href = "makeplan8x9.php"
   else if (choice == '8x10')
     location.href = "makeplan8x10.php"
+    else if (choice == '8x11')
+    location.href = "makeplan8x11.php"
 
   else if (choice == '9x9')
     location.href = "makeplan9x9.php"
   else if (choice == '9x10')
     location.href = "makeplan9x10.php"
+  else if (choice == '9x11')
+    location.href = "makeplan9x11.php"
   else if (choice == '10x10')
-    location.href = "makeplan9x10.php"
-
-  else if(choice == '11x5')
-    location.href = "makeplan11x5.php";
-  else if (choice == '11x6')
-    location.href = "makeplan11x6.php"
-  else if (choice == '11x7')
-    location.href = "makeplan11x7.php"
-  else if (choice == '11x8')
-    location.href = "makeplan11x8.php"
-  else if (choice == '11x9')
-    location.href = "makeplan11x9.php"
-  else if (choice == '11x10')
-    location.href = "makeplan5x10.php"
+    location.href = "makeplan10x10.php"
+  else if (choice == '10x11')
+    location.href = "makeplan10x11.php"
 
 });
 </script>

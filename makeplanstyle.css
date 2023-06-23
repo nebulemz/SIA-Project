@@ -28,6 +28,8 @@ p {
   position: absolute;
   top: 0px;
   left: 0px;
+  height: 75px;
+  width: 75px;
   
 }
 
@@ -39,6 +41,8 @@ p {
   position: static;
   float: left;
   display: block;
+  height: 150px;
+  width: 150px;
 }
 
 .handle {

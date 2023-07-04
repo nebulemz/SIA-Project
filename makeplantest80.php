@@ -423,293 +423,342 @@ function captureAndPrint() {
                           </div>
                         </div>
                       </div> 
-
+                      
                     <!-- EDIT COLUMN -->
                     <div class="col-sm-6">
-                      <div id = "plane-container" style = "height: 311mm; width: 143mm;">
+                      <div id = "plane-container" style = "height: 283mm; width: 171mm">
                       <p></p>
 
-                      <!-- Cubicles -->
-                      <div class="drag-element" style = "margin-top: -2px; margin-left: 10px; z-index:1;">
-                              <div class="rect"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                              <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 200px; margin-left: 10px; z-index:1" >
-                              <div class="rect"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                              <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 402px; margin-left: 10px; z-index:1" >
-                              <div class="rect"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                              <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 604px; margin-left: 10px; z-index:1" >
-                              <div class="rect"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                              <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 806px; margin-left: 10px; z-index:1" >
-                              <div class="rect"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                              <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                      </div>
-           
-                      <div class="drag-element" style = "margin-top: -2px; margin-left: 327px;  z-index:1">
-                              <div class="rect"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                              <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 200px; margin-left: 327px;  z-index:1">
-                              <div class="rect"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                              <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 402px; margin-left: 327px;  z-index:1">
-                              <div class="rect"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                              <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 604px; margin-left: 327px;  z-index:1">
-                              <div class="rect"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                              <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 806px; margin-left: 327px;  z-index:1">
-                              <div class="rect"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                              <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                      </div>
-
-                    <!-- Tables -->
-                      <div class="drag-element" style = "margin-top: -5px; margin-left: 11px;  z-index:2">
-                              <div class="rect" ><img src="assets/img/items/L-table.png" draggable="false"/>
+                      <!-- Tables -->
+                      <div class="drag-element" style = "z-index:2; margin-top: -15px; margin-left: 29px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(90deg)"/>
                               <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 197px; margin-left: 11px;  z-index:2">
-                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 399px; margin-left: 11px;  z-index:2">
-                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 601px; margin-left: 11px;  z-index:2">
-                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 802px; margin-left: 11px;  z-index:2">
-                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 30px; margin-left: 405px;;  z-index:2">
-                              <div class="rect" ><img src="assets/img/items/L-table.png" draggable="false"style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 232px; margin-left:405px;;  z-index:2">
-                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 434px; margin-left:405px;;  z-index:2">
-                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 636px; margin-left: 405px;;  z-index:2">
-                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
-                              </div>
-                      </div>
-
-                      <div class="drag-element" style = "margin-top: 838px; margin-left: 405px;;  z-index:2">
-                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
-                              </div>
-                      </div>
-
-
-                       <!-- Door -->
-                      <div class="drag-element" style = "margin-left: 418px; margin-top: 1064px;;  z-index:2">
-                              <div class="rect"><img src="assets/img/items/door1.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 4px; margin-top: -1px"> <b>Door </b> <br>68cmX68cm</div>
                               </div>
                             </div>
 
-
-                       <!-- Chairs -->
-
-                      <div class="drag-element"  style = "margin-top: 55px; margin-left: 400px;  z-index:3">
-                              <div class="rect"><img src="assets/img/items/office_chair.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "color:whitesmoke; margin-top: 0px; margin-left:8px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                      <div class="drag-element" style = "z-index:2; margin-top: 160px; margin-left: 365px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
-                      </div>
+                            </div>
 
-                      <div class="drag-element" style = "margin-top: 267px; margin-left: 400px;  z-index:3">
-                              <div class="rect"><img src="assets/img/items/office_chair.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "color:whitesmoke; margin-top: 0px; margin-left:8px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                      <div class="drag-element" style = "z-index:2; margin-top: 160px; margin-left: 195px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
-                      </div>
+                            </div>
 
-                      <div class="drag-element" style = "margin-top: 469px; margin-left: 400px;  z-index:3">
-                              <div class="rect"><img src="assets/img/items/office_chair.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "color:whitesmoke; margin-top: 0px; margin-left:8px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                      <div class="drag-element" style = "z-index:2; margin-top: 160px; margin-left: 25px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
-                      </div>
+                            </div>
 
-                      <div class="drag-element" style = "margin-top: 671px; margin-left: 400px;  z-index:3">
-                              <div class="rect"><img src="assets/img/items/office_chair.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "color:whitesmoke; margin-top: 0px; margin-left:8px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                      <div class="drag-element" style = "z-index:2; margin-top: 560px; margin-left: 365px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
-                      </div>
+                            </div>
 
-                      <div class="drag-element" style = "margin-top: 873px; margin-left:400px;  z-index:3">
-                              <div class="rect"><img src="assets/img/items/office_chair.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "color:whitesmoke; margin-top: 0px; margin-left:8px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                      <div class="drag-element" style = "z-index:2; margin-top: 560px; margin-left: 195px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
-                      </div>
+                            </div>
 
-                      <div class="drag-element"  style = "margin-top: 65px; margin-left: 70px;  z-index:3">
-                              <div class="rect"><img src="assets/img/items/office_chair.png" draggable="false"/>
-                              <div class="middle desc" style = "color:whitesmoke; margin-top: 0px; margin-left:8px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                      <div class="drag-element" style = "z-index:2; margin-top: 560px; margin-left: 25px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
-                      </div>                 
+                            </div>
 
-                      <div class="drag-element" style = "margin-top: 267px; margin-left: 70px;;  z-index:3">
-                              <div class="rect"><img src="assets/img/items/office_chair.png" draggable="false"/>
-                              <div class="middle desc" style = "color:whitesmoke; margin-top: 0px; margin-left:8px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                      <div class="drag-element" style = "z-index:2; margin-top: 300px; margin-left: 365px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
-                      </div>
+                            </div>
 
-                      <div class="drag-element" style = "margin-top: 469px; margin-left: 70px;;  z-index:3">
-                              <div class="rect"><img src="assets/img/items/office_chair.png" draggable="false"/>
-                              <div class="middle desc" style = "color:whitesmoke; margin-top: 0px; margin-left:8px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                      <div class="drag-element" style = "z-index:2; margin-top: 300px; margin-left: 195px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
-                      </div>
+                            </div>
 
-                      <div class="drag-element" style = "margin-top: 671px; margin-left: 70px;;  z-index:3">
-                              <div class="rect"><img src="assets/img/items/office_chair.png" draggable="false"/>
-                              <div class="middle desc" style = "color:whitesmoke; margin-top: 0px; margin-left:8px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                      <div class="drag-element" style = "z-index:2; margin-top: 300px; margin-left: 25px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
-                      </div>
+                            </div>
 
-                      <div class="drag-element" style = "margin-top: 873px; margin-left: 70px;;  z-index:3">
-                              <div class="rect"><img src="assets/img/items/office_chair.png" draggable="false"/>
-                              <div class="middle desc" style = "color:whitesmoke; margin-top: 0px; margin-left:8px"> <b >Office Chair </b> <br>63cmX66cm</div>
+                      <div class="drag-element" style = "z-index:2; margin-top: 700px; margin-left: 365px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                               </div>
-                      </div>
+                            </div>
+
+                      <div class="drag-element" style = "z-index:2; margin-top: 700px; margin-left: 195px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "z-index:2; margin-top: 700px; margin-left: 25px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "z-index:2; margin-top: 907px; margin-left: 25px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "z-index:2; margin-top: 907px; margin-left: 195px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "z-index:2; margin-top: 907px; margin-left: 365px">
+                              <div class="rect"><img src="assets/img/items/L-table.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
+                              </div>
+                            </div>
+
+                      <!-- Door -->
+
+                      <div class="drag-element" style = "margin-left: 554px; margin-top: 15px;;  z-index:2">
+                              <div class="rect"><img src="assets/img/items/door1.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 4px; margin-top: -1px"> <b>Door </b> <br>68cmX68cm</div>                         
+                              </div>
+                            </div>
 
                        <!-- Computers -->
-                      <div class="drag-element" style = "margin-top: 55px; margin-left: 7px;  z-index:4">
-                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false"/>
+
+                       <div class="drag-element" style = "margin-top: 235px; margin-left: 240px; z-index:4">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+                                                      
+                       <div class="drag-element" style = "margin-top: 235px; margin-left: 70px; z-index:4">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(-90deg)"/>
                               <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
                               </div>
                             </div>
 
-                      <div class="drag-element" style = "margin-top: 50px; margin-left: 460px; z-index:4">
-                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(180deg)"/>
+                       <div class="drag-element" style = "margin-top: 635px; margin-left: 240px; z-index:4">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(-90deg)"/>
                               <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
                               </div>
                             </div>
+                           
+                       <div class="drag-element" style = "margin-top: 635px; margin-left: 70px; z-index:4">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+                     
+                        <div class="drag-element" style = "margin-top: 980px; margin-left: 60px; z-index:4">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+                           
+                       <div class="drag-element" style = "margin-top: 980px; margin-left: 240px; z-index:4">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "margin-top: 235px; margin-left: 405px; z-index:4">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+                           
+                       <div class="drag-element" style = "margin-top: 635px; margin-left: 405px; z-index:4">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+                                                
+                        <div class="drag-element" style = "margin-top: 980px; margin-left: 405px; z-index:4">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+
+                      <!-- Computer Rotate -->
+
+                      <div class="drag-element" style = "margin-top: -3px; margin-left: 35px; z-index:4;">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+                   
+                      <div class="drag-element" style = "margin-top: 310px; margin-left: 205px; z-index:4;">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "margin-top: 310px; margin-left: 35px; z-index:4;">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>     
+                                               
+                      <div class="drag-element" style = "margin-top: 710px; margin-left: 205px; z-index:4;">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "margin-top: 710px; margin-left: 35px; z-index:4;">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+                       
+
+                      <div class="drag-element" style = "margin-top: 310px; margin-left: 380px; z-index:4;">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>     
+                                               
+                      <div class="drag-element" style = "margin-top: 710px; margin-left: 380px; z-index:4;">
+                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                              </div>
+                            </div>
+
+                        <!-- Chairs -->
+
+                        <div class="drag-element" style = "z-index:3; margin-top: 190px; margin-left: 416px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>
+
+                        <div class="drag-element" style = "z-index:3; margin-top: 590px; margin-left: 416px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>
+
+                        <div class="drag-element" style = "z-index:3; margin-top: 935px; margin-left: 416px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "z-index:3; margin-top: 190px; margin-left: 79px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "z-index:3; margin-top: 190px; margin-left: 249px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "z-index:3; margin-top: 590px; margin-left: 79px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>
+
+                      <div class="drag-element" style = "z-index:3; margin-top: 590px; margin-left: 249px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>       
                             
-                      <div class="drag-element" style = "margin-top: 260px; margin-left: 7px; z-index:4">
-                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                      <div class="drag-element" style = "z-index:3; margin-top: 935px; margin-left: 79px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
                               </div>
                             </div>
 
-                      <div class="drag-element" style = "margin-top: 255px; margin-left: 460px; z-index:4">
-                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                      <div class="drag-element" style = "z-index:3; margin-top: 935px; margin-left: 249px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>   
+
+                      <!-- Chairs Rotate -->
+                      <div class="drag-element" style = "z-index:3; margin-top: 365px; margin-left: 385px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>    
+
+                      <div class="drag-element" style = "z-index:3; margin-top: 764px; margin-left: 385px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>    
+
+                      <div class="drag-element" style = "z-index:3; margin-top: 60px; margin-left: 40px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
+                              </div>
+                            </div>          
+
+                      <div class="drag-element" style = "z-index:3; margin-top: 364px; margin-left: 39px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
                               </div>
                             </div>
 
-                      <div class="drag-element" style = "margin-top: 462px; margin-left: 7px; z-index:4">
-                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                      <div class="drag-element" style = "z-index:3; margin-top: 364px; margin-left: 209px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
                               </div>
                             </div>
 
-                      <div class="drag-element" style = "margin-top: 462px; margin-left: 460px; z-index:4">
-                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                      <div class="drag-element" style = "z-index:3; margin-top: 764px; margin-left: 39px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
                               </div>
                             </div>
 
-
-                      <div class="drag-element" style = "margin-top: 664px; margin-left: 7px; z-index:4">
-                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
-                              </div>
-                            </div>
-
-                      <div class="drag-element" style = "margin-top: 866px; margin-left: 7px; z-index:4">
-                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
+                      <div class="drag-element" style = "z-index:3; margin-top: 764px; margin-left: 209px">
+                              <div class="rect"><img src="assets/img/items/office_chair2.png" draggable="false" style ="transform: rotate(90deg)"/>
+                              <div class="middle desc" style = "color:gray; margin-top: 0px; margin-left: 5px"> <b >Small <br> Office Chair </b> <br>53cmX57cm</div>
                               </div>
                             </div>
 
 
-                      <div class="drag-element" style = "margin-top: 661px; margin-left: 460px; z-index:4">
-                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
-                              </div>
-                            </div>
 
-                      <div class="drag-element" style = "margin-top: 863px; margin-left: 460px; z-index:4">
-                              <div class="rect"><img src="assets/img/items/computer.png" draggable="false" style ="transform: rotate(180deg)"/>
-                              <div class="middle desc" style = "margin-left: 0px; margin-top: 0px"> <b>Computer </b> <br>60cmX43cm</div>
-                              </div>
-                            </div>
-
-
-                      <div class="drag-element" style = "margin-top: -7px; margin-left: 230px; z-index:4">
+                      <div class="drag-element" style = "margin-top: -5px; margin-left: 265px; z-index:4">
                               <div class="rect"><img src="assets/img/items/switch.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -10px; padding-left: 100px; margin-top: -7px"> <b>Switch </b> </div>
                               </div>
                             </div>
 
-                      <div class="drag-element" style = "margin-top: -8px; margin-left: 270px; z-index:4">
+                      <div class="drag-element" style = "margin-top: -5px; margin-left: 305px; z-index:4">
                               <div class="rect"><img src="assets/img/items/router.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left: -6px; padding-left: 100px; margin-top: -7px"> <b>Router </b></div>
                               </div>
                             </div>
 
-                      <div class="drag-element" style = "z-index:3; padding-top: -340px; margin-left: 120px; margin-top: 998px;">
-                              <div class="rect"><img src="assets/img/items/cabinet.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 4px; margin-top: 0px"> <b>File Cabinet</b> <br>43cmX52cm</div>
+                      <div class="drag-element" style = "z-index:3;margin-left: -17px; margin-top: 484px;">
+                              <div class="rect"><img src="assets/img/items/cabinet2.png" draggable="false" style ="transform: rotate(-90deg)"/>
+                              <div class="middle desc" style = "margin-left: 19px; margin-top: 0px"> <b>Cupboard </b> <br>80cmX35cm</div>
                               </div>
                             </div>
 
-                      <div class="drag-element" style = "z-index:3; margin-left: -5px; margin-top: 995px;">
-                              <div class="rect"><img src="assets/img/items/cabinet3.png" draggable="false"/>
-                              <div class="middle desc" style = "margin-left: 45px;margin-top: 10px; color:white"> <b> File Cabinet </b> <br>99cmX56cm</div>
+                      <div class="drag-element" style = "z-index:3;margin-left: 175px; margin-top: -8px;">
+                              <div class="rect"><img src="assets/img/items/cabinet2.png" draggable="false"/>
+                              <div class="middle desc" style = "margin-left: 19px; margin-top: 0px"> <b>Cupboard </b> <br>80cmX35cm</div>
                               </div>
                             </div>
-
                     </div> 
                     </div>
 

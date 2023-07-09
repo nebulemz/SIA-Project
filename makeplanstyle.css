@@ -28,6 +28,8 @@ p {
   position: absolute;
   top: 0px;
   left: 0px;
+  height: 75px;
+  width: 75px;
   
 }
 
@@ -39,6 +41,8 @@ p {
   position: static;
   float: left;
   display: block;
+  height: 150px;
+  width: 150px;
 }
 
 .handle {
@@ -78,8 +82,8 @@ p {
 }
 
 .rect {
-  width:120px;
-  height:120px;  
+  width:70px;
+  height:70px;  
   position:relative;
 }
 
@@ -111,6 +115,7 @@ p {
   padding: 10px;
   transition: background-color 0.3s;
 }
+
 .element-trash{
 margin-top: 280px;
 margin-left: 30px;
@@ -190,3 +195,29 @@ width: 200px;
   margin-bottom: -100px;
 }
 
+  .overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-right:200px;
+    color: white;
+    background-color: white;
+    z-index: 9999;
+  }
+
+  .overlay2 {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    margin-top: 240px;
+    margin-left:40px;
+    background-color: white;
+    z-index: 9999;
+  }

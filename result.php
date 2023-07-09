@@ -100,12 +100,10 @@ if(is_numeric($input)){
                               <td><?php echo $net_length; ?></td>
                               <td><?php echo $net_width;?></td> 
                               <td>
-                                
-<<<<<<< HEAD
-                                    <a href="makeplantest.php?display=<?php echo $net_layout_id; ?>">
-=======
+                                                   <a href="makeplantest.php?display=<?php echo $net_layout_id; ?>">
+
                                     <a href="makeplantest<?php echo $net_layout_id;?>.php?display=<?php echo $net_layout_id;?>">
->>>>>>> 370b7262b32272ab5c5632d2e814e698d607ec46
+
                                       <button class="btn btn-sm btn-primary">
                                         <i class="fas fa-user-edit"></i>
                                        View Details

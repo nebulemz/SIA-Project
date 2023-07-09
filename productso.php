@@ -44,7 +44,7 @@ if (isset($_POST['input'])){
                       }
 
                       ?></td>
-          
+           
                   <td><?php echo $prod_name; ?></td>
                   <td>₱<?php echo $prod_price; ?></td>
                     <td>

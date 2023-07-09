@@ -1,46 +1,45 @@
-<!DOCTYPE html> 
-<html>
 <?php
 session_start();
 include('config/config.php');
 include('config/checklogin.php');
+
 check_login();
-require_once('partials/_head.php');
 
 if (isset($_GET['display'])) {
-  $id = $_GET['display'];
-  
-  // Retrieve network layout details from the database
-  $stmt = $mysqli->prepare("SELECT * FROM netlayout WHERE net_layout_id = ?");
-  $stmt->bind_param("i", $id);
-  $stmt->execute();
-  $res = $stmt->get_result();
-  
-  if (mysqli_num_rows($res) == 1) {
-      $row = mysqli_fetch_assoc($res);
-      
-      // Display network layout details on the page
-      $net_layout_id = $row['net_layout_id'];
-      $net_layout_area = $row['net_layout_area'];
-      $net_institution = $row['net_institution'];
-      $net_ergo = $row['net_ergo'];
-      $net_length = $row['net_length'];
-      $net_width = $row['net_width'];
-      $net_image = $row ['net_image'];
-      $no_pcs = $row ['no_pcs'];
-      $low_total_price = $row ['low_total_price'];
-      $ave_total_price = $row ['ave_total_price'];
-      $high_total_price = $row ['high_total_price'];
-      $switch_model = $row ['switch_model'];
-      $no_standard_table = $row ['no_standard_table'];
-      $no_Lshape = $row ['no_Lshape'];
-      $no_Ushape = $row ['no_Ushape'];
-      $no_standard_school = $row ['no_standard_school'];
-      
-  }}
-
+    $id = $_GET['display'];
+    
+    // Retrieve network layout details from the database
+    $stmt = $mysqli->prepare("SELECT * FROM netlayout WHERE net_layout_id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    
+    if (mysqli_num_rows($res) == 1) {
+        $row = mysqli_fetch_assoc($res);
+        
+        // Display network layout details on the page
+        $net_layout_id = $row['net_layout_id'];
+        $net_layout_area = $row['net_layout_area'];
+        $net_institution = $row['net_institution'];
+        $net_ergo = $row['net_ergo'];
+        $net_length = $row['net_length'];
+        $net_width = $row['net_width'];
+        $net_image = $row ['net_image'];
+        $no_pcs = $row ['no_pcs'];
+        $low_total_price = $row ['low_total_price'];
+        $ave_total_price = $row ['ave_total_price'];
+        $high_total_price = $row ['high_total_price'];
+        $switch_model = $row ['switch_model'];
+        $no_standard_table = $row ['no_standard_table'];
+        $no_Lshape = $row ['no_Lshape'];
+        $no_Ushape = $row ['no_Ushape'];
+        $no_standard_school = $row ['no_standard_school'];
+        
+require_once('partials/_head.php');
 ?>
-<head><link rel="stylesheet" href="makeplanstyle.css"></head>
+
+<head>
+<link rel="stylesheet" href="makeplanstyle.css"></head>
 <body>
 
   <!-- Sidenav -->
@@ -615,4 +614,10 @@ for (i = 0; i < coll.length; i++) {
         <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
         <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
         <script src="makeplanscript.js"></script>
-</html>
+
+        <?php
+    }
+}
+
+
+?>

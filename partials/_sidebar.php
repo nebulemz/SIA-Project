@@ -367,7 +367,20 @@ body.dark .home .text {
 
 
 <body>
+<?php
 
+if (isset($_SESSION['admin_id'])) {
+  $admin_id = $_SESSION['admin_id'];
+  //$login_id = $_SESSION['login_id'];
+  $ret = "SELECT * FROM admin WHERE admin_id = ?";
+  $stmt = $mysqli->prepare($ret);
+  $stmt->bind_param('s', $admin_id);
+  $stmt->execute();
+  $res = $stmt->get_result();
+
+  while ($admin = $res->fetch_object()) {
+
+?>
   <nav class="sidebar">
     <header>
       <div class="image-text">
@@ -386,6 +399,7 @@ body.dark .home .text {
 
     <div class="menu-bar">
       <div class="menu">
+  
 
         <ul class="menu-links">
           <li class="">
@@ -429,9 +443,9 @@ body.dark .home .text {
           </li>
 
           <li class="">
-            <a href="testforum.php">
-              <i class='bx bxs-chat icon'></i>
-              <span class="text nav-text">Test Forum</span>
+            <a href="change_profile.php">
+              <i class='bx bxs-user-circle icon'></i>
+              <span class="text nav-text">My Profile</span>
             </a>
           </li>
 
@@ -469,4 +483,7 @@ body.dark .home .text {
 
 </body>
 
-<?php  ?>
+<?php
+  }
+}
+?>

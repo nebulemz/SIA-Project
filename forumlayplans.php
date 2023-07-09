@@ -15,7 +15,7 @@ check_login();
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="main.js"></script>
+  <script src="main1.js"></script>
 </head>
 
 <body>
@@ -30,7 +30,7 @@ check_login();
  
   <div class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
+  <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -42,8 +42,8 @@ check_login();
 
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav" style="font-size: 12px;">
-        <li class="active"><a href="forum.php">General Discussion</a></li>
-        <li><a href="forumlayplans.php">Layout Plans</a></li>
+        <li><a href="forum.php">General Discussion</a></li>
+        <li class="active"><a href="forumlayplans.php">Layout Plans</a></li>
         <li><a href="forumprod.php">Products</a></li>
         <li><a href="forumisp.php">ISP</a></li>
         <li><a href="forumnet.php">Networking</a></li>

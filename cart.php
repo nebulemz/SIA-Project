@@ -105,7 +105,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                     if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                       foreach ($_SESSION['cart'] as $index => $item) {
                         echo "<tr>";
-                        echo "<td><img src='assets/img/products" . $item['image'] . "' class='product-image'></td>";
+                        echo "<td><img src='assets/img/products/" . $item['image'] . "' class='product-image'></td>";
                         echo "<td>" . $item['name'] . "</td>";
                         echo "<td>₱" . $item['price'] . "</td>";
                         echo "<td>" . $item['quantity'] . "</td>";

@@ -30,7 +30,7 @@ check_login();
  
   <div class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
+  <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -42,11 +42,11 @@ check_login();
 
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav" style="font-size: 12px;">
-        <li class="active"><a href="forum.php">General Discussion</a></li>
+        <li><a href="forum.php">General Discussion</a></li>
         <li><a href="forumlayplans.php">Layout Plans</a></li>
         <li><a href="forumprod.php">Products</a></li>
         <li><a href="forumisp.php">ISP</a></li>
-        <li><a href="forumnet.php">Networking</a></li>
+        <li class="active"><a href="forumnet.php">Networking</a></li>
       </ul>
     </div>
   </div>

@@ -21,7 +21,45 @@ if (isset($_POST['ChangeProfile'])) {
 
   if ($postStmt) {
     $success = "Account Updated";
-    header("refresh:1; url=dashboard.php");
+    header("refresh:1; url=change_profile.php");
+  } else {
+    $err = "Please Try Again Or Try Later";
+  }
+}
+
+if (isset($_POST['ChangeBio'])) {
+  $bio = $_POST['bio'];
+  $admin_id = $_SESSION['admin_id'];
+
+  $Qry = "UPDATE admin SET bio = ? WHERE admin_id = ?";
+  $postStmt = $mysqli->prepare($Qry);
+
+  // Bind parameters
+  $postStmt->bind_param('ss', $bio, $admin_id);
+  $postStmt->execute();
+
+  if ($postStmt) {
+    $success = "Account Updated";
+    header("refresh:1; url=change_profile.php");
+  } else {
+    $err = "Please Try Again Or Try Later";
+  }
+}
+
+if (isset($_POST['ChangePic'])) {
+  $bio = $_POST['bio'];
+  $admin_id = $_SESSION['admin_id'];
+
+  $Qry = "UPDATE admin SET profileImage = ? WHERE admin_id = ?";
+  $postStmt = $mysqli->prepare($Qry);
+
+  // Bind parameters
+  $postStmt->bind_param('ss', $profileImage, $admin_id);
+  $postStmt->execute();
+
+  if ($postStmt) {
+    $success = "Account Updated";
+    header("refresh:1; url=change_profile.php");
   } else {
     $err = "Please Try Again Or Try Later";
   }
@@ -71,7 +109,7 @@ if (isset($_POST['changePassword'])) {
 
         if ($stmt) {
           $success = "Password Changed";
-          header("refresh:1; url=dashboard.php");
+          header("refresh:1; url=change_profile.php");
         } else {
           $err = "Please Try Again Or Try Later";
         }
@@ -151,6 +189,21 @@ require_once('partials/_head.php');
                   <div class="h5 font-weight-300">
                     <i class="ni location_pin mr-2"></i><?php echo $admin->admin_email; ?>
                   </div>
+                <div class="h5 font-weight-300">
+                <label class="form-control-label" for="input-bio">Bio:</label><br>
+                  <i class="ni location_pin mr"></i><span id="bioText"><?php echo $admin->bio; ?></span><br><br>
+                  <button class="btn btn-sm btn-primary" type="button" onclick="toggleBioEdit()">Edit Bio</button>
+                </div>
+                <div id="bioEditSection" style="display: none;">
+                <form method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <textarea name="bio" id="input-bio" class="form-control" rows="4"><?php echo $admin->bio; ?></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" name="ChangeBio" class="btn btn-sm btn-primary form-control-alternative" value="Update Bio">
+                  </div>
+                </form>
+                </div>
                 </div>
               </div>
             </div>
@@ -183,6 +236,8 @@ require_once('partials/_head.php');
                           <input type="email" id="input-email" value="<?php echo $admin->admin_email; ?>" name="admin_email" class="form-control form-control-alternative">
                         </div>
                       </div>
+                      
+                      
                       <div class="col-lg-12">
                         <div class="form-group">
                           <input type="submit" id="input-email" name="ChangeProfile" class="btn btn-success form-control-alternative" value="Submit">
@@ -233,5 +288,21 @@ require_once('partials/_head.php');
     </div>
     <!-- Argon Scripts -->
     <?php require_once('partials/_sidebar.php'); ?>
+
+    <script>
+  function toggleBioEdit() {
+    var bioText = document.getElementById('bioText');
+    var bioEditSection = document.getElementById('bioEditSection');
+
+    if (bioText.style.display === 'none') {
+      bioText.style.display = 'inline';
+      bioEditSection.style.display = 'none';
+    } else {
+      bioText.style.display = 'none';
+      bioEditSection.style.display = 'block';
+    }
+  }
+</script>
+
   </body>
 </html>

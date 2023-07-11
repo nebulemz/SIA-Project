@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Load the data
-    $data = new CsvDataset("./data/datalowmid.csv", 2, true); // Update with your dataset path and column details
+    $data = new CsvDataset("./data/dataschoollow.csv", 2, true); // Update with your dataset path and column details
 
     // Preprocessing data
     $dataset = new RandomSplit($data, 0.2);

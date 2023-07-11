@@ -3,7 +3,7 @@ session_start();
 include('config/config.php');
 include('config/checklogin.php');
 check_login();
-require_once('partials/_topnav.php');
+
 
 
 require "vendor/autoload.php";

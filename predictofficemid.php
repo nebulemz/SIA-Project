@@ -1,10 +1,9 @@
 <?php
 session_start();
-
 include('config/config.php');
 include('config/checklogin.php');
 check_login();
-require_once('partials/_topnav.php');
+
 
 
 require "vendor/autoload.php";
@@ -80,7 +79,7 @@ function isValidComputers($computers, $roomSize)
 
     if ($roomSize >= 25 && $roomSize <= 700) {
         return true;
-   
+
         return false;
     }
 }
@@ -99,9 +98,8 @@ function isValidComputers($computers, $roomSize)
      <?php
     require_once('partials/_head.php');
     ?>
-    
-  <!-- Main content -->
-  <div class="main-content">
+ <!-- Main content -->
+ <div class="main-content">
     <!-- Top navbar -->
     <!-- Header -->
     <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
@@ -111,7 +109,6 @@ function isValidComputers($computers, $roomSize)
         </div>
       </div>
     </div>
-    
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
@@ -119,7 +116,7 @@ function isValidComputers($computers, $roomSize)
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <h3>Please Fill All Fields</h3>
+                 <h3>Please Fill All Fields</h3>
             </div>
             <div class="card-body">
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -145,14 +142,14 @@ function isValidComputers($computers, $roomSize)
                 <div class="form-row">
                   <div class="col-md-6"> 
                     <input type="submit" value="Predict">
-                  </div>
+                    </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
-    </form>
+</body>
     <?php
     // Display the error messages if they exist
     if (!empty($errors)) {
@@ -167,6 +164,8 @@ function isValidComputers($computers, $roomSize)
         echo 'R2 Score: ' . $score . '<br>';
     }
     ?>
+</body>
+</body>
 </body>
       <!-- Footer -->
       <?php

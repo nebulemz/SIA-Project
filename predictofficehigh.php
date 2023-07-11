@@ -3,7 +3,7 @@ session_start();
 include('config/config.php');
 include('config/checklogin.php');
 check_login();
-require_once('partials/_topnav.php');
+
 
 
 require "vendor/autoload.php";
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($input1 < 5 || $input1 >= 118) {
             $errors[] = "Invalid number of computers.";
         }
-        if ($input2 < 10 || $input2 >= 160) {
+        if ($input2 < 10 || $input2 >= 700) {
             $errors[] = "Invalid room size.";
         }
     }
@@ -77,37 +77,9 @@ function isValidComputers($computers, $roomSize)
     // For example, you can compare the number of computers and room size, check if they are within a certain range, etc.
     // Modify this function as per your specific validation criteria
 
-    if ($roomSize >= 54 && $roomSize <= 110) {
+    if ($roomSize >= 25 && $roomSize <= 700) {
         return true;
-    } elseif ($roomSize == 54 && $computers >= 5 && $computers <= 31) {
-        return true;
-    } elseif ($roomSize > 54 && $roomSize <= 66 && $computers >= 5 && $computers <= 35) {
-        return true;
-    } elseif ($roomSize > 66 && $roomSize <= 71 && $computers >= 5 && $computers <= 39) {
-        return true;
-    } elseif ($roomSize > 71 && $roomSize <= 79 && $computers >= 5 && $computers <= 45) {
-        return true;
-    } elseif ($roomSize > 79 && $roomSize <= 87 && $computers >= 5 && $computers <= 51) {
-        return true;
-    } elseif ($roomSize > 87 && $roomSize <= 89 && $computers >= 5 && $computers <= 57) {
-        return true;
-    } elseif ($roomSize > 89 && $roomSize <= 95 && $computers >= 5 && $computers <= 59) {
-        return true;
-    } elseif ($roomSize > 95 && $roomSize <= 99 && $computers >= 5 && $computers <= 65) {
-        return true;
-    } elseif ($roomSize > 99 && $roomSize <= 103 && $computers >= 5 && $computers <= 66) {
-        return true;
-    } elseif ($roomSize > 103 && $roomSize <= 119 && $computers >= 5 && $computers <= 75) {
-        return true;
-    } elseif ($roomSize > 119 && $roomSize <= 129 && $computers >= 5 && $computers <= 83) {
-        return true;
-    } elseif ($roomSize > 129 && $roomSize <= 139 && $computers >= 5 && $computers <= 91) {
-        return true;
-    } elseif ($roomSize > 139 && $roomSize <= 149 && $computers >= 5 && $computers <= 98) {
-        return true;
-    } elseif ($roomSize > 149 && $roomSize <= 160 && $computers >= 5 && $computers <= 118) {
-        return true;
-    } else {
+
         return false;
     }
 }
@@ -126,9 +98,8 @@ function isValidComputers($computers, $roomSize)
      <?php
     require_once('partials/_head.php');
     ?>
-    
-  <!-- Main content -->
-  <div class="main-content">
+ <!-- Main content -->
+ <div class="main-content">
     <!-- Top navbar -->
     <!-- Header -->
     <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
@@ -138,7 +109,6 @@ function isValidComputers($computers, $roomSize)
         </div>
       </div>
     </div>
-    
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
@@ -146,7 +116,7 @@ function isValidComputers($computers, $roomSize)
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <h3>Please Fill All Fields</h3>
+                 <h3>Please Fill All Fields</h3>
             </div>
             <div class="card-body">
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -172,14 +142,14 @@ function isValidComputers($computers, $roomSize)
                 <div class="form-row">
                   <div class="col-md-6"> 
                     <input type="submit" value="Predict">
-                  </div>
+                    </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
-    </form>
+</body>
     <?php
     // Display the error messages if they exist
     if (!empty($errors)) {
@@ -194,6 +164,7 @@ function isValidComputers($computers, $roomSize)
         echo 'R2 Score: ' . $score . '<br>';
     }
     ?>
+</body>
 </body>
 </body>
       <!-- Footer -->

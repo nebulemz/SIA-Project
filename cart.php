@@ -90,7 +90,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                 <table class="table align-items-center table-flush" id="table-data-product">
                   <thead class="thead-light">
                     <tr>
-                      <th scope="col">Image</th>
+                 
                       <th scope="col">Name</th>
                       <th scope="col">Price</th>
                       <th scope="col">Quantity</th>
@@ -105,7 +105,6 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                     if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                       foreach ($_SESSION['cart'] as $index => $item) {
                         echo "<tr>";
-                        echo "<td><img src='assets/img/products/" . $item['image'] . "' class='product-image'></td>";
                         echo "<td>" . $item['name'] . "</td>";
                         echo "<td>₱" . $item['price'] . "</td>";
                         echo "<td>" . $item['quantity'] . "</td>";

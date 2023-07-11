@@ -100,8 +100,6 @@ if(is_numeric($input)){
                               <td><?php echo $net_length; ?></td>
                               <td><?php echo $net_width;?></td> 
                               <td>
-                                                   <a href="makeplantest.php?display=<?php echo $net_layout_id; ?>">
-
                                     <a href="makeplantest<?php echo $net_layout_id;?>.php?display=<?php echo $net_layout_id;?>">
 
                                       <button class="btn btn-sm btn-primary">
